@@ -23,8 +23,11 @@ class Pet : public ElementoGrafico
         //INIZIALIZZATA NEL MAIN
         int x;
         int y;
+        Texture immagine;
+
 
     public:
+        Sprite grafica;
         //GETTER E SETTER POSIZIONE-----------------------
         void setX(int posizionex);
         void setY(int posizioney);
@@ -33,7 +36,7 @@ class Pet : public ElementoGrafico
         //------------------------------------------------
         int getPet();
         void setPet(int vitaNuova);
-        Sprite grafica;
+        void setImmagine(String percorso);
 
         // costruttore
         Pet(std::string nomeFile);

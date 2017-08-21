@@ -3,12 +3,14 @@
 //
 
 #include "ElementoGrafico.hpp"
+#include <iostream>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
 
+/*
 template<typename Object>
 void ElementoGrafico::disegnaElemento(RenderWindow &window, Object &element) {
     window.display();
@@ -21,9 +23,28 @@ void ElementoGrafico::disegnaElemento(RenderWindow &window, RectangleShape &elem
     window.draw(element);
     window.display();
 }
+*/
 
+// disegna elemento per la prima volta
 void ElementoGrafico::disegnaElemento(RenderWindow &window, Sprite &element){
     window.display();
+    ////// draw  ///////
+    //window.clear();
+    window.draw(element);
+    window.display();
+}
+
+// aggiorna la posizione di un elemento e ridisegna la mappa
+void ElementoGrafico::disegnaElemento(RenderWindow &window, std::vector<Sprite> map, Sprite &element)
+{
+    ////// draw  ///////
+    window.clear();
+    // disegno la mappa corrente aggiornata
+    for (Sprite oggetto_grafico : map)
+    {
+        window.draw(oggetto_grafico);
+    }
+    // aggiungo l'elemento corrente
     window.draw(element);
     window.display();
 }

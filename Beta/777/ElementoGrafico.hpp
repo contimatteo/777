@@ -19,6 +19,7 @@ class ElementoGrafico
 
         static void disegnaElemento(RenderWindow &window, RectangleShape &element);
         static void disegnaElemento(RenderWindow &window, Sprite &element);
+        static void disegnaElemento(RenderWindow &window, std::vector<Sprite> map, Sprite &element);
 
     private:
 };

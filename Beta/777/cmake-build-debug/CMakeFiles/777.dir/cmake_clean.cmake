@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/777.dir/Nemico.cpp.o"
   "CMakeFiles/777.dir/ElementoGrafico.cpp.o"
   "CMakeFiles/777.dir/Pet.cpp.o"
+  "CMakeFiles/777.dir/GestoreGrafica.cpp.o"
   "777.pdb"
   "777"
 )

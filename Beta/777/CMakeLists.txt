@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -v -stdlib=libc++")
 
 set(SOURCE_FILES
-        main.cpp Mappa_0.cpp Mappa_0.hpp MenuIniziale.cpp MenuIniziale.hpp GestoreGioco.cpp GestoreGioco.hpp Nemico.cpp Nemico.hpp ElementoGrafico.cpp ElementoGrafico.hpp Pet.cpp Pet.hpp)
+        main.cpp Mappa_0.cpp Mappa_0.hpp MenuIniziale.cpp MenuIniziale.hpp GestoreGioco.cpp GestoreGioco.hpp Nemico.cpp Nemico.hpp ElementoGrafico.cpp ElementoGrafico.hpp Pet.cpp Pet.hpp GestoreGrafica.cpp GestoreGrafica.hpp)
 add_executable(777 ${SOURCE_FILES})
 
 #------------------------------------------------------------------

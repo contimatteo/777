@@ -6,6 +6,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics.hpp>
 #include "GestoreGioco.hpp"
+#include "GestoreGrafica.hpp"
 #include "Pet.hpp"
 #include "ElementoGrafico.hpp"
 
@@ -14,38 +15,37 @@
 
 RectangleShape rettangoloSceltaa;
 int size=10;
-int W = 50;
-int H = 50;
+int W = 150;
+int H = 150;
 
 //********************************************************************************************
 //********************************************************************************************
 
 void GestoreGioco::creaGioco()
 {
-    // elemento di prova
-    /*rettangoloSceltaa.setSize(Vector2f(400, 100));
-    rettangoloSceltaa.setPosition(10, 10);
-    rettangoloSceltaa.setFillColor(Color::Red);
-    ElementoGrafico::disegnaElemento(Gioco, rettangoloSceltaa);*/
+    GestoreGrafica Grafica = GestoreGrafica(0);
 
     //creo un pet di prova
-    Pet pet("red");
-    pet.setX(25); pet.setY(25);
-    Texture t1;
-    t1.loadFromFile("../risorse/immagini/green.png");
-    Texture t2;
-    t2.loadFromFile("../risorse/immagini/red.png");
-    pet.grafica.setTexture(t1);
-    pet.disegnaElemento(Gioco, pet.grafica);
+    Pet pet1("white");
+    //pet.setX(25); pet.setY(25);
+    pet1.setImmagine("../risorse/immagini/white.png");
+    //pet.disegnaElemento(Gioco, pet.grafica);
 
     for (int i=0; i<W; i+=2)
         for (int j=0; j<H; j+=2)
-        { pet.grafica.setPosition(i*size,j*size);  pet.disegnaElemento(Gioco, pet.grafica); }
+        {
+            pet1.grafica.setPosition(i*size,j*size);
+            //pet.disegnaElemento(Gioco, pet.grafica);
+            Grafica.aggiungiElemento(pet1.grafica);
+        }
+    Grafica.disegnaMappa(Gioco);
+    Pet pet2("red");
+    pet2.setX(50); pet2.setY(50);
+    pet2.setImmagine("../risorse/immagini/red.png");
+    pet2.disegnaElemento(Gioco, pet2.grafica);
+    //Grafica.disegnaMappa(Gioco);
 
-    pet.grafica.setTexture(t2);
-    pet.grafica.setPosition(20, 20);
-    pet.disegnaElemento(Gioco, pet.grafica);
-
+    int contatoreSpostamentoDiProva = 25;
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen()) {
         // sincronizzo il frame-rate del gioco con quello dello schermo
@@ -62,6 +62,26 @@ void GestoreGioco::creaGioco()
             if (Event::Closed == evento.type) {
                 Gioco.close();
                 MenuInizialeGioco->setVisible(true);
+            }
+            try
+            {
+                // passo la scelta al gestore delegato
+                if (evento.type == sf::Event::EventType::KeyPressed)
+                {
+                    if (Keyboard::isKeyPressed(Keyboard::Right) || Keyboard::isKeyPressed(Keyboard::Right))
+                    {
+                        contatoreSpostamentoDiProva+=25;
+                        pet2.setX(contatoreSpostamentoDiProva);
+                        pet2.setY(contatoreSpostamentoDiProva);
+                        //std::cout<<"new position --> [" << pet.getX() << ", " << pet.getY() << "] \n";
+                        pet2.disegnaElemento(Gioco, Grafica.getMappa(), pet2.grafica);
+                    }
+                }
+
+            }
+            catch(int ex)
+            {
+                std::cout<<ex;
             }
         }
     }

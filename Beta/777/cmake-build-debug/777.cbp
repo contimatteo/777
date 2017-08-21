@@ -96,6 +96,12 @@
 		<Unit filename="/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/GestoreGioco.hpp">
 			<Option target="777"/>
 		</Unit>
+		<Unit filename="/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/GestoreGrafica.cpp">
+			<Option target="777"/>
+		</Unit>
+		<Unit filename="/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/GestoreGrafica.hpp">
+			<Option target="777"/>
+		</Unit>
 		<Unit filename="/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/Mappa_0.cpp">
 			<Option target="777"/>
 		</Unit>

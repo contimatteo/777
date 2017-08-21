@@ -5,5 +5,8 @@
     <sourceRoots>
       <file path="$PROJECT_DIR$/risorse" />
     </sourceRoots>
+    <excludeRoots>
+      <file path="$PROJECT_DIR$/risorse/immagini" />
+    </excludeRoots>
   </component>
 </project>

@@ -177,6 +177,33 @@ GestoreGioco.cpp.s:
 	$(MAKE) -f CMakeFiles/777.dir/build.make CMakeFiles/777.dir/GestoreGioco.cpp.s
 .PHONY : GestoreGioco.cpp.s
 
+GestoreGrafica.o: GestoreGrafica.cpp.o
+
+.PHONY : GestoreGrafica.o
+
+# target to build an object file
+GestoreGrafica.cpp.o:
+	$(MAKE) -f CMakeFiles/777.dir/build.make CMakeFiles/777.dir/GestoreGrafica.cpp.o
+.PHONY : GestoreGrafica.cpp.o
+
+GestoreGrafica.i: GestoreGrafica.cpp.i
+
+.PHONY : GestoreGrafica.i
+
+# target to preprocess a source file
+GestoreGrafica.cpp.i:
+	$(MAKE) -f CMakeFiles/777.dir/build.make CMakeFiles/777.dir/GestoreGrafica.cpp.i
+.PHONY : GestoreGrafica.cpp.i
+
+GestoreGrafica.s: GestoreGrafica.cpp.s
+
+.PHONY : GestoreGrafica.s
+
+# target to generate assembly for a file
+GestoreGrafica.cpp.s:
+	$(MAKE) -f CMakeFiles/777.dir/build.make CMakeFiles/777.dir/GestoreGrafica.cpp.s
+.PHONY : GestoreGrafica.cpp.s
+
 Mappa_0.o: Mappa_0.cpp.o
 
 .PHONY : Mappa_0.o
@@ -327,6 +354,9 @@ help:
 	@echo "... GestoreGioco.o"
 	@echo "... GestoreGioco.i"
 	@echo "... GestoreGioco.s"
+	@echo "... GestoreGrafica.o"
+	@echo "... GestoreGrafica.i"
+	@echo "... GestoreGrafica.s"
 	@echo "... Mappa_0.o"
 	@echo "... Mappa_0.i"
 	@echo "... Mappa_0.s"

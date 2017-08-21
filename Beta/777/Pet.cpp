@@ -7,6 +7,12 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
+void Pet::setImmagine(String percorso)
+{
+    this->immagine.~Texture();
+    this->immagine.loadFromFile(percorso);
+    this->grafica.setTexture(this->immagine);
+}
 
 /*********************************************************
  *
