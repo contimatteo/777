@@ -24,6 +24,7 @@ class GestoreGrafica
         void aggiungiElemento(Sprite oggetto);
         std::vector<Sprite> getMappa();
         void disegnaMappa(RenderWindow &window);
+        void instanzioMappa();
 
 
 };

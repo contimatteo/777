@@ -3,6 +3,7 @@
 //
 
 #include "ElementoGrafico.hpp"
+#include "Pet.hpp"
 #include <iostream>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Sprite.hpp>
@@ -26,10 +27,10 @@ void ElementoGrafico::disegnaElemento(RenderWindow &window, RectangleShape &elem
 */
 
 // disegna elemento per la prima volta
-void ElementoGrafico::disegnaElemento(RenderWindow &window, Sprite &element){
+void ElementoGrafico::disegnaElemento(RenderWindow &window, Sprite &element)
+{
     window.display();
     ////// draw  ///////
-    //window.clear();
     window.draw(element);
     window.display();
 }
@@ -48,3 +49,35 @@ void ElementoGrafico::disegnaElemento(RenderWindow &window, std::vector<Sprite> 
     window.draw(element);
     window.display();
 }
+
+
+void ElementoGrafico::prova1(RenderWindow &window)
+{
+    int size=10;
+    int W = 150;
+    int H = 150;
+    // pulisco tutti
+    window.clear();
+    // preparo la mappa
+    /*Pet temp("white");
+    //pet.setX(25); pet.setY(25);
+    temp.setImmagine("../risorse/immagini/white.png");
+    for (int i=0; i<W; i+=2)
+        for (int j=0; j<H; j+=2)
+        {
+            temp.grafica.setPosition(i*size,j*size);
+            prova2(window, temp.grafica);
+        }*/
+}
+
+void ElementoGrafico::prova2(RenderWindow &window, Sprite &element)
+{
+    disegnaElemento(window, element);
+}
+
+
+
+/*
+ * 1 metodo --> disegna cancella tutto + disegna la mappa + (disegna il nostro amico)
+ * 2 metodo --> disegna elemento
+ */

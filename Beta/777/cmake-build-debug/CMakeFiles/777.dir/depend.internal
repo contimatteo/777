@@ -4,6 +4,7 @@
 CMakeFiles/777.dir/ElementoGrafico.cpp.o
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/ElementoGrafico.cpp
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/ElementoGrafico.hpp
+ /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/Pet.hpp
 CMakeFiles/777.dir/GestoreGioco.cpp.o
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/ElementoGrafico.hpp
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/GestoreGioco.cpp
@@ -22,6 +23,7 @@ CMakeFiles/777.dir/MenuIniziale.cpp.o
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/GestoreGioco.hpp
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/MenuIniziale.cpp
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/MenuIniziale.hpp
+ /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/Pet.hpp
 CMakeFiles/777.dir/Nemico.cpp.o
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/ElementoGrafico.hpp
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/Nemico.cpp
@@ -34,4 +36,5 @@ CMakeFiles/777.dir/main.cpp.o
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/ElementoGrafico.hpp
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/GestoreGioco.hpp
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/MenuIniziale.hpp
+ /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/Pet.hpp
  /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/main.cpp

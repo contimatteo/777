@@ -9,6 +9,8 @@
 /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/ElementoGrafico.cpp
 ElementoGrafico.hpp
 /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/ElementoGrafico.hpp
+Pet.hpp
+/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/Pet.hpp
 iostream
 -
 SFML/Graphics/RectangleShape.hpp
@@ -47,6 +49,8 @@ MenuIniziale.hpp
 /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/MenuIniziale.hpp
 ElementoGrafico.hpp
 /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/ElementoGrafico.hpp
+Pet.hpp
+/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/Pet.hpp
 
 /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Beta/777/GestoreGrafica.cpp
 GestoreGrafica.hpp

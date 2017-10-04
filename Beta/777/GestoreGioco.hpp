@@ -6,6 +6,7 @@
 #define INC_777_GESTOREGIOCO_HPP
 #include "MenuIniziale.hpp"
 #include "ElementoGrafico.hpp"
+#include "Pet.hpp"
 
 
 class GestoreGioco

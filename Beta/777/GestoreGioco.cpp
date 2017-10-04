@@ -26,7 +26,7 @@ void GestoreGioco::creaGioco()
     GestoreGrafica Grafica = GestoreGrafica(0);
 
     //creo un pet di prova
-    Pet pet1("white");
+    /*Pet pet1("white");
     //pet.setX(25); pet.setY(25);
     pet1.setImmagine("../risorse/immagini/white.png");
     //pet.disegnaElemento(Gioco, pet.grafica);
@@ -38,12 +38,19 @@ void GestoreGioco::creaGioco()
             //pet.disegnaElemento(Gioco, pet.grafica);
             Grafica.aggiungiElemento(pet1.grafica);
         }
-    Grafica.disegnaMappa(Gioco);
+    Grafica.disegnaMappa(Gioco);*/
     Pet pet2("red");
+    // adds
+    //pet2.prova1(Gioco);
+    // --
     pet2.setX(50); pet2.setY(50);
     pet2.setImmagine("../risorse/immagini/red.png");
     pet2.disegnaElemento(Gioco, pet2.grafica);
     //Grafica.disegnaMappa(Gioco);
+    Pet pet3("green");
+    pet3.setImmagine("../risorse/immagini/green.png");
+    pet3.setX(200); pet3.setY(300);
+    pet3.disegnaElemento(Gioco, pet3.grafica);
 
     int contatoreSpostamentoDiProva = 25;
     // eseguo il gioco finchè la finestra rimane aperta
@@ -70,11 +77,33 @@ void GestoreGioco::creaGioco()
                 {
                     if (Keyboard::isKeyPressed(Keyboard::Right) || Keyboard::isKeyPressed(Keyboard::Right))
                     {
+                        // FUNZIONE MUOVITI
                         contatoreSpostamentoDiProva+=25;
                         pet2.setX(contatoreSpostamentoDiProva);
                         pet2.setY(contatoreSpostamentoDiProva);
                         //std::cout<<"new position --> [" << pet.getX() << ", " << pet.getY() << "] \n";
-                        pet2.disegnaElemento(Gioco, Grafica.getMappa(), pet2.grafica);
+                        //pet2.disegnaElemento(Gioco, Grafica.getMappa(), pet2.grafica);
+                        //pet2.prova1(Gioco);
+                        Gioco.clear();
+                        Gioco.display();
+                        Pet pet1("white");
+                        //pet.setX(25); pet.setY(25);
+                        pet1.setImmagine("../risorse/immagini/white.png");
+                        //pet.disegnaElemento(Gioco, pet.grafica);
+
+                        for (int i=0; i<W; i+=2)
+                            for (int j=0; j<H; j+=2)
+                            {
+                                pet1.grafica.setPosition(i*size,j*size);
+                                //pet1.prova2(Gioco, pet1.grafica);
+                                Gioco.display();
+                                ////// draw  ///////
+                                Gioco.draw(pet1.grafica);
+                                Gioco.display();
+                                //Grafica.aggiungiElemento(pet1.grafica);
+                            }
+                        //pet3.prova2(Gioco, pet3.grafica);
+                        pet2.prova2(Gioco, pet2.grafica);
                     }
                 }
 
