@@ -1,3 +1,0 @@
-/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Alpha/777/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Alpha/777/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/matteoconti/Desktop/Università/Programmazione/777-Game/Alpha/777/cmake-build-debug/CMakeFiles/777.dir

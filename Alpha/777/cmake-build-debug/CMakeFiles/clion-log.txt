@@ -1,5 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Alpha/777
--- Found SFML .. in /Library/Frameworks/SFML.framework
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/matteoconti/Desktop/Università/Programmazione/777-Game/Alpha/777/cmake-build-debug
