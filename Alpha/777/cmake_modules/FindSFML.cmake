@@ -1,4 +1,4 @@
-# This script locates the SFML library.
+# This script locates the SFML library
 # ------------------------------------
 #
 # Usage
