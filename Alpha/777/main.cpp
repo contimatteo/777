@@ -87,7 +87,7 @@ int main()
         // Update the window
         Gioco.display();
     }
-    
-    // programma terminato correttamente
+
+    // programma terminato correttamente.
     return EXIT_SUCCESS;
 }
