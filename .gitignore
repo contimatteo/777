@@ -1,3 +1,5 @@
 # All sub-directories
 */*
 *.txt
+
+!.cpp
