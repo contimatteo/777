@@ -2,7 +2,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "GestoreGioco.hpp"
 
 using namespace sf;
 
@@ -88,5 +87,7 @@ int main()
         // Update the window
         Gioco.display();
     }
+    
+    // programma terminato correttamente
     return EXIT_SUCCESS;
 }
