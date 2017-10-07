@@ -6,7 +6,8 @@
 **/.idea/*
 **/.vscode/*
 **/cmake-build-debug/*
-**/cmake_modules/*.cmake
+**/cmake_modules/*
 **/risorse/*
 **/*.txt
+**/*.cmake
 !.cpp
