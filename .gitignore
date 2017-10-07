@@ -1,6 +1,5 @@
 # All sub-directories
-*/Alpha/777/*
-*/Beta/777/*
+*/Alpha/777/*/*
+*/Beta/777/*/*
 *.txt
-
 !.cpp
