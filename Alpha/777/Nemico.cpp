@@ -1,7 +1,7 @@
 #include "Nemico.hpp"
 #include <iostream>
 
-    //ABLITA IN SOSPESO
+    //ABLITA IN SOSPESO.
 
 
     int Nemico::setAttacco(int nuovoAttacco) {attacco = nuovoAttacco;}
