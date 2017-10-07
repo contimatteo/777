@@ -1,12 +1,12 @@
 # All sub-directories
-*/Alpha/777/*/*
-*/Beta/777/*/*
-*.txt
+#*/Alpha/777/*/*
+#*/Beta/777/*/*
+#*.txt
 
-**/.idea
-**/.vscode
-**/cmake-build-debug
-**/cmake_modules
-**/risorse
+**/.idea/*
+**/.vscode/*
+**/cmake-build-debug/*
+**/cmake_modules/*
+**/risorse/*
 **/*.txt
 !.cpp
