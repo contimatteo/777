@@ -1,9 +1,12 @@
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "GestoreGioco.hpp"
 
 using namespace sf;
+
+//---------------------------------
 
 int N=60,M=60;
 int dimensione_celle=20;
