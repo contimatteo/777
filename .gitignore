@@ -10,5 +10,6 @@
 **/cmake_modules/*
 **/risorse/*
 **/*.txt
+**/*.dll
 **/*.cmake
 !.cpp
