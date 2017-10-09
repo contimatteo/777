@@ -3,6 +3,7 @@
 #*/Beta/777/*/*
 #*.txt
 
+**/SFML/*
 **/.idea/*
 **/.vscode/*
 **/cmake-build-debug/*
