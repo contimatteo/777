@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window/VideoMode.hpp>
 #include <SFML/Audio.hpp>
 #include "ElementoGrafico.hpp"
 #include "Utilities.hpp"
@@ -27,6 +28,8 @@ int main()
 {
     bool muovi_personaggio=false;
     sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_FINESTRA_GIOCO, util.ALTEZZA_FINESTRA_GIOCO), "777 - Game");
+    /*Gioco.SetPosition((VideoMode::GetDesktopMode().Width/2)-320,
+                    (VideoMode::GetDesktopMode().Height/2)-240);*/
     Gioco.setKeyRepeatEnabled(true);
     /*sf::Texture texture;
     if (!texture.loadFromFile("../risorse/immagini/red.png"))
