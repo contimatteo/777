@@ -4,6 +4,7 @@
 #*.txt
 
 **/SFML/*
+**/SFML-2.4.2/*
 **/.idea/*
 **/.vscode/*
 **/cmake-build-debug/*
