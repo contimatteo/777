@@ -90,4 +90,99 @@ public:
 };
 
 
+
+/*
+flow spostamento:
+	1- nemici
+	2- personaggio
+	3- pet
+*/
+
+/*
+array_nemici --> array di oggetti
+ogni oggetto --> Nemico
+class Nemico eredita di una classe --> ElementoGrafico
+*/
+
+/*
+	class Nemico --> posX & posY (posizione);
+*/
+
+
+
+/*
+sx --> -costante
+dx--> +costante
+giu--> + costante
+su--> - costante
+
+|--------------------|
+| n
+|          p  n
+|
+|      n
+|--------------------|
+
+*/
+/*
+class Personaggio
+{
+    // attributi
+    // rappresenta l'array di nemici CORRENTE
+    Nemico[] nemici;
+    int posX, posY;
+
+    // ----------------------------------------------------------------
+
+    void gestoreEventi(int codice_spostamento, Nemico[] &array_nemici_aggiornato)
+    {
+        aggiornaArrayNemici(array_nemici_aggiornato);
+        switch(codice_spostamento)
+        {
+            // sinistra
+            case 0:
+            {
+                // aggiorno la posizione
+                posX+=constante_spostamento;
+                // disegni il personaggio spostato
+                // controllare se finisce vicino a un nemico --> togli vita al personaggio
+                if(this.posX-nemici[i].posX=constante_spostamento)
+                {
+                    // togli la vita al personaggio
+                    // spostiamo il nemico????
+                }
+                // (non cancelli il nemico)
+                // in caso contrario controlli se interagisce con elementi extra
+            }
+                // su
+            case 1:
+            { }
+                // destra
+            case 2:
+            { }
+                // giù
+            case 3:
+            { }
+        }
+    }
+
+    // re-inizializziamo l'array di nemici quando cambia stanza
+    void aggiornaArrayNemici(Nemico[] &nuovo_array_nemici)
+    {
+        nemici=nuovo_array_nemici;
+    }
+
+    // costruttore
+    Personaggio(Nemico[] &array_nemici)
+    {
+        // instanziare l'array (succede solo alla prima mappa, al primo livello)
+        nemici=nuovo_array_nemici;
+        // instaziare posizione e vita, ecc..
+        // prendere input array di nemici
+        // disegna il personaggio
+    }
+}
+*/
+
+
 #endif //INC_777_PERSONAGGIO_H
