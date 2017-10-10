@@ -2,30 +2,37 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "ElementoGrafico.hpp"
+#include "Utilities.hpp"
 
 using namespace sf;
 
-//---------------------------------
+static Utilities util;
 
-int N=60,M=60;
-int dimensione_celle=20;
-int w = dimensione_celle*N;
-int h = dimensione_celle*M;
+// ----------------------------
 
-void muovi(RenderWindow &w, Sprite &s, int x, int y)
+void disegnaMappa(RenderWindow &Gioco)
 {
-    s.move(x, y);
+    sf::Texture texture_mappa;
+    texture_mappa.loadFromFile("../risorse/immagini/white.png");
+    sf::Sprite immagine_mappa(texture_mappa);
+    for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
+        for (int j=0; j<util.NUMERO_CASELLE_ASSE_Y; j++)
+        { immagine_mappa.setPosition(i*util.DIMENSIONE_CELLE,j*util.DIMENSIONE_CELLE);  Gioco.draw(immagine_mappa); }
 }
+
+
 
 int main()
 {
     bool muovi_personaggio=false;
-    sf::RenderWindow Gioco(sf::VideoMode(1200, 1200), "777 - Game");
+    sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_FINESTRA_GIOCO, util.ALTEZZA_FINESTRA_GIOCO), "777 - Game");
     Gioco.setKeyRepeatEnabled(true);
-    sf::Texture texture;
+    /*sf::Texture texture;
     if (!texture.loadFromFile("../risorse/immagini/red.png"))
         return EXIT_FAILURE;
-    sf::Sprite sprite(texture);
+    sf::Sprite sprite(texture);*/
+    ElementoGrafico eroe(1);
 
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen())
@@ -53,38 +60,36 @@ int main()
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) && muovi_personaggio)
         {
             // freccia Sinistra premuta: muovi il personaggio
-            //sprite.move(-0.5, 0);
-            muovi(Gioco, sprite, -dimensione_celle, 0);
+            eroe.setPosizione(-util.DIMENSIONE_CELLE, 0);
+            eroe.muovi();
             muovi_personaggio = false;
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
-            muovi(Gioco, sprite, dimensione_celle, 0);
+            eroe.setPosizione(util.DIMENSIONE_CELLE, 0);
+            eroe.muovi();
             muovi_personaggio = false;
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio
-            muovi(Gioco, sprite, 0, -dimensione_celle);
+            eroe.setPosizione(0, -util.DIMENSIONE_CELLE);
+            eroe.muovi();
             muovi_personaggio = false;
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) && muovi_personaggio) {
             // freccia GIU premuta: muovi il personaggio
-            muovi(Gioco, sprite, 0, dimensione_celle);
+            eroe.setPosizione(0, util.DIMENSIONE_CELLE);
+            eroe.muovi();
             muovi_personaggio = false;
         }
 
         // Clear screen
         Gioco.clear();
         // disegno la mappa
-        sf::Texture texture2;
-        texture2.loadFromFile("../risorse/immagini/white.png");
-        sf::Sprite sprite2(texture2);
-        for (int i=0; i<N; i++)
-            for (int j=0; j<M; j++)
-            { sprite2.setPosition(i*dimensione_celle,j*dimensione_celle);  Gioco.draw(sprite2); }
-        // Draw the sprite
-        Gioco.draw(sprite);
-        // Update the window
+        disegnaMappa(Gioco);
+        // disegno l'erore
+        Gioco.draw(eroe.grafica);
+        // Aggiorno il Gioco con le modifiche
         Gioco.display();
     }
 
