@@ -100,3 +100,5 @@ int main()
     // programma terminato correttamente
     return EXIT_SUCCESS;
 }
+
+//-----------------------------
