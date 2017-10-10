@@ -1,5 +1,6 @@
 #include "Personaggio.hpp"
 
+    //-------------------------
 
     //_____SETTER___________________
     void Personaggio::setGraphics(int grafica){graphics =grafica;}
