@@ -22,7 +22,7 @@ void disegnaMappa(RenderWindow &Gioco)
         { immagine_mappa.setPosition(i*util.DIMENSIONE_CELLE,j*util.DIMENSIONE_CELLE);  Gioco.draw(immagine_mappa); }
 }
 
-
+// ----------------------------
 
 int main()
 {
