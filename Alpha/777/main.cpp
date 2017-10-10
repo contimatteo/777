@@ -5,9 +5,9 @@
 #include <SFML/Audio.hpp>
 #include "ElementoGrafico.hpp"
 #include "Utilities.hpp"
-
 using namespace sf;
 
+// ----------------------------
 static Utilities util;
 
 // ----------------------------
