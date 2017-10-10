@@ -11,7 +11,6 @@ using namespace sf;
 static Utilities util;
 
 // ----------------------------
-//-----------------------------
 
 void disegnaMappa(RenderWindow &Gioco)
 {
