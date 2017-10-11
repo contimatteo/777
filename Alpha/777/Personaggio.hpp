@@ -5,8 +5,10 @@
 #ifndef INC_777_PERSONAGGIO_H
 #define INC_777_PERSONAGGIO_H
 
+#include "ElementoGrafico.hpp"
 
-class Personaggio {
+
+class Personaggio:public ElementoGrafico {
 
 private:
 
@@ -22,8 +24,6 @@ private:
     int saggezza = 10; //pet-
     int critico = 5; //pet-
     //SETTARE POI DA DOVE FAR INIZIARE IL PERSONAGGIO
-    int x;
-    int y;
     int contatoreSkill1=0;
     int contatoreSkill2=0;
     int contatoreSkill3=0;
@@ -33,13 +33,15 @@ private:
     int lv_skill3=1;
     int lv_skill4=1;
     //______________________________
-    int dmg_skill1 = (1 + (saggezza/50) ) *100* (1+(lv_skill1/10)) /* + valore random da 1 a 19+lv skill */ ;
 
-    int dmg_skill2 = (1 + (lv_skill2/50) ) *100*(1+(lv_skill2/10)) /* + valore random da 1 a 19+lv skill */ ;
+    //int dmg_skill1 = (1 + (saggezza/50) ) *100* (1+(lv_skill1/10))  + valore random da 1 a 19+lv skill  ;
 
-    int dmg_skill3 = (1 + (lv_skill3/50) ) *100* (1+(lv_skill3/10)) /* + valore random da 1 a 19+lv skill */ ;
+    //int dmg_skill2 = (1 + (lv_skill2/50) ) *100*(1+(lv_skill2/10)) /* + valore random da 1 a 19+lv skill */ ;
 
-    int dmg_skill4 = (1 + (lv_skill4/50) ) *100* (1+(lv_skill4/10))/* + valore random da 1 a 19+lv skill */ ;
+    //int dmg_skill3 = (1 + (lv_skill3/50) ) *100* (1+(lv_skill3/10)) /* + valore random da 1 a 19+lv skill */ ;
+
+    //int dmg_skill4 = (1 + (lv_skill4/50) ) *100* (1+(lv_skill4/10))/* + valore random da 1 a 19+lv skill */ ;
+
     //_______________________________
 
 public:
@@ -87,15 +89,19 @@ public:
     int getContatoreSkill2();
     int getContatoreSkill3();
     int getContatoreSkill4();
+
+    //Costruttore
+    Personaggio();
+    Personaggio(int tipo_personaggio);
 };
 
 
 
 /*
 flow spostamento:
-	1- nemici
-	2- personaggio
-	3- pet
+	1- Personaggio (pet)
+	2- Controllo per togliere vita
+	3- Nemico
 */
 
 /*

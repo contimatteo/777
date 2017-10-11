@@ -39,6 +39,7 @@ class ElementoGrafico
          * 11: pavimento mappa
          * 12: ..
          */
+        ElementoGrafico();
         ElementoGrafico(int tipo_personaggio);
         //------------------------------------------
 

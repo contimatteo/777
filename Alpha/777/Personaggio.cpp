@@ -14,9 +14,9 @@
     void Personaggio::setLv_skill4 (int lv) { lv_skill4 = lv; }
     void Personaggio::setCritico (int crit) { critico = crit; }
     //SETTIAMO LA POISIZIONE X
-    void Personaggio::setX(int posizionex){ x = posizionex;}
+    void Personaggio::setX(int posizionex){ posX = posizionex;}
     //SETTIAMO LA POSIZIONE Y
-    void Personaggio::setY(int posizioney){y = posizioney;}
+    void Personaggio::setY(int posizioney){posY = posizioney;}
     //SETTIAMO LA NUOVA ESPERIENZA OTTENUTA
     void Personaggio::setEsperienzaAttuale(int esperienzanuova){ esperienza=esperienza+esperienzanuova;}
     void Personaggio::setContatoreSkill1(int contatore){contatoreSkill1 = contatore;}
@@ -39,9 +39,16 @@
     int Personaggio::getLv_skill4(){lv_skill4;}
     int Personaggio::getCritico(){critico;}
     int Personaggio::getEsperienza(){esperienza;}
-    int Personaggio::getX(){return x;}
-    int Personaggio::getY(){return y;}
+    int Personaggio::getX(){return posX;}
+    int Personaggio::getY(){return posY;}
     int Personaggio::getContatoreSkill1(){return contatoreSkill1;}
     int Personaggio::getContatoreSkill2(){return contatoreSkill2;}
     int Personaggio::getContatoreSkill3(){return contatoreSkill3;}
     int Personaggio::getContatoreSkill4(){return contatoreSkill4;}
+
+
+    Personaggio::Personaggio(int tipo_personaggio): ElementoGrafico(tipo_personaggio){
+
+        //ElementoGrafico::ElementoGrafico(tipo_personaggio);
+
+    }

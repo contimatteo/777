@@ -10,7 +10,14 @@ using namespace sf;
 
 void ElementoGrafico::muovi(int x, int y)
 {
-    grafica.move(x, y);
+    if(abs(x)<util.LARGHEZZA_FINESTRA_GIOCO)
+    {
+        posX = x;
+        if (abs(y) < util.ALTEZZA_FINESTRA_GIOCO) {
+            posY = y;
+            grafica.move(x, y);
+        }
+    }
 }
 
 void ElementoGrafico::muovi()
