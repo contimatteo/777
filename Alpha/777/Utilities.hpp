@@ -14,6 +14,7 @@ class Utilities
         static const int LARGHEZZA_FINESTRA_GIOCO;
         static const int NUMERO_CASELLE_ASSE_X;
         static const int NUMERO_CASELLE_ASSE_Y;
+        static const int NUMERO_NEMICI_MASSIMO;
 
 
 };

@@ -23,25 +23,22 @@ void disegnaMappa(RenderWindow &Gioco)
         { immagine_mappa.setPosition(i*util.DIMENSIONE_CELLE,j*util.DIMENSIONE_CELLE);  Gioco.draw(immagine_mappa); }
 }
 
+
+void disegnaNemici()
+{
+   // ListaNemici nemici(0);
+}
+
+void disegnaElementiExtra()
+{
+}
+
 void disegnaElementiGrafici()
 {
     disegnaNemici();
     disegnaElementiExtra();
 
 }
-
-void disegnaNemici()
-{
-    
-
-
-}
-
-void disegnaElementiExtra()
-{
-
-}
-
 
 // ----------------------------
 

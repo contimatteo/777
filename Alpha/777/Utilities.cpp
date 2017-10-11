@@ -9,3 +9,4 @@
  const int Utilities::LARGHEZZA_FINESTRA_GIOCO = 1200;
  const int Utilities::NUMERO_CASELLE_ASSE_X=60;
  const int Utilities::NUMERO_CASELLE_ASSE_Y=60;
+ const int Utilities::NUMERO_NEMICI_MASSIMO=100;

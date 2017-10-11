@@ -5,19 +5,21 @@
 #ifndef INC_777_NEMICO_H
 #define INC_777_NEMICO_H
 
-class Nemico{
+#include "ElementoGrafico.hpp"
 
-private:
-    int attacco;
-    int x;
-    int y;
+class Nemico: public ElementoGrafico{
+
 public:
-
+    int attacco;
+    //identificativo nemico
+    int id;
+    bool cancellato;
     int setAttacco(int nuovoAttacco);
     int setX(int xNuova);
     int setY (int yNuova);
-
-
+    Nemico();
+    Nemico(int stack);
+    Nemico(int tipo_nemico, int x, int y, int identificatore, int attacco_nemico );
 
 };
 
