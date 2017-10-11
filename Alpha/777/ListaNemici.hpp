@@ -13,8 +13,10 @@ class ListaNemici
 {
     public:
         int numeroNemici;
+        // array nemici
         Nemico *array_nemici[NUMERO_NEMICI_MASSIMO];
-        //std::map<int, int> lista_posizioni[NUMERO_NEMICI_MASSIMO];
+        // array delle posizioni random generate
+        sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO];
         // costruttori
         ListaNemici(int stack);
 };
