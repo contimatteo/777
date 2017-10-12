@@ -44,6 +44,7 @@ void disegnaElementiGrafici()
 
 int main()
 {
+    srand(static_cast <unsigned int> (time(0)));
     bool muovi_personaggio=false;
     sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_FINESTRA_GIOCO, util.ALTEZZA_FINESTRA_GIOCO), "777 - Game");
     Gioco.setKeyRepeatEnabled(true);
