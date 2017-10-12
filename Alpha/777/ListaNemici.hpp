@@ -6,12 +6,14 @@
 #define INC_777_LISTANEMICI_HPP
 
 #include "Nemico.hpp"
+#include "Personaggio.hpp"
 
 const int NUMERO_NEMICI_MASSIMO=100;
 
 class ListaNemici
 {
     public:
+        Utilities util;
         int numeroNemici;
         // array nemici
         Nemico *array_nemici[NUMERO_NEMICI_MASSIMO];
@@ -21,6 +23,8 @@ class ListaNemici
         ListaNemici(int stack);
 
         void creaNemici(int pianoCorrente, int stanzaCorrente);
+        void attaccoNemico(Personaggio &eroe);
+        void eliminaNemico(Personaggio eroe1);
 };
 
 

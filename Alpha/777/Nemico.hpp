@@ -11,6 +11,7 @@ class Nemico: public ElementoGrafico{
 
 public:
     int attacco;
+    int vita=30;
     //identificativo nemico
     int id;
     bool cancellato;
