@@ -18,22 +18,6 @@ int calcolaLunghezza(int piano , int stanza)
 }
 
 
-Vector2<int> generoPosizioneRandom()
-{
-    /*
-    //for (int i=0; i)
-    Vector2 <int> posizione;
-    posizione.x= rand()%60;
-    posizione.y=rand ()%60;
-    // 1)genero una coppia di numeri random
-    // 2)se non appartengono già all'array delle posizioni usate e non è na casella grafica della mappa --> ritorna il valore
-    // 3)altrimenti genero un'altra coppia ...
-    // 4)controllo che la posizione generata non sia occupata da un muro,porta,personaggio
-
-     */
-     return {0,0};
-}
-
 //creare una funzione che generi i nemici
 
 void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
@@ -45,8 +29,7 @@ void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
     {
         Vector2<int> posizione_nemico_corrente(array_nemici[i]->posX,array_nemici[i]->posY);
         // genero una hasmap di interi per la posizione (casuale)
-        posizione_nemico_corrente=generoPosizioneRandom();
-
+        posizione_nemico_corrente=util.generaPosizioneRandom();
         // creo un nemico
         array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);
     }
@@ -113,7 +96,7 @@ ListaNemici::ListaNemici(int stack)
     for(int i=0; i<numeroNemici; i++)
     {
         // genero una hasmap di interi per la posizione (casuale)
-        posizione_nemico_corrente=generoPosizioneRandom();
+        posizione_nemico_corrente=util.generaPosizioneRandom();
         // creo un nemico
         array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);
     }

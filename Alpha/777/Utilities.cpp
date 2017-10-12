@@ -21,7 +21,7 @@ const int max_value = 30;
 const int min_value = 1;
 
 // funzioni
-bool controlloDuplicato(Vector2<int> pos)
+bool Utilities::controlloDuplicato(Vector2<int> pos)
 {
     for(int i=0; i<lunghezza_array_posizioni; i++)
     {
@@ -35,7 +35,7 @@ bool controlloDuplicato(Vector2<int> pos)
     return false;
 }
 
-Vector2<int> generaPosizioneRandom()
+Vector2<int> Utilities::generaPosizioneRandom()
 {
     int rand_x = rand()%(max_value-min_value + 1) + min_value;
     int rand_y = rand()%(max_value-min_value + 1) + min_value;

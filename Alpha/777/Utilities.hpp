@@ -17,7 +17,9 @@ class Utilities
         static const int NUMERO_NEMICI_MASSIMO;
 
         //metodi
-        sf::Vector2<int> generaPosizioneRandom();
+         static bool controlloDuplicato(sf::Vector2<int> pos);
+         static sf::Vector2<int> generaPosizioneRandom();
+
 
 
 };

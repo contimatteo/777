@@ -7,6 +7,7 @@
 
 #include "Nemico.hpp"
 #include "Personaggio.hpp"
+#include "Utilities.hpp"
 
 const int NUMERO_NEMICI_MASSIMO=100;
 
