@@ -20,7 +20,7 @@ void disegnaMappa(RenderWindow &Gioco)
     sf::Sprite immagine_mappa(texture_mappa);
     for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
         for (int j=0; j<util.NUMERO_CASELLE_ASSE_Y; j++)
-        { immagine_mappa.setPosition(i*util.DIMENSIONE_CELLE,j*util.DIMENSIONE_CELLE);  Gioco.draw(immagine_mappa); }
+        { immagine_mappa.setPosition((i+util.POSIZIONE_PARTENZA_MAPPA_X)*util.DIMENSIONE_CELLE,(j+util.POSIZIONE_PARTENZA_MAPPA_Y)*util.DIMENSIONE_CELLE);  Gioco.draw(immagine_mappa); }
 }
 
 

@@ -6,12 +6,15 @@
 #include "Utilities.hpp"
 using namespace sf;
 
+ sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
  const int Utilities::DIMENSIONE_CELLE = 20;
- const int Utilities::ALTEZZA_FINESTRA_GIOCO = 600;
- const int Utilities::LARGHEZZA_FINESTRA_GIOCO = 600;
- const int Utilities::NUMERO_CASELLE_ASSE_X=60;
- const int Utilities::NUMERO_CASELLE_ASSE_Y=60;
+ const int Utilities::ALTEZZA_FINESTRA_GIOCO = desktop.height;
+ const int Utilities::LARGHEZZA_FINESTRA_GIOCO = desktop.width;
+ const int Utilities::NUMERO_CASELLE_ASSE_X=30;
+ const int Utilities::NUMERO_CASELLE_ASSE_Y=30;
  const int Utilities::NUMERO_NEMICI_MASSIMO=100;
+ const int Utilities::POSIZIONE_PARTENZA_MAPPA_X =((desktop.width/DIMENSIONE_CELLE)-NUMERO_CASELLE_ASSE_X)/2;
+ const int Utilities::POSIZIONE_PARTENZA_MAPPA_Y =((desktop.height/DIMENSIONE_CELLE)-NUMERO_CASELLE_ASSE_Y)/2;
 
 // --------------------------------------------
 

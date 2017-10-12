@@ -5,6 +5,7 @@
 #ifndef INC_777_UTILITIES_HPP
 #define INC_777_UTILITIES_HPP
 #include <SFML/System/Vector2.hpp>
+#include <SFML/Window/VideoMode.hpp>
 
 class Utilities
 {
@@ -15,6 +16,8 @@ class Utilities
         static const int NUMERO_CASELLE_ASSE_X;
         static const int NUMERO_CASELLE_ASSE_Y;
         static const int NUMERO_NEMICI_MASSIMO;
+        static const int POSIZIONE_PARTENZA_MAPPA_X;
+        static const int POSIZIONE_PARTENZA_MAPPA_Y;
 
         //metodi
          static bool controlloDuplicato(sf::Vector2<int> pos);
