@@ -4,7 +4,7 @@
 
 #ifndef INC_777_UTILITIES_HPP
 #define INC_777_UTILITIES_HPP
-
+#include <SFML/System/Vector2.hpp>
 
 class Utilities
 {
@@ -15,6 +15,9 @@ class Utilities
         static const int NUMERO_CASELLE_ASSE_X;
         static const int NUMERO_CASELLE_ASSE_Y;
         static const int NUMERO_NEMICI_MASSIMO;
+
+        //metodi
+        sf::Vector2<int> generaPosizioneRandom();
 
 
 };

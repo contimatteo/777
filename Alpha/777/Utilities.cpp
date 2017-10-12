@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include "Utilities.hpp"
-#include <SFML/System/Vector2.hpp>
 using namespace sf;
 
  const int Utilities::DIMENSIONE_CELLE = 20;
@@ -43,6 +42,8 @@ Vector2<int> generaPosizioneRandom()
     Vector2<int> posizione_corrente = {rand_x, rand_y};
     // controllo che non sia già stata creata una posizione uguale
     if(controlloDuplicato(posizione_corrente))
+        // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
+        // if(funzione_porc_mi_dà_ok)
         generaPosizioneRandom();
     else
     {
