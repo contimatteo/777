@@ -19,6 +19,8 @@ class ListaNemici
         sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO];
         // costruttori
         ListaNemici(int stack);
+
+        void creaNemici(int pianoCorrente, int stanzaCorrente);
 };
 
 

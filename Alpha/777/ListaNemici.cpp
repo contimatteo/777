@@ -1,8 +1,7 @@
-#include "ListaNemici.hpp"//
+#include "ListaNemici.hpp"
 // Created by enrico on 11/10/2017.
 //
 #include <iostream>
-#include "ListaNemici.hpp"
 
 using namespace sf;
 
@@ -27,17 +26,17 @@ Vector2<int> generoPosizioneRandom()
 
 //creare una funzione che generi i nemici
 
-void creaNemici(int pianoCorrente, int stanzaCorrente)//da passare anche l array
+void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
 {
     Vector2<int> posizione_nemico_corrente(0,0);
 
-    int numeroNemici=calcolaLunghezza(pianoCorrente, stanzaCorrente);
+    numeroNemici=calcolaLunghezza(pianoCorrente, stanzaCorrente);
     for(int i=0; i<numeroNemici; i++)
     {
         // genero una hasmap di interi per la posizione (casuale)
         posizione_nemico_corrente=generoPosizioneRandom();
         // creo un nemico
-        //array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);
+        array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);
     }
 
 }
