@@ -21,6 +21,8 @@ class ElementoGrafico
         RenderWindow Gioco;
         int posX;
         int posY;
+        int posX_iniziale, posY_iniziale;
+        int spostamento_x, spostamento_y;
 
 
         //METODI

@@ -20,7 +20,10 @@ void disegnaMappa(RenderWindow &Gioco)
     sf::Sprite immagine_mappa(texture_mappa);
     for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
         for (int j=0; j<util.NUMERO_CASELLE_ASSE_Y; j++)
-        { immagine_mappa.setPosition((i+util.POSIZIONE_PARTENZA_MAPPA_X)*util.DIMENSIONE_CELLE,(j+util.POSIZIONE_PARTENZA_MAPPA_Y)*util.DIMENSIONE_CELLE);  Gioco.draw(immagine_mappa); }
+        {
+            immagine_mappa.setPosition((util.POSIZIONE_PARTENZA_MAPPA_X)+(util.DIMENSIONE_CELLE*i),(util.POSIZIONE_PARTENZA_MAPPA_Y)+(util.DIMENSIONE_CELLE*j));
+            Gioco.draw(immagine_mappa);
+        }
 }
 
 
@@ -46,11 +49,12 @@ int main()
 {
     srand(static_cast <unsigned int> (time(0)));
     bool muovi_personaggio=false;
-    sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_FINESTRA_GIOCO, util.ALTEZZA_FINESTRA_GIOCO), "777 - Game");
+    sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY), "777 - Game");
     Gioco.setKeyRepeatEnabled(true);
 
     // Istanzio L' eroe
     Personaggio eroe(1);
+    //std::cout<<"posizione personaggio--> "<<eroe.grafica.getPosition().x<<", "<<eroe.grafica.getPosition().x<<"\n";
 
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen())
@@ -78,25 +82,26 @@ int main()
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) && muovi_personaggio)
         {
             // freccia Sinistra premuta: muovi il personaggio
-            eroe.setPosizione(-util.DIMENSIONE_CELLE, 0);
+            eroe.setPosizione(-1, 0);
+            //std::cout<<"posizione personaggio--> "<<eroe.grafica.getPosition().x<<", "<<eroe.grafica.getPosition().x<<"\n";
             eroe.muovi();
             muovi_personaggio = false;
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
-            eroe.setPosizione(util.DIMENSIONE_CELLE, 0);
+            eroe.setPosizione(1, 0);
             eroe.muovi();
             muovi_personaggio = false;
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio
-            eroe.setPosizione(0, -util.DIMENSIONE_CELLE);
+            eroe.setPosizione(0, -1);
             eroe.muovi();
             muovi_personaggio = false;
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) && muovi_personaggio) {
             // freccia GIU premuta: muovi il personaggio
-            eroe.setPosizione(0, util.DIMENSIONE_CELLE);
+            eroe.setPosizione(0, 1);
             eroe.muovi();
             muovi_personaggio = false;
         }

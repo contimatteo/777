@@ -12,7 +12,7 @@ class Personaggio:public ElementoGrafico {
 
 private:
 
-    int graphics;
+    //int graphics;
     int vitaMassima = 1000; //pet-
     int vitaAttuale = 1000;
     int manaMassimo = 100;  //pet-
@@ -45,6 +45,7 @@ private:
     //_______________________________
 
 public:
+    // metodi
     void setGraphics(int grafica);
     void setVitaAttuale(int vita);
     void setManaAttuale (int mana);

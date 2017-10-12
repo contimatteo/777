@@ -1,7 +1,6 @@
 #include "Personaggio.hpp"
 
     //_____SETTER___________________
-    void Personaggio::setGraphics(int grafica){graphics =grafica;}
     void Personaggio::setVitaAttuale(int vita){ vitaAttuale = vita; }
     void Personaggio::setManaAttuale (int mana){ manaAttuale = mana; }
     void Personaggio::setLivello (int liv) { livello = liv; }

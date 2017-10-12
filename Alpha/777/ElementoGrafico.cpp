@@ -8,36 +8,61 @@
 #include "ElementoGrafico.hpp"
 using namespace sf;
 
+/***************************************************************************************************
+ * non usata
+ */
 void ElementoGrafico::muovi(int x, int y)
 {
-    if(abs(x)<util.LARGHEZZA_FINESTRA_GIOCO)
+    if((posX+(util.DIMENSIONE_CELLE * x))<(util.POSIZIONE_PARTENZA_MAPPA_X+util.LARGHEZZA_MAPPA))
     {
         posX = x;
-        if (abs(y) < util.ALTEZZA_FINESTRA_GIOCO) {
+        if((posY+(util.DIMENSIONE_CELLE * y))<(util.POSIZIONE_PARTENZA_MAPPA_Y+util.ALTEZZA_MAPPA))
+        {
             posY = y;
             grafica.move(x, y);
         }
     }
 }
+// *****************************************************************************************
 
 void ElementoGrafico::muovi()
 {
-    grafica.move(posX, posY);
+    grafica.move(spostamento_x, spostamento_y);
 }
 
 void ElementoGrafico::setPosizione(int x, int y)
 {
-    if(abs(x)<util.LARGHEZZA_FINESTRA_GIOCO)
-    posX=x;
-    if(abs(y)<util.ALTEZZA_FINESTRA_GIOCO)
-    posY=y;
+    int mossa_asse_x=util.DIMENSIONE_CELLE * x;
+    int mossa_asse_y=util.DIMENSIONE_CELLE * y;
+    if((posX+mossa_asse_x<util.POSIZIONE_PARTENZA_MAPPA_X+util.LARGHEZZA_MAPPA)&&(posX+mossa_asse_x>=util.POSIZIONE_PARTENZA_MAPPA_X))
+    {
+        posX += util.DIMENSIONE_CELLE * x;
+        spostamento_x = util.DIMENSIONE_CELLE * x;
+    }
+    else
+    {
+        // spostamento fuori mappa non consentito
+        spostamento_x=0;
+    }
+    if((posY+mossa_asse_y<util.POSIZIONE_PARTENZA_MAPPA_Y+util.ALTEZZA_MAPPA)&&(posY+mossa_asse_y>=util.POSIZIONE_PARTENZA_MAPPA_Y))
+    {
+        posY += util.DIMENSIONE_CELLE * y;
+        spostamento_y = util.DIMENSIONE_CELLE * y;
+    }
+    else
+    {
+        // spostamento fuori mappa non consentito
+        spostamento_y=0;
+    }
 }
 
 
 ElementoGrafico::ElementoGrafico(int tipo_personaggio)
 {
     // inizializzo variabili posizioni
-    posX=0; posY=0;
+    posX_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_X);
+    posY_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_Y);
+    posX=posX_iniziale; posY=posY_iniziale;
 
     //Texture texture;
     switch(tipo_personaggio)
@@ -88,4 +113,5 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
     }
     // imposto la sprite selezionata
     grafica.setTexture(texture);
+    grafica.setPosition(posX_iniziale, posY_iniziale);
 }
