@@ -89,6 +89,7 @@ public:
     int getContatoreSkill2();
     int getContatoreSkill3();
     int getContatoreSkill4();
+    int gittata=40;
 
     //Costruttore
     Personaggio();

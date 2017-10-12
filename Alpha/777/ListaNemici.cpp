@@ -65,24 +65,35 @@ void ListaNemici::eliminaNemico(Personaggio eroe1)
 
     for (int i=0; i<numeroNemici; i++)
     {
-       // if(eroe1.posX)
-        if (array_nemici[i]->vita<0)
+        if(fabs(eroe1.posX-array_nemici[i]->posX)<=20)
+        {
+            array_nemici[i]->vita=array_nemici[i]->vita-eroe1.getPotenza();
+        }else if(fabs(eroe1.posY-array_nemici[i]->posY)<=20)
+            {
+                array_nemici[i]->vita=array_nemici[i]->vita-eroe1.getPotenza();
+            }
+        // sposto il nemico fuori dalla mappa
+        if (array_nemici[i]->vita<=0)
         {
             array_nemici[i]->posX=30000;
             array_nemici[i]->posY=30000;
         }
+
     }
-
-
-    //entrare dentro l array nella posizione del nemico da cancellare e rimuoverlo dall array
 
     return;
 }
+/*
+// liberare l'array lista nemici
+void ListaNemici::cancellaArray()
+{
+    for(int i=0;i<numeroNemici;i++)
+        delete array_nemici[i];
+    delete[]array_nemici;
 
-//liberare l'array lista nemici
-//...
-
-
+    return;
+}
+*/
 
 
 //costruttore
