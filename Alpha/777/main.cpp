@@ -26,20 +26,25 @@ void disegnaMappa(RenderWindow &Gioco)
         }
 }
 
+void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
+{
+    Gioco.draw(eroe.grafica);
+}
 
-void disegnaNemici()
+void disegnaNemici(RenderWindow &Gioco)
 {
    // ListaNemici nemici(0);
 }
 
-void disegnaElementiExtra()
+void disegnaElementiExtra(RenderWindow &Gioco)
 {
 }
 
-void disegnaElementiGrafici()
+void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe)
 {
-    disegnaNemici();
-    disegnaElementiExtra();
+    disegnaEroe(Gioco, eroe);
+    //disegnaNemici(Gioco);
+    //disegnaElementiExtra(Gioco);
 
 }
 
@@ -111,7 +116,7 @@ int main()
         // disegno la mappa
         disegnaMappa(Gioco);
         // disegno l'erore
-        Gioco.draw(eroe.grafica);
+        disegnaElementiGrafici(Gioco, eroe);
         // Aggiorno il Gioco con le modifiche
         Gioco.display();
     }
