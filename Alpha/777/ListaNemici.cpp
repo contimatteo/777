@@ -82,14 +82,13 @@ void ListaNemici::eliminaNemico(Personaggio eroe1)
 
     return;
 }
-/*
+
 // liberare l'array lista nemici
 void ListaNemici::cancellaArray()
 {
-    delete[]array_nemici;
+    delete[]*array_nemici;
     return;
 }
-*/
 
 
 //costruttore

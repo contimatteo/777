@@ -98,6 +98,17 @@ void disegnaNemici(RenderWindow &Gioco, ListaNemici &nemici)
 
     }
      */
+
+    // prova di cancellazione array: l array viene cancellato ma manda il gioco in crash
+    /*
+    nemici.cancellaArray();
+    for (int i=0; i<nemici.numeroNemici; i++)
+    {
+
+        std::cout<<nemici.array_nemici[i]->posX<< " " << nemici.array_nemici[i]->posY <<std::endl;
+
+    }
+     */
 }
 
 void disegnaElementiExtra(RenderWindow &Gioco)
