@@ -19,7 +19,6 @@ int calcolaLunghezza(int piano , int stanza)
 
 
 //creare una funzione che generi i nemici
-
 void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
 {
     //Vector2<int> posizione_nemico_corrente(,0);
@@ -87,10 +86,7 @@ void ListaNemici::eliminaNemico(Personaggio eroe1)
 // liberare l'array lista nemici
 void ListaNemici::cancellaArray()
 {
-    for(int i=0;i<numeroNemici;i++)
-        delete array_nemici[i];
     delete[]array_nemici;
-
     return;
 }
 */

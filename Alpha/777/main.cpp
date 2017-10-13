@@ -6,6 +6,7 @@
 #include "ElementoGrafico.hpp"
 #include "Utilities.hpp"
 #include "Personaggio.hpp"
+#include "ListaNemici.hpp"
 using namespace sf;
 
 // ----------------------------
@@ -86,22 +87,22 @@ void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
     Gioco.draw(eroe.grafica);
 }
 
-void disegnaNemici(RenderWindow &Gioco)
+void disegnaNemici(RenderWindow &Gioco, ListaNemici &nemici)
 {
-   // ListaNemici nemici(0);
+   //fare for per stampare nemici e stampare posizioni
 }
 
 void disegnaElementiExtra(RenderWindow &Gioco)
 {
 }
 
-void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe)
+void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici)
 {
     disegnaFinestraSinistra(Gioco);
     disegnaFinestraDestra(Gioco);
     disegnaConsole(Gioco);
     disegnaEroe(Gioco, eroe);
-    //disegnaNemici(Gioco);
+    disegnaNemici(Gioco, nemici);
     //disegnaElementiExtra(Gioco);
 
 }
@@ -117,6 +118,7 @@ int main()
 
     // Istanzio L' eroe
     Personaggio eroe(1);
+    ListaNemici nemici(1);
     //std::cout<<"posizione personaggio--> "<<eroe.grafica.getPosition().x<<", "<<eroe.grafica.getPosition().x<<"\n";
 
     // eseguo il gioco finchè la finestra rimane aperta
@@ -165,7 +167,7 @@ int main()
         // disegno la mappa
         disegnaMappa(Gioco);
         // disegno l'erore
-        disegnaElementiGrafici(Gioco, eroe);
+        disegnaElementiGrafici(Gioco, eroe, nemici);
         // Aggiorno il Gioco con le modifiche
         Gioco.display();
     }
