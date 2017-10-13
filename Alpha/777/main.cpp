@@ -13,6 +13,18 @@ static Utilities util;
 
 // ----------------------------
 
+void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio)
+{
+    //controllo che la casella sia libera
+    // if(funzione porc da ok)
+    // {
+         eroe.setPosizione(x, y);
+         eroe.muovi();
+         muovi_personaggio = false;
+    // }
+}
+
+
 void disegnaMappa(RenderWindow &Gioco)
 {
     // disegno bordi gioco
@@ -133,27 +145,19 @@ int main()
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) && muovi_personaggio)
         {
             // freccia Sinistra premuta: muovi il personaggio
-            eroe.setPosizione(-1, 0);
-            eroe.muovi();
-            muovi_personaggio = false;
+            muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
-            eroe.setPosizione(1, 0);
-            eroe.muovi();
-            muovi_personaggio = false;
+            muoviEroe(Gioco, eroe, 1, 0, muovi_personaggio);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio
-            eroe.setPosizione(0, -1);
-            eroe.muovi();
-            muovi_personaggio = false;
+            muoviEroe(Gioco, eroe, 0, -1, muovi_personaggio);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) && muovi_personaggio) {
             // freccia GIU premuta: muovi il personaggio
-            eroe.setPosizione(0, 1);
-            eroe.muovi();
-            muovi_personaggio = false;
+            muoviEroe(Gioco, eroe, 0, 1, muovi_personaggio);
         }
 
         // Clear screen
