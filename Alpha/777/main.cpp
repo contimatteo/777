@@ -89,7 +89,15 @@ void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
 
 void disegnaNemici(RenderWindow &Gioco, ListaNemici &nemici)
 {
+    /*
    //fare for per stampare nemici e stampare posizioni
+    for (int i=0; i<nemici.numeroNemici; i++)
+    {
+
+        std::cout<<nemici.array_nemici[i]->posX<< " " << nemici.array_nemici[i]->posY <<std::endl;
+
+    }
+     */
 }
 
 void disegnaElementiExtra(RenderWindow &Gioco)
