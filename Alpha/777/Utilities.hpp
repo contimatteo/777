@@ -4,8 +4,10 @@
 
 #ifndef INC_777_UTILITIES_HPP
 #define INC_777_UTILITIES_HPP
+#include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/VideoMode.hpp>
+using namespace sf;
 
 class Utilities
 {
@@ -21,6 +23,22 @@ class Utilities
         static const int LARGHEZZA_MAPPA;
         static const int POSIZIONE_PARTENZA_MAPPA_X;
         static const int POSIZIONE_PARTENZA_MAPPA_Y;
+
+        static const int MARGINE_MAPPA;
+        static const Color COLORE_SFONDO;
+
+        static const int ALTEZZA_CONSOLE;
+        static const int LARGHEZZA_CONSOLE ;
+        static const int POSIZIONE_PARTENZA_CONSOLE_X;
+        static const int POSIZIONE_PARTENZA_CONSOLE_Y;
+        static const int ALTEZZA_FINESTRAsx;
+        static const int LARGHEZZA_FINESTRAsx;
+        static const int POSIZIONE_PARTENZA_FINESTRAsx_X;
+        static const int POSIZIONE_PARTENZA_FINESTRAsx_Y;
+        static const int ALTEZZA_FINESTRAdx;
+        static const int LARGHEZZA_FINESTRAdx;
+        static const int POSIZIONE_PARTENZA_FINESTRAdx_X;
+        static const int POSIZIONE_PARTENZA_FINESTRAdx_Y;
 
         //metodi
          static bool controlloDuplicato(sf::Vector2<int> pos);

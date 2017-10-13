@@ -15,6 +15,14 @@ static Utilities util;
 
 void disegnaMappa(RenderWindow &Gioco)
 {
+    // disegno bordi gioco
+    sf::RectangleShape bordo_mappa(sf::Vector2f(util.LARGHEZZA_MAPPA+(2*util.MARGINE_MAPPA), util.ALTEZZA_MAPPA+(2*util.MARGINE_MAPPA)));
+    bordo_mappa.setPosition(util.POSIZIONE_PARTENZA_MAPPA_X-util.MARGINE_MAPPA, util.POSIZIONE_PARTENZA_MAPPA_Y-util.MARGINE_MAPPA);
+    bordo_mappa.setFillColor(util.COLORE_SFONDO);
+    bordo_mappa.setOutlineColor(sf::Color::White);
+    bordo_mappa.setOutlineThickness(1.5);
+    Gioco.draw(bordo_mappa);
+
     sf::Texture texture_mappa;
     texture_mappa.loadFromFile("../risorse/immagini/white.png");
     sf::Sprite immagine_mappa(texture_mappa);
@@ -24,6 +32,41 @@ void disegnaMappa(RenderWindow &Gioco)
             immagine_mappa.setPosition((util.POSIZIONE_PARTENZA_MAPPA_X)+(util.DIMENSIONE_CELLE*i),(util.POSIZIONE_PARTENZA_MAPPA_Y)+(util.DIMENSIONE_CELLE*j));
             Gioco.draw(immagine_mappa);
         }
+
+}
+
+void disegnaFinestraSinistra(RenderWindow &Gioco)
+{
+    // disegno finestra di sx
+    sf::RectangleShape finestra(sf::Vector2f(util.LARGHEZZA_FINESTRAsx, util.ALTEZZA_FINESTRAsx));
+    finestra.setPosition(util.POSIZIONE_PARTENZA_FINESTRAsx_X, util.POSIZIONE_PARTENZA_FINESTRAsx_Y);
+    finestra.setFillColor(util.COLORE_SFONDO);
+    finestra.setOutlineColor(sf::Color::White);
+    finestra.setOutlineThickness(1.5);
+    Gioco.draw(finestra);
+
+}
+
+void disegnaFinestraDestra(RenderWindow &Gioco)
+{
+    // disegno finestra di dx
+    sf::RectangleShape finestra(sf::Vector2f(util.LARGHEZZA_FINESTRAdx, util.ALTEZZA_FINESTRAdx));
+    finestra.setPosition(util.POSIZIONE_PARTENZA_FINESTRAdx_X, util.POSIZIONE_PARTENZA_FINESTRAdx_Y);
+    finestra.setFillColor(util.COLORE_SFONDO);
+    finestra.setOutlineColor(sf::Color::White);
+    finestra.setOutlineThickness(1.5);
+    Gioco.draw(finestra);
+}
+
+void disegnaConsole(RenderWindow &Gioco)
+{
+    // disegno la console
+    sf::RectangleShape console(sf::Vector2f(util.LARGHEZZA_CONSOLE, util.ALTEZZA_CONSOLE));
+    console.setPosition(util.POSIZIONE_PARTENZA_CONSOLE_X, util.POSIZIONE_PARTENZA_CONSOLE_Y);
+    console.setFillColor(util.COLORE_SFONDO);
+    console.setOutlineColor(sf::Color::White);
+    console.setOutlineThickness(1.5);
+    Gioco.draw(console);
 }
 
 void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
@@ -42,6 +85,9 @@ void disegnaElementiExtra(RenderWindow &Gioco)
 
 void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe)
 {
+    disegnaFinestraSinistra(Gioco);
+    disegnaFinestraDestra(Gioco);
+    disegnaConsole(Gioco);
     disegnaEroe(Gioco, eroe);
     //disegnaNemici(Gioco);
     //disegnaElementiExtra(Gioco);
@@ -88,7 +134,6 @@ int main()
         {
             // freccia Sinistra premuta: muovi il personaggio
             eroe.setPosizione(-1, 0);
-            //std::cout<<"posizione personaggio--> "<<eroe.grafica.getPosition().x<<", "<<eroe.grafica.getPosition().x<<"\n";
             eroe.muovi();
             muovi_personaggio = false;
         }
