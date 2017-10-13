@@ -33,11 +33,11 @@
     int Personaggio::getPotenza(){return potenza;}
     int Personaggio::getSaggezza(){return saggezza;}
     int Personaggio::getLv_skill1(){ return lv_skill1;}
-    int Personaggio::getLv_skill2(){lv_skill2;}
-    int Personaggio::getLv_skill3(){lv_skill3;}
-    int Personaggio::getLv_skill4(){lv_skill4;}
-    int Personaggio::getCritico(){critico;}
-    int Personaggio::getEsperienza(){esperienza;}
+    int Personaggio::getLv_skill2(){ return lv_skill2;}
+    int Personaggio::getLv_skill3(){ return lv_skill3;}
+    int Personaggio::getLv_skill4(){ return lv_skill4;}
+    int Personaggio::getCritico(){ return critico;}
+    int Personaggio::getEsperienza(){ return esperienza;}
     int Personaggio::getX(){return posX;}
     int Personaggio::getY(){return posY;}
     int Personaggio::getContatoreSkill1(){return contatoreSkill1;}

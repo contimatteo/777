@@ -23,6 +23,7 @@ class ElementoGrafico
         int posY;
         int posX_iniziale, posY_iniziale;
         int spostamento_x, spostamento_y;
+        int pos_cella_x, pos_cella_y;
 
 
         //METODI

@@ -32,10 +32,12 @@ void ElementoGrafico::muovi()
 
 void ElementoGrafico::setPosizione(int x, int y)
 {
+
     int mossa_asse_x=util.DIMENSIONE_CELLE * x;
     int mossa_asse_y=util.DIMENSIONE_CELLE * y;
     if((posX+mossa_asse_x<util.POSIZIONE_PARTENZA_MAPPA_X+util.LARGHEZZA_MAPPA)&&(posX+mossa_asse_x>=util.POSIZIONE_PARTENZA_MAPPA_X))
     {
+        pos_cella_x+=x;
         posX += util.DIMENSIONE_CELLE * x;
         spostamento_x = util.DIMENSIONE_CELLE * x;
     }
@@ -46,6 +48,7 @@ void ElementoGrafico::setPosizione(int x, int y)
     }
     if((posY+mossa_asse_y<util.POSIZIONE_PARTENZA_MAPPA_Y+util.ALTEZZA_MAPPA)&&(posY+mossa_asse_y>=util.POSIZIONE_PARTENZA_MAPPA_Y))
     {
+        pos_cella_y+=y;
         posY += util.DIMENSIONE_CELLE * y;
         spostamento_y = util.DIMENSIONE_CELLE * y;
     }
@@ -63,6 +66,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
     posX_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_X);
     posY_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_Y);
     posX=posX_iniziale; posY=posY_iniziale;
+    pos_cella_x=1;  pos_cella_y=1;
 
     //Texture texture;
     switch(tipo_personaggio)
