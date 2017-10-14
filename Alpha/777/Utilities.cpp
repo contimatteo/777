@@ -45,8 +45,8 @@ using namespace sf;
 
 Vector2<int> lista_posizioni[100];
 int lunghezza_array_posizioni = -1;
-const int max_value = 30;
-const int min_value = 1;
+const int min_value = 0;
+const int max_value = (Utilities::NUMERO_CASELLE_ASSE_X-1);
 
 // funzioni
 bool Utilities::controlloDuplicato(Vector2<int> pos)

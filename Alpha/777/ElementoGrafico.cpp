@@ -32,7 +32,6 @@ void ElementoGrafico::muovi()
 
 void ElementoGrafico::setPosizione(int x, int y)
 {
-
     int mossa_asse_x=util.DIMENSIONE_CELLE * x;
     int mossa_asse_y=util.DIMENSIONE_CELLE * y;
     if((posX+mossa_asse_x<util.POSIZIONE_PARTENZA_MAPPA_X+util.LARGHEZZA_MAPPA)&&(posX+mossa_asse_x>=util.POSIZIONE_PARTENZA_MAPPA_X))
@@ -74,7 +73,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // eroe
         case 1:
         {
-            texture.loadFromFile("../risorse/immagini/red.png");
+            texture.loadFromFile("../risorse/immagini/green.png");
             break;
         }
         // pet
@@ -117,5 +116,6 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
     }
     // imposto la sprite selezionata
     grafica.setTexture(texture);
-    grafica.setPosition(posX_iniziale, posY_iniziale);
+    // imposto la sua posizione
+    grafica.setPosition(posX, posY);
 }

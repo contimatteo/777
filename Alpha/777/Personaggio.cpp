@@ -46,8 +46,7 @@
     int Personaggio::getContatoreSkill4(){return contatoreSkill4;}
 
 
-    Personaggio::Personaggio(int tipo_personaggio): ElementoGrafico(tipo_personaggio){
-
-        //ElementoGrafico::ElementoGrafico(tipo_personaggio);
+    Personaggio::Personaggio(int tipo_personaggio): ElementoGrafico(tipo_personaggio)
+    {
 
     }

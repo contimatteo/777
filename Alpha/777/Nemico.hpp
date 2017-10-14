@@ -15,11 +15,8 @@ public:
     //identificativo nemico
     int id;
     bool cancellato;
-    int setAttacco(int nuovoAttacco);
-    int setX(int xNuova);
-    int setY (int yNuova);
-    Nemico();
-    Nemico(int stack);
+    //Nemico();
+    //Nemico(int stack);
     Nemico(int tipo_nemico, int x, int y, int identificatore, int attacco_nemico );
 
 };
