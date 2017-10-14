@@ -86,8 +86,14 @@ void ListaNemici::eliminaNemico(Personaggio eroe1)
 // liberare l'array lista nemici
 void ListaNemici::cancellaArray()
 {
-    delete[]*array_nemici;
+    /*
+    for (int i=0;i<util.NUMERO_NEMICI_MASSIMO; i++)
+    {
+        array_nemici[i]= NULL;
+    }
     return;
+     */
+    delete [] * array_nemici;
 }
 
 
