@@ -31,7 +31,6 @@ void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
         // creo un nemico
         array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);
     }
-
 }
 
 
@@ -53,7 +52,6 @@ void ListaNemici::attaccoNemico(Personaggio &eroe)
                 eroe.setVitaAttuale(vita - 10);
             }
     }
-    return ;
 }
 
 // in caso di scontro con un nemico creare una funzione che elimini il nemico
@@ -77,8 +75,6 @@ void ListaNemici::eliminaNemico(Personaggio eroe1)
         }
 
     }
-
-    return;
 }
 
 // liberare l'array lista nemici
