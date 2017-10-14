@@ -16,27 +16,14 @@ static Utilities util;
 
 void test(ListaNemici &nemici)
 {
-    /*
     for (int i=0; i<nemici.numeroNemici; i++)
-    {
-
         std::cout<<nemici.array_nemici[i]->posX<< " " << nemici.array_nemici[i]->posY <<std::endl;
-
-    }
-
     std::cout<<"---------------------------------------------------------"<<std::endl;
-
     nemici.cancellaArray();
-     */
-    /*
+    /* ricreare qui i nemici in caso di errore
+    nemici.creaNemici(1,1);
     for (int i=0; i<nemici.numeroNemici; i++)
-    {
-
-        std::cout<<nemici.array_nemici[i]->posX<< " " << nemici.array_nemici[i]->posY <<std::endl;
-
-    }
-     */
-
+        std::cout<<nemici.array_nemici[i]->posX<< " " << nemici.array_nemici[i]->posY <<std::endl; */
 }
 
 void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio)
@@ -196,11 +183,8 @@ int main()
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, 1, 0, muovi_personaggio);
-
-            // prova del test
+            // test
             test(nemici);
-
-
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio

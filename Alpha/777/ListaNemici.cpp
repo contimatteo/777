@@ -22,7 +22,6 @@ int calcolaLunghezza(int piano , int stanza)
 void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
 {
     //Vector2<int> posizione_nemico_corrente(,0);
-
     numeroNemici=calcolaLunghezza(pianoCorrente, stanzaCorrente);
     for(int i=0; i<numeroNemici; i++)
     {
@@ -46,10 +45,10 @@ void ListaNemici::attaccoNemico(Personaggio &eroe)
     for( int i=0; i<numeroNemici; i++)
     {
         //if(valore assluto di posizione personaggio-posizione nemico == distanza minima ) allora attacca senno i++
-        if (fabs(array_nemici[i]->posX - eroe.posX) <= util.DIMENSIONE_CELLE)
+        if (abs(array_nemici[i]->posX - eroe.posX) <= util.DIMENSIONE_CELLE)
         {
             eroe.setVitaAttuale(vita - 10);
-        } else if(fabs(array_nemici[i]->posY - eroe.posY) <= util.DIMENSIONE_CELLE)
+        } else if(abs(array_nemici[i]->posY - eroe.posY) <= util.DIMENSIONE_CELLE)
             {
                 eroe.setVitaAttuale(vita - 10);
             }
@@ -61,21 +60,20 @@ void ListaNemici::attaccoNemico(Personaggio &eroe)
 // funzione che richiamo quanod il personaggio attacca
 void ListaNemici::eliminaNemico(Personaggio eroe1)
 {
-
     for (int i=0; i<numeroNemici; i++)
     {
-        if(fabs(eroe1.posX-array_nemici[i]->posX)<=20)
+        if(abs(eroe1.posX-array_nemici[i]->posX)<=20)
         {
             array_nemici[i]->vita=array_nemici[i]->vita-eroe1.getPotenza();
-        }else if(fabs(eroe1.posY-array_nemici[i]->posY)<=20)
+        }else if(abs(eroe1.posY-array_nemici[i]->posY)<=20)
             {
                 array_nemici[i]->vita=array_nemici[i]->vita-eroe1.getPotenza();
             }
         // sposto il nemico fuori dalla mappa
         if (array_nemici[i]->vita<=0)
         {
-            array_nemici[i]->posX=30000;
-            array_nemici[i]->posY=30000;
+            array_nemici[i]->posX=9999;
+            array_nemici[i]->posY=9999;
         }
 
     }
@@ -86,14 +84,10 @@ void ListaNemici::eliminaNemico(Personaggio eroe1)
 // liberare l'array lista nemici
 void ListaNemici::cancellaArray()
 {
-    /*
-    for (int i=0;i<util.NUMERO_NEMICI_MASSIMO; i++)
-    {
-        array_nemici[i]= NULL;
-    }
-    return;
-     */
-    delete [] * array_nemici;
+    // riazzero il numero di nemici
+    numeroNemici=0;
+    // cancello l'array
+    delete *array_nemici;
 }
 
 
