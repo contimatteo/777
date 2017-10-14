@@ -9,7 +9,7 @@
 **/.vscode/*
 **/cmake-build-debug/*
 **/cmake_modules/*
-**/risorse/*
+#**/risorse/*
 **/*.txt
 **/*.dll
 **/*.cmake

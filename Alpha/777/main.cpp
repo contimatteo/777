@@ -47,7 +47,7 @@ void disegnaMappa(RenderWindow &Gioco)
     Gioco.draw(bordo_mappa);
 
     sf::Texture texture_mappa;
-    texture_mappa.loadFromFile("../risorse/immagini/white.png");
+    texture_mappa.loadFromFile("../risorse/immagini/verde1.png");
     sf::Sprite immagine_mappa(texture_mappa);
     for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
         for (int j=0; j<util.NUMERO_CASELLE_ASSE_Y; j++)
