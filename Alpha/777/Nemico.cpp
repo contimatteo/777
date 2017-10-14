@@ -8,8 +8,8 @@ Nemico::Nemico(int tipo_nemico, int x, int y, int identificatore, int attacco_ne
     cancellato=false;
     pos_cella_y = y;
     pos_cella_x = x;
-    posX += util.DIMENSIONE_CELLE * x;
-    posY += util.DIMENSIONE_CELLE * y;
+    posX += util.SPAZIO_CELLE * x;
+    posY += util.SPAZIO_CELLE * y;
     id=identificatore;
     attacco=attacco_nemico;
     // imposto la poszione del nemico per disegnarlo

@@ -47,12 +47,12 @@ void disegnaMappa(RenderWindow &Gioco)
     Gioco.draw(bordo_mappa);
 
     sf::Texture texture_mappa;
-    texture_mappa.loadFromFile("../risorse/immagini/verde1.png");
+    texture_mappa.loadFromFile("../risorse/immagini/verde1.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     sf::Sprite immagine_mappa(texture_mappa);
     for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
         for (int j=0; j<util.NUMERO_CASELLE_ASSE_Y; j++)
         {
-            immagine_mappa.setPosition((util.POSIZIONE_PARTENZA_MAPPA_X)+(util.DIMENSIONE_CELLE*i),(util.POSIZIONE_PARTENZA_MAPPA_Y)+(util.DIMENSIONE_CELLE*j));
+            immagine_mappa.setPosition((util.POSIZIONE_PARTENZA_MAPPA_X)+(util.SPAZIO_CELLE*i),(util.POSIZIONE_PARTENZA_MAPPA_Y)+(util.SPAZIO_CELLE*j));
             Gioco.draw(immagine_mappa);
         }
 
@@ -178,7 +178,7 @@ int main()
         }
 
         // Clear screen
-        Gioco.clear();
+        Gioco.clear(util.COLORE_SFONDO);
         // disegno la mappa
         disegnaMappa(Gioco);
         // disegno l'erore

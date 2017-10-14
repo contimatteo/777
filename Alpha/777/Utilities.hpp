@@ -12,6 +12,7 @@ using namespace sf;
 class Utilities
 {
     public:
+        static const int SPAZIO_CELLE;
         static const int DIMENSIONE_CELLE;
 
         static const int NUMERO_CASELLE_ASSE_X;

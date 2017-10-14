@@ -13,10 +13,10 @@ using namespace sf;
  */
 void ElementoGrafico::muovi(int x, int y)
 {
-    if((posX+(util.DIMENSIONE_CELLE * x))<(util.POSIZIONE_PARTENZA_MAPPA_X+util.LARGHEZZA_MAPPA))
+    if((posX+(util.SPAZIO_CELLE * x))<(util.POSIZIONE_PARTENZA_MAPPA_X+util.LARGHEZZA_MAPPA))
     {
         posX = x;
-        if((posY+(util.DIMENSIONE_CELLE * y))<(util.POSIZIONE_PARTENZA_MAPPA_Y+util.ALTEZZA_MAPPA))
+        if((posY+(util.SPAZIO_CELLE * y))<(util.POSIZIONE_PARTENZA_MAPPA_Y+util.ALTEZZA_MAPPA))
         {
             posY = y;
             grafica.move(x, y);
@@ -32,13 +32,13 @@ void ElementoGrafico::muovi()
 
 void ElementoGrafico::setPosizione(int x, int y)
 {
-    int mossa_asse_x=util.DIMENSIONE_CELLE * x;
-    int mossa_asse_y=util.DIMENSIONE_CELLE * y;
+    int mossa_asse_x=util.SPAZIO_CELLE * x;
+    int mossa_asse_y=util.SPAZIO_CELLE * y;
     if((posX+mossa_asse_x<util.POSIZIONE_PARTENZA_MAPPA_X+util.LARGHEZZA_MAPPA)&&(posX+mossa_asse_x>=util.POSIZIONE_PARTENZA_MAPPA_X))
     {
         pos_cella_x+=x;
-        posX += util.DIMENSIONE_CELLE * x;
-        spostamento_x = util.DIMENSIONE_CELLE * x;
+        posX += util.SPAZIO_CELLE * x;
+        spostamento_x = util.SPAZIO_CELLE * x;
     }
     else
     {
@@ -48,8 +48,8 @@ void ElementoGrafico::setPosizione(int x, int y)
     if((posY+mossa_asse_y<util.POSIZIONE_PARTENZA_MAPPA_Y+util.ALTEZZA_MAPPA)&&(posY+mossa_asse_y>=util.POSIZIONE_PARTENZA_MAPPA_Y))
     {
         pos_cella_y+=y;
-        posY += util.DIMENSIONE_CELLE * y;
-        spostamento_y = util.DIMENSIONE_CELLE * y;
+        posY += util.SPAZIO_CELLE * y;
+        spostamento_y = util.SPAZIO_CELLE * y;
     }
     else
     {

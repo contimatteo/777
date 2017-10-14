@@ -44,10 +44,10 @@ void ListaNemici::attaccoNemico(Personaggio &eroe)
     for( int i=0; i<numeroNemici; i++)
     {
         //if(valore assluto di posizione personaggio-posizione nemico == distanza minima ) allora attacca senno i++
-        if (abs(array_nemici[i]->posX - eroe.posX) <= util.DIMENSIONE_CELLE)
+        if (abs(array_nemici[i]->posX - eroe.posX) <= util.SPAZIO_CELLE)
         {
             eroe.setVitaAttuale(vita - 10);
-        } else if(abs(array_nemici[i]->posY - eroe.posY) <= util.DIMENSIONE_CELLE)
+        } else if(abs(array_nemici[i]->posY - eroe.posY) <= util.SPAZIO_CELLE)
             {
                 eroe.setVitaAttuale(vita - 10);
             }
