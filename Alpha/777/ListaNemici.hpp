@@ -24,8 +24,8 @@ class ListaNemici
         ListaNemici(int stack);
 
         void creaNemici(int pianoCorrente, int stanzaCorrente);
-        void attaccoNemico(Personaggio &eroe);
-        void eliminaNemico(Personaggio eroe1);
+        void nemicoAttaccaPersonaggio(Personaggio &eroe);
+        void eliminaNemicoInPosizione(int posizione);
         void cancellaArray();
 };
 

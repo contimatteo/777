@@ -6,12 +6,14 @@
 #define INC_777_PERSONAGGIO_H
 
 #include "ElementoGrafico.hpp"
+#include "ListaNemici.hpp"
+#include "Utilities.hpp"
 
 
 class Personaggio:public ElementoGrafico {
 
-private:
-
+public:
+    Utilities util;
     //int graphics;
     int vitaMassima = 1000; //pet-
     int vitaAttuale = 1000;
@@ -19,6 +21,7 @@ private:
     int manaAttuale = 100;
     int esperienza = 0;
     int livello = 1;
+    int gittata= util.DIMENSIONE_CELLE*2;
     int armatura = 10; //pet-
     int potenza = 10; //pet-
     int saggezza = 10; //pet-
@@ -43,8 +46,6 @@ private:
     //int dmg_skill4 = (1 + (lv_skill4/50) ) *100* (1+(lv_skill4/10))/* + valore random da 1 a 19+lv skill */ ;
 
     //_______________________________
-
-public:
     // metodi
     void setGraphics(int grafica);
     void setVitaAttuale(int vita);
@@ -68,6 +69,7 @@ public:
     void setContatoreSkill2(int contatore);
     void setContatoreSkill3(int contatore);
     void setContatoreSkill4(int contatore);
+    void personaggioAttaccaNemico(ListaNemici &nemici);
 
     //_____GETTER____________________
     int getVitaAttuale();
@@ -90,7 +92,6 @@ public:
     int getContatoreSkill2();
     int getContatoreSkill3();
     int getContatoreSkill4();
-    int gittata=40;
 
     //Costruttore
     Personaggio();

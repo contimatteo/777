@@ -36,7 +36,7 @@ void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
 
 //creare una funzione che controlli se il nemico si trova a DIST=5 dal personaggio e togliere vita al personaggio
 
-void ListaNemici::attaccoNemico(Personaggio &eroe)
+void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
 {
     int vita=eroe.getVitaAttuale();
     //mi ricavo la lunghezza dell array per sapere quanti nemici ci sono nella stanza
@@ -56,25 +56,16 @@ void ListaNemici::attaccoNemico(Personaggio &eroe)
 
 // in caso di scontro con un nemico creare una funzione che elimini il nemico
 // funzione che richiamo quanod il personaggio attacca
-void ListaNemici::eliminaNemico(Personaggio eroe1)
+void ListaNemici::eliminaNemicoInPosizione(int posizione)
 {
-    for (int i=0; i<numeroNemici; i++)
-    {
-        if(abs(eroe1.posX-array_nemici[i]->posX)<=20)
-        {
-            array_nemici[i]->vita=array_nemici[i]->vita-eroe1.getPotenza();
-        }else if(abs(eroe1.posY-array_nemici[i]->posY)<=20)
-            {
-                array_nemici[i]->vita=array_nemici[i]->vita-eroe1.getPotenza();
-            }
-        // sposto il nemico fuori dalla mappa
-        if (array_nemici[i]->vita<=0)
-        {
-            array_nemici[i]->posX=9999;
-            array_nemici[i]->posY=9999;
-        }
 
+    for (int i=posizione; i<numeroNemici-1; i++)
+    {
+        array_nemici[i] = array_nemici[i+1];
     }
+
+    numeroNemici=numeroNemici-1;
+
 }
 
 // liberare l'array lista nemici
