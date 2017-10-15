@@ -11,6 +11,8 @@
 
 const int NUMERO_NEMICI_MASSIMO=100;
 
+class Personaggio;
+
 class ListaNemici
 {
 public:

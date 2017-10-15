@@ -9,6 +9,7 @@
 #include "ListaNemici.hpp"
 #include "Utilities.hpp"
 
+class ListaNemici;
 
 class Personaggio:public ElementoGrafico {
 
@@ -47,7 +48,7 @@ public:
 
     //_______________________________
     // metodi
-    void setGraphics(int grafica);
+    //void setGraphics(int grafica);
     void setVitaAttuale(int vita);
     void setManaAttuale (int mana);
     void setLivello (int liv);
@@ -69,6 +70,8 @@ public:
     void setContatoreSkill2(int contatore);
     void setContatoreSkill3(int contatore);
     void setContatoreSkill4(int contatore);
+
+    // qundo il personaggio attacca un nemico
     void personaggioAttaccaNemico(ListaNemici &nemici);
 
     //_____GETTER____________________
