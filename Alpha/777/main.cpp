@@ -1,12 +1,9 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <SFML/Window/VideoMode.hpp>
 #include <SFML/Audio.hpp>
 #include "ElementoGrafico.hpp"
-#include "Utilities.hpp"
 #include "Personaggio.hpp"
-#include "ListaNemici.hpp"
 using namespace sf;
 
 // ----------------------------
