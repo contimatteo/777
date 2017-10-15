@@ -13,20 +13,20 @@ const int NUMERO_NEMICI_MASSIMO=100;
 
 class ListaNemici
 {
-    public:
-        Utilities util;
-        int numeroNemici;
-        // array nemici
-        Nemico *array_nemici[NUMERO_NEMICI_MASSIMO];
-        // array delle posizioni random generate
-        sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO];
-        // costruttori
-        ListaNemici(int stack);
+public:
+    Utilities util;
+    int numeroNemici;
+    // array nemici
+    Nemico *array_nemici[NUMERO_NEMICI_MASSIMO];
+    // array delle posizioni random generate
+    sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO];
+    // costruttori
+    ListaNemici(int stack);
 
-        void creaNemici(int pianoCorrente, int stanzaCorrente);
-        void nemicoAttaccaPersonaggio(Personaggio &eroe);
-        void eliminaNemicoInPosizione(int posizione);
-        void cancellaArray();
+    void creaNemici(int pianoCorrente, int stanzaCorrente);
+    void nemicoAttaccaPersonaggio(Personaggio &eroe);
+    void eliminaNemicoInPosizione(int posizione);
+    void cancellaArray();
 };
 
 

@@ -48,9 +48,9 @@ void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
         {
             eroe.setVitaAttuale(vita - 10);
         } else if(abs(array_nemici[i]->posY - eroe.posY) <= util.SPAZIO_CELLE)
-            {
-                eroe.setVitaAttuale(vita - 10);
-            }
+        {
+            eroe.setVitaAttuale(vita - 10);
+        }
     }
 }
 
