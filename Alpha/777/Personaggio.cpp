@@ -52,30 +52,45 @@ Personaggio::Personaggio(int tipo_personaggio): ElementoGrafico(tipo_personaggio
 
 }
 
-
 void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici)
 {
     int vita=getVitaAttuale();
     //mi ricavo la lunghezza dell array per sapere quanti nemici ci sono nella stanza
     //controllo la distanza
-    for( int i=0; i<nemici.numeroNemici; i++)
+    int i=0;
+    bool flag=false;
+    while ((i<nemici.numeroNemici) || (flag!=true))
     {
         //if(valore assluto di posizione personaggio-posizione nemico == distanza minima ) allora attacca senno i++
         if (abs(nemici.array_nemici[i]->posX - this->posX) <= gittata)
         {
-            if((potenza-nemici.array_nemici[i]->vita) <= 0)
-            {
-                // richiamiamo una funzione che elimina il nemico in posizione i
-                nemici.eliminaNemicoInPosizione(i);
-            }
-        }
-        else if (abs(nemici.array_nemici[i]->posY - this->posY) <= gittata)
-        {
+            nemici.array_nemici[i]->vita= nemici.array_nemici[i]->vita - potenza;
             if(potenza-nemici.array_nemici[i]->vita<=0)
             {
                 // richiamiamo una funzione che elimina il nemico in posizione i
                 nemici.eliminaNemicoInPosizione(i);
+                flag=true;
             }
+
+        } else if(abs(nemici.array_nemici[i]->posY - this->posY) <= gittata)
+        {
+            nemici.array_nemici[i]->vita= nemici.array_nemici[i]->vita - potenza;
+            if(potenza-nemici.array_nemici[i]->vita<=0)
+            {
+                // richiamiamo una funzione che elimina il nemico in posizione i
+                nemici.eliminaNemicoInPosizione(i);
+                flag=true;
+            } else if((abs(nemici.array_nemici[i]->posY - this->posY) <= gittata) && (abs(nemici.array_nemici[i]->posX - this->posX) <= gittata)) {
+                nemici.array_nemici[i]->vita = nemici.array_nemici[i]->vita - potenza;
+                if (potenza - nemici.array_nemici[i]->vita <= 0) {
+                    // richiamiamo una funzione che elimina il nemico in posizione i
+                    nemici.eliminaNemicoInPosizione(i);
+                    flag = true;
+                }
+            }
+
         }
+        i++;
+        flag=false;
     }
 }
