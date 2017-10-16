@@ -80,13 +80,6 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici)
                 // richiamiamo una funzione che elimina il nemico in posizione i
                 nemici.eliminaNemicoInPosizione(i);
                 flag=true;
-            } else if((abs(nemici.array_nemici[i]->posY - this->posY) <= gittata) && (abs(nemici.array_nemici[i]->posX - this->posX) <= gittata)) {
-                nemici.array_nemici[i]->vita = nemici.array_nemici[i]->vita - potenza;
-                if (potenza - nemici.array_nemici[i]->vita <= 0) {
-                    // richiamiamo una funzione che elimina il nemico in posizione i
-                    nemici.eliminaNemicoInPosizione(i);
-                    flag = true;
-                }
             }
 
         }
