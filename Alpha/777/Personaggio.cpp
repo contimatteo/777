@@ -72,7 +72,7 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici)
                 flag=true;
             }
 
-        } else if(abs(nemici.array_nemici[i]->posY - this->posY) <= gittata)
+        } else if((abs(nemici.array_nemici[i]->posY - this->posY) <= gittata) && (flag!= true))
         {
             nemici.array_nemici[i]->vita= nemici.array_nemici[i]->vita - potenza;
             if(potenza-nemici.array_nemici[i]->vita<=0)
@@ -84,6 +84,6 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici)
 
         }
         i++;
-        flag=false;
     }
+    flag=false;
 }
