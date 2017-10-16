@@ -73,37 +73,37 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // eroe
         case 1:
         {
-            texture.loadFromFile("../risorse/immagini/green.png");
+            texture.loadFromFile("../risorse/immagini/Azzurro.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // pet
         case 2:
         {
-            texture.loadFromFile("../risorse/immagini/red.png");
+            texture.loadFromFile("../risorse/immagini/red.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // nemico
         case 3:
         {
-            texture.loadFromFile("../risorse/immagini/red.png");
+            texture.loadFromFile("../risorse/immagini/Verde1.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // altri
         case 4:
         {
-            texture.loadFromFile("../risorse/immagini/red.png");
+            texture.loadFromFile("../risorse/immagini/red.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // mura mappa
         case 10:
         {
-            texture.loadFromFile("../risorse/immagini/white.png");
+            texture.loadFromFile("../risorse/immagini/Marrone.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // pavimento mappa
         case 11:
         {
-            texture.loadFromFile("../risorse/immagini/white.png");
+            texture.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // default

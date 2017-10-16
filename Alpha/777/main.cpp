@@ -44,7 +44,7 @@ void disegnaMappa(RenderWindow &Gioco)
     Gioco.draw(bordo_mappa);
 
     sf::Texture texture_mappa;
-    texture_mappa.loadFromFile("../risorse/immagini/verde1.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+    texture_mappa.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     sf::Sprite immagine_mappa(texture_mappa);
     for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
         for (int j=0; j<util.NUMERO_CASELLE_ASSE_Y; j++)
@@ -86,7 +86,7 @@ void disegnaConsole(RenderWindow &Gioco)
     console.setFillColor(util.COLORE_SFONDO);
     console.setOutlineColor(sf::Color::White);
     console.setOutlineThickness(1.5);
-    Gioco.draw(console);
+    //Gioco.draw(console);
 }
 
 void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
