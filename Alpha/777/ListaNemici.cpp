@@ -21,6 +21,7 @@ int calcolaLunghezza(int piano , int stanza)
 //creare una funzione che generi i nemici
 void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
 {
+    cancellaArray();
     //Vector2<int> posizione_nemico_corrente(,0);
     numeroNemici=calcolaLunghezza(pianoCorrente, stanzaCorrente);
     for(int i=0; i<numeroNemici; i++)
