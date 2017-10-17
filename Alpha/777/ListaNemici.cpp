@@ -81,16 +81,27 @@ void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
     }
 }
 
+void ListaNemici::stampaArray(Nemico *array[], int lunghezza)
+{
+    for (int i = 0; i < lunghezza; ++i)
+    {
+        std::cout<<"nemico ("<<i<<") nella cella --> ["<<array[i]->pos_cella_x<<", "<<array[i]->pos_cella_y<<"] \n";
+    }
+    std::cout<<"\n--------------------\n";
+}
+
 // in caso di scontro con un nemico creare una funzione che elimini il nemico
 // funzione che richiamo quanod il personaggio attacca
 void ListaNemici::eliminaNemicoInPosizione(int posizione)
 {
+    std::cout<<"\n--------------------\n";
     for (int i=posizione; i<numeroNemici-1; i++)
     {
         array_nemici[i] = array_nemici[i+1];
     }
     // decremento di uno l'array di nemici
     numeroNemici=numeroNemici-1;
+    //stampaArray(array_nemici, numeroNemici);
 }
 
 // liberare l'array lista nemici
@@ -103,7 +114,15 @@ void ListaNemici::cancellaArray()
 }
 
 
-
+void ListaNemici::disegnaNemici(RenderWindow &Gioco, ListaNemici &nemici)
+{
+    //fare for per stampare nemici e stampare posizioni
+    for (int i=0; i<nemici.numeroNemici; i++)
+    {
+        //nemici.array_nemici[i]->grafica.setPosition(nemici.array_nemici[i]->posX, nemici.array_nemici[i]->posY);
+        Gioco.draw(nemici.array_nemici[i]->grafica);
+    }
+}
 
 //costruttore
 ListaNemici::ListaNemici(int stack)

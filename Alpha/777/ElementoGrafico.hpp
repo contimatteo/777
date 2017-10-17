@@ -9,6 +9,8 @@
 #include "Utilities.hpp"
 using namespace sf;
 
+
+
 class ElementoGrafico
 {
     private:

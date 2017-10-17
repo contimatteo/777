@@ -72,7 +72,7 @@ Vector2<int> Utilities::generaPosizioneRandom()
     int rand_y = rand()%(max_value-min_value + 1) + min_value;
     Vector2<int> posizione_corrente = {rand_x, rand_y};
     // controllo che non sia già stata creata una posizione uguale
-    if(controlloDuplicato(posizione_corrente))
+    if((controlloDuplicato(posizione_corrente)) || ((rand_x==1)&&(rand_y==1)))
         // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
         // if(funzione_porc_mi_dà_ok)
         generaPosizioneRandom();

@@ -7,6 +7,8 @@
 
 #include "ElementoGrafico.hpp"
 
+
+
 class Nemico: public ElementoGrafico{
 
 public:

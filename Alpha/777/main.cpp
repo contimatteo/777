@@ -90,15 +90,7 @@ void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
     Gioco.draw(eroe.grafica);
 }
 
-void disegnaNemici(RenderWindow &Gioco, ListaNemici &nemici)
-{
-   //fare for per stampare nemici e stampare posizioni
-    for (int i=0; i<nemici.numeroNemici; i++)
-    {
-        //nemici.array_nemici[i]->grafica.setPosition(nemici.array_nemici[i]->posX, nemici.array_nemici[i]->posY);
-        Gioco.draw(nemici.array_nemici[i]->grafica);
-    }
-}
+
 
 void disegnaElementiExtra(RenderWindow &Gioco)
 {
@@ -110,7 +102,7 @@ void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici 
     disegnaFinestraDestra(Gioco);
     disegnaConsole(Gioco);
     disegnaEroe(Gioco, eroe);
-    disegnaNemici(Gioco, nemici);
+    nemici.disegnaNemici(Gioco, nemici);
     //disegnaElementiExtra(Gioco);
 
 }

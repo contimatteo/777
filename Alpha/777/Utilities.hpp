@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/VideoMode.hpp>
+
 using namespace sf;
 
 class Utilities
