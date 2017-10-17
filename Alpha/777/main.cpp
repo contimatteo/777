@@ -18,7 +18,6 @@ void test(Personaggio &eroe, ListaNemici &nemici)
     std::cout<<"\n vita iniziale personaggio: "<<eroe.vitaAttuale<<"\n";
     nemici.nemicoAttaccaPersonaggio(eroe);
     std::cout<<"\n vita iniziale dopo l'attacco: "<<eroe.vitaAttuale<<"\n";
-    std::cout<<"----------------------------------------------------\n";
 }
 
 void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio)
