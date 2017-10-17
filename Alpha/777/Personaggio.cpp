@@ -50,6 +50,19 @@ int Personaggio::getContatoreSkill4(){return contatoreSkill4;}
 Personaggio::Personaggio(int tipo_personaggio): ElementoGrafico(tipo_personaggio)
 {
 
+
+}
+
+void Personaggio::eliminaNemico(ListaNemici &nemici, int posizione, bool &flag)
+{
+    std::cout<<"nemico colpito in posizione "<<posizione<<"\n";
+    nemici.array_nemici[posizione]->vita= nemici.array_nemici[posizione]->vita - potenza;
+    if(potenza-nemici.array_nemici[posizione]->vita<=0)
+    {
+        // richiamiamo una funzione che elimina il nemico in posizione i
+        //nemici.eliminaNemicoInPosizione(posizione);
+        flag=true;
+    }
 }
 
 void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici)
@@ -59,61 +72,46 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici)
     //controllo la distanza
     int i=0;
     bool flag=false;
-    while ((i<nemici.numeroNemici) || (flag!=true))
+    while ((i<nemici.numeroNemici) && (flag!=true))
     {
-        //if(valore assluto di posizione personaggio-posizione nemico == distanza minima ) allora attacca senno i++
-        if (abs(nemici.array_nemici[i]->posX - this->posX) <= gittata)
+        // controllo se c'è un nemico vicino rispetto all'asse x
+        if ((abs(nemici.array_nemici[i]->posX -posX) == gittata)&&(nemici.array_nemici[i]->posY==posY) && (flag!=false))
         {
-            nemici.array_nemici[i]->vita= nemici.array_nemici[i]->vita - potenza;
-            if(potenza-nemici.array_nemici[i]->vita<=0)
-            {
-                // richiamiamo una funzione che elimina il nemico in posizione i
-                nemici.eliminaNemicoInPosizione(i);
-                flag=true;
-            }
-
+            eliminaNemico(nemici,i,flag);
         }
-        if((abs(nemici.array_nemici[i]->posY - this->posY) <= gittata) && (flag!= true))
+        // controllo se c'è un nemico vicino rispetto all'asse y
+        if((abs(nemici.array_nemici[i]->posY -posY) == gittata)&&(nemici.array_nemici[i]->posX==posX) && (flag!=false))
         {
-            nemici.array_nemici[i]->vita= nemici.array_nemici[i]->vita - potenza;
-            if(potenza-nemici.array_nemici[i]->vita<=0)
+            eliminaNemico(nemici,i,flag);
+        }
+        // controllo se c'è un nemico vicino rispetto alla diagonale principale in alto a sinistra
+        if((posY+gittata==nemici.array_nemici[i]->posY)&&(posX+gittata==nemici.array_nemici[i]->posX) && (flag!=false))
+        {
+            eliminaNemico(nemici,i,flag);
+        }
+        // controllo se c'è un nemico vicino rispetto alla diagonale principale in basso a destra
+        if((posY-gittata==nemici.array_nemici[i]->posY)&&(posX-gittata==nemici.array_nemici[i]->posX) && (flag!=false))
+        {
+            eliminaNemico(nemici,i,flag);
+        }
+        // controllo se c'è un nemico vicono rispetto alla diagonale secondaria
+        if(posX-gittata==nemici.array_nemici[i]->posX)
+        {
+            if((posY+gittata==nemici.array_nemici[i]->posY) && (flag!=false))
             {
-                // richiamiamo una funzione che elimina il nemico in posizione i
-                nemici.eliminaNemicoInPosizione(i);
-                flag=true;
+                eliminaNemico(nemici,i,flag);
             }
-            // controllo se c'è un nemico vicino rispetto alla diagonale principale in alto a sinistra
-            if((posY+util.SPAZIO_CELLE==nemici.array_nemici[i]->posY)&&(posX+util.SPAZIO_CELLE==nemici.array_nemici[i]->posX) && (flag!= true))
+        }
+        if(posX+gittata==nemici.array_nemici[i]->posX)
+        {
+            if((posY-gittata==nemici.array_nemici[i]->posY) && (flag!=false))
             {
-                nemici.array_nemici[i]->vita-=potenza;
-                flag=true;
+                eliminaNemico(nemici,i,flag);
             }
-            // controllo se c'è un nemico vicino rispetto alla diagonale principale in basso a destra
-            if((posY-util.SPAZIO_CELLE==nemici.array_nemici[i]->posY)&&(posX-util.SPAZIO_CELLE==nemici.array_nemici[i]->posX)&& (flag!= true))
-            {
-                nemici.array_nemici[i]->vita-=potenza;
-                flag=true;
-            }
-            // controllo se c'è un nemico vicono rispetto alla diagonale secondaria
-            if(posX-util.SPAZIO_CELLE==nemici.array_nemici[i]->posX)
-            {
-                if((posY+util.SPAZIO_CELLE==nemici.array_nemici[i]->posY) && (flag!= true))
-                {
-                    nemici.array_nemici[i]->vita-=potenza;
-                    flag=true;
-                }
-            }
-            if(posX+util.SPAZIO_CELLE==nemici.array_nemici[i]->posX)
-            {
-                if((posY-util.SPAZIO_CELLE==nemici.array_nemici[i]->posY) && (flag!= true))
-                {
-                    nemici.array_nemici[i]->vita-=potenza;
-                    flag=true;
-                }
-            }
-
         }
         i++;
     }
+    if(!flag)
+        std::cout<<"nessun nemico colpito \n";
     flag=false;
 }

@@ -14,10 +14,7 @@ static Utilities util;
 
 void test(Personaggio &eroe, ListaNemici &nemici)
 {
-    std::cout<<"\n----------------------------------------------------";
-    std::cout<<"\n vita iniziale personaggio: "<<eroe.vitaAttuale<<"\n";
     nemici.nemicoAttaccaPersonaggio(eroe);
-    std::cout<<"\n vita iniziale dopo l'attacco: "<<eroe.vitaAttuale<<"\n";
 }
 
 void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio)
@@ -123,7 +120,7 @@ void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici 
 int main()
 {
     srand(static_cast <unsigned int> (time(0)));
-    bool muovi_personaggio=false;
+    bool muovi_personaggio=false, eroe_attacca=false;
     sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY), "777 - Game");
     Gioco.setKeyRepeatEnabled(true);
 
@@ -179,9 +176,17 @@ int main()
             muoviEroe(Gioco, eroe, 0, 1, muovi_personaggio);
             // test
             test(eroe, nemici);
-
         }
-
+        // attacco eroe
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))||(sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2)))
+        {
+            eroe_attacca=true;
+        }
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space))&&(eroe_attacca))
+        {
+            eroe.personaggioAttaccaNemico(nemici);
+            eroe_attacca=false;
+        }
         // Clear screen
         Gioco.clear(util.COLORE_SFONDO);
         // disegno la mappa

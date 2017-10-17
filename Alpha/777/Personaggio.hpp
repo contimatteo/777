@@ -8,6 +8,7 @@
 #include "ElementoGrafico.hpp"
 #include "ListaNemici.hpp"
 #include "Utilities.hpp"
+#include <iostream>
 
 class ListaNemici;
 
@@ -22,7 +23,7 @@ public:
     int manaAttuale = 100;
     int esperienza = 0;
     int livello = 1;
-    int gittata= util.DIMENSIONE_CELLE*2;
+    int gittata= util.SPAZIO_CELLE*2;
     int armatura = 10; //pet-
     int potenza = 10; //pet-
     int saggezza = 10; //pet-
@@ -73,6 +74,7 @@ public:
 
     // qundo il personaggio attacca un nemico
     void personaggioAttaccaNemico(ListaNemici &nemici);
+    void eliminaNemico(ListaNemici &nemici, int posizione, bool &flag);
 
     //_____GETTER____________________
     int getVitaAttuale();
