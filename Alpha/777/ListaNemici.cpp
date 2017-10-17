@@ -21,7 +21,7 @@ int calcolaLunghezza(int piano , int stanza)
 //creare una funzione che generi i nemici
 void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
 {
-    cancellaArray();
+    //cancellaArray();
     //Vector2<int> posizione_nemico_corrente(,0);
     numeroNemici=calcolaLunghezza(pianoCorrente, stanzaCorrente);
     for(int i=0; i<numeroNemici; i++)
@@ -45,25 +45,21 @@ void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
         // controllo se c'è un nemico vicino rispetto all'asse x
         if ((abs(array_nemici[i]->posX - eroe.posX) == util.SPAZIO_CELLE)&&(array_nemici[i]->posY==eroe.posY))
         {
-            std::cout<<"["<<i<<"] -- trovato nemico sull' asse x \n";
             eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
         }
         // controllo se c'è un nemico vicino rispetto all'asse y
         if((abs(array_nemici[i]->posY - eroe.posY) == util.SPAZIO_CELLE)&&(array_nemici[i]->posX==eroe.posX))
         {
-            std::cout<<"["<<i<<"] -- trovato nemico sull' asse y \n";
             eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
         }
         // controllo se c'è un nemico vicino rispetto alla diagonale principale in alto a sinistra
         if((eroe.posY+util.SPAZIO_CELLE==array_nemici[i]->posY)&&(eroe.posX+util.SPAZIO_CELLE==array_nemici[i]->posX))
         {
-            std::cout<<"["<<i<<"] -- trovato nemico sulla diagonale principale in alto a sinistra\n";
             eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
         }
         // controllo se c'è un nemico vicino rispetto alla diagonale principale in basso a destra
         if((eroe.posY-util.SPAZIO_CELLE==array_nemici[i]->posY)&&(eroe.posX-util.SPAZIO_CELLE==array_nemici[i]->posX))
         {
-            std::cout<<"["<<i<<"] -- trovato nemico sulla diagonale principale in basso a destra\n";
             eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
         }
         // controllo se c'è un nemico vicono rispetto alla diagonale secondaria
@@ -71,7 +67,6 @@ void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
         {
             if(eroe.posY+util.SPAZIO_CELLE==array_nemici[i]->posY)
             {
-                std::cout<<"["<<i<<"] -- trovato nemico sulla diagonale secondaria in alto destra \n";
                 eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
             }
         }
@@ -79,7 +74,6 @@ void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
         {
             if(eroe.posY-util.SPAZIO_CELLE==array_nemici[i]->posY)
             {
-                std::cout<<"["<<i<<"] -- trovato nemico sulla diagonale secondaria in basso a sinistra \n";
                 eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
             }
         }

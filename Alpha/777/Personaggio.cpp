@@ -72,7 +72,8 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici)
                 flag=true;
             }
 
-        } else if((abs(nemici.array_nemici[i]->posY - this->posY) <= gittata) && (flag!= true))
+        }
+        if((abs(nemici.array_nemici[i]->posY - this->posY) <= gittata) && (flag!= true))
         {
             nemici.array_nemici[i]->vita= nemici.array_nemici[i]->vita - potenza;
             if(potenza-nemici.array_nemici[i]->vita<=0)
@@ -80,6 +81,35 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici)
                 // richiamiamo una funzione che elimina il nemico in posizione i
                 nemici.eliminaNemicoInPosizione(i);
                 flag=true;
+            }
+            // controllo se c'è un nemico vicino rispetto alla diagonale principale in alto a sinistra
+            if((posY+util.SPAZIO_CELLE==nemici.array_nemici[i]->posY)&&(posX+util.SPAZIO_CELLE==nemici.array_nemici[i]->posX) && (flag!= true))
+            {
+                nemici.array_nemici[i]->vita-=potenza;
+                flag=true;
+            }
+            // controllo se c'è un nemico vicino rispetto alla diagonale principale in basso a destra
+            if((posY-util.SPAZIO_CELLE==nemici.array_nemici[i]->posY)&&(posX-util.SPAZIO_CELLE==nemici.array_nemici[i]->posX)&& (flag!= true))
+            {
+                nemici.array_nemici[i]->vita-=potenza;
+                flag=true;
+            }
+            // controllo se c'è un nemico vicono rispetto alla diagonale secondaria
+            if(posX-util.SPAZIO_CELLE==nemici.array_nemici[i]->posX)
+            {
+                if((posY+util.SPAZIO_CELLE==nemici.array_nemici[i]->posY) && (flag!= true))
+                {
+                    nemici.array_nemici[i]->vita-=potenza;
+                    flag=true;
+                }
+            }
+            if(posX+util.SPAZIO_CELLE==nemici.array_nemici[i]->posX)
+            {
+                if((posY-util.SPAZIO_CELLE==nemici.array_nemici[i]->posY) && (flag!= true))
+                {
+                    nemici.array_nemici[i]->vita-=potenza;
+                    flag=true;
+                }
             }
 
         }
