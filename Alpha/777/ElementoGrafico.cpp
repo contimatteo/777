@@ -73,7 +73,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // eroe
         case 1:
         {
-            texture.loadFromFile("../risorse/immagini/Azzurro.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Viola.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // pet
