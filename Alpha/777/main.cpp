@@ -11,15 +11,15 @@ static Utilities util;
 
 // ----------------------------
 
-/*
-void test(ListaNemici &nemici)
+
+void test(Personaggio &eroe, ListaNemici &nemici)
 {
-    nemici.cancellaArray();
-    // ricreare qui i nemici in caso di errore
-    // nemici.creaNemici(1,1);
-    // for (int i=0; i<nemici.numeroNemici; i++)
-        // std::cout<<nemici.array_nemici[i]->posX<< " " << nemici.array_nemici[i]->posY <<std::endl;
-}*/
+    std::cout<<"\n----------------------------------------------------";
+    std::cout<<"\n vita iniziale personaggio: "<<eroe.vitaAttuale<<"\n";
+    nemici.nemicoAttaccaPersonaggio(eroe);
+    std::cout<<"\n vita iniziale dopo l'attacco: "<<eroe.vitaAttuale<<"\n";
+    std::cout<<"----------------------------------------------------\n";
+}
 
 void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio)
 {
@@ -160,18 +160,27 @@ int main()
         {
             // freccia Sinistra premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio);
+            // test
+            test(eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, 1, 0, muovi_personaggio);
+            // test
+            test(eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, 0, -1, muovi_personaggio);
+            // test
+            test(eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) && muovi_personaggio) {
             // freccia GIU premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, 0, 1, muovi_personaggio);
+            // test
+            test(eroe, nemici);
+
         }
 
         // Clear screen

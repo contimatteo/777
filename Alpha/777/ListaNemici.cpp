@@ -42,13 +42,19 @@ void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
     //controllo la distanza
     for( int i=0; i<numeroNemici; i++)
     {
-        //if(valore assluto di posizione personaggio-posizione nemico == distanza minima ) allora attacca senno i++
-        if (abs(array_nemici[i]->posX - eroe.posX) <= util.SPAZIO_CELLE)
+        std::cout<<"\n posizione eroe --> ["<< eroe.pos_cella_x<< ", "<< eroe.pos_cella_y <<"] ------ ";
+        std::cout<<"posizione nemico --> ["<< array_nemici[i]->pos_cella_x<< ", "<< array_nemici[i]->pos_cella_y <<"] \n";
+        // controllo se c'è un nemico vicino rispetto all'asse x
+        if ((abs(array_nemici[i]->posX - eroe.posX) <= util.SPAZIO_CELLE)&&(array_nemici[i]->posY==eroe.posY))
         {
-            eroe.setVitaAttuale(vita - 10);
-        } else if(abs(array_nemici[i]->posY - eroe.posY) <= util.SPAZIO_CELLE)
+            std::cout<<"trovato un nemico vicino lungo l'asse x -->  \n";
+            eroe.setVitaAttuale(vita - array_nemici[i]->attacco);
+        }
+        // controllo se c'è un nemico vicino rispetto all'asse y
+        else if((abs(array_nemici[i]->posY - eroe.posY) <= util.SPAZIO_CELLE)&&(array_nemici[i]->posX==eroe.posX))
         {
-            eroe.setVitaAttuale(vita - 10);
+            std::cout<<"trovato un nemico vicino lungo l'asse y \n";
+            eroe.setVitaAttuale(vita - array_nemici[i]->attacco);
         }
     }
 }
