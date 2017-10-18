@@ -4,6 +4,7 @@
 #include <SFML/Audio.hpp>
 #include "ElementoGrafico.hpp"
 #include "Personaggio.hpp"
+#include "Grafica.hpp"
 using namespace sf;
 
 // ----------------------------
@@ -29,26 +30,9 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi
 }
 
 
-void disegnaMappa(RenderWindow &Gioco)
+void disegnaMappa(RenderWindow &Gioco, Grafica &grafica)
 {
-    // disegno bordi gioco
-    sf::RectangleShape bordo_mappa(sf::Vector2f(util.LARGHEZZA_MAPPA+(2*util.MARGINE_MAPPA), util.ALTEZZA_MAPPA+(2*util.MARGINE_MAPPA)));
-    bordo_mappa.setPosition(util.POSIZIONE_PARTENZA_MAPPA_X-util.MARGINE_MAPPA, util.POSIZIONE_PARTENZA_MAPPA_Y-util.MARGINE_MAPPA);
-    bordo_mappa.setFillColor(util.COLORE_SFONDO);
-    bordo_mappa.setOutlineColor(sf::Color::White);
-    bordo_mappa.setOutlineThickness(1.5);
-    Gioco.draw(bordo_mappa);
-
-    sf::Texture texture_mappa;
-    texture_mappa.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
-    sf::Sprite immagine_mappa(texture_mappa);
-    for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
-        for (int j=0; j<util.NUMERO_CASELLE_ASSE_Y; j++)
-        {
-            immagine_mappa.setPosition((util.POSIZIONE_PARTENZA_MAPPA_X)+(util.SPAZIO_CELLE*i),(util.POSIZIONE_PARTENZA_MAPPA_Y)+(util.SPAZIO_CELLE*j));
-            Gioco.draw(immagine_mappa);
-        }
-
+    grafica.disegnaMappa(Gioco);
 }
 
 void disegnaFinestraSinistra(RenderWindow &Gioco)
@@ -116,10 +100,12 @@ int main()
     sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY), "777 - Game");
     Gioco.setKeyRepeatEnabled(true);
 
+    // Instanzio la mappa
+    Grafica grafica(0);
     // Istanzio L' eroe
     Personaggio eroe(1);
-    ListaNemici nemici(1);
-    //std::cout<<"posizione personaggio--> "<<eroe.grafica.getPosition().x<<", "<<eroe.grafica.getPosition().x<<"\n";
+    // Instanzio i nemici
+    ListaNemici nemici(2);
 
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen())
@@ -182,7 +168,7 @@ int main()
         // Clear screen
         Gioco.clear(util.COLORE_SFONDO);
         // disegno la mappa
-        disegnaMappa(Gioco);
+        disegnaMappa(Gioco, grafica);
         // disegno l'erore
         disegnaElementiGrafici(Gioco, eroe, nemici);
         // Aggiorno il Gioco con le modifiche

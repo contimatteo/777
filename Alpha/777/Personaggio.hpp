@@ -50,55 +50,11 @@ public:
     //int dmg_skill4 = (1 + (lv_skill4/50) ) *100* (1+(lv_skill4/10))/* + valore random da 1 a 19+lv skill */ ;
 
     //_______________________________
-    // metodi
-    //void setGraphics(int grafica);
-    void setVitaAttuale(int vita);
-    void setManaAttuale (int mana);
-    void setLivello (int liv);
-    void setArmatura (int arm);
-    void setPotenza (int pot);
-    void setSaggezza (int sag);
-    void setLv_skill1 (int lv);
-    void setLv_skill2 (int lv);
-    void setLv_skill3 (int lv);
-    void setLv_skill4 (int lv);
-    void setCritico (int crit);
-    //SETTIAMO LA POISIZIONE X
-    void setX(int posizionex);
-    //SETTIAMO LA POSIZIONE Y
-    void setY(int posizioney);
-    //SETTIAMO LA NUOVA ESPERIENZA OTTENUTA
-    void setEsperienzaAttuale(int esperienzanuova);
-    void setContatoreSkill1(int contatore);
-    void setContatoreSkill2(int contatore);
-    void setContatoreSkill3(int contatore);
-    void setContatoreSkill4(int contatore);
 
     // qundo il personaggio attacca un nemico
     void personaggioAttaccaNemico(ListaNemici &nemici);
     void eliminaNemico(ListaNemici &nemici, int posizione, bool &flag);
 
-    //_____GETTER____________________
-    int getVitaAttuale();
-    int getVitaMassima();
-    int getManaAttuale();
-    int getManaMassimo();
-    int getLivello();
-    int getArmatura();
-    int getPotenza();
-    int getSaggezza();
-    int getLv_skill1();
-    int getLv_skill2();
-    int getLv_skill3();
-    int getLv_skill4();
-    int getCritico();
-    int getEsperienza();
-    int getX();
-    int getY();
-    int getContatoreSkill1();
-    int getContatoreSkill2();
-    int getContatoreSkill3();
-    int getContatoreSkill4();
 
     //Costruttore
     Personaggio();
