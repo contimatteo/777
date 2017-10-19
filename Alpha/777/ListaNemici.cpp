@@ -45,36 +45,36 @@ void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
         // controllo se c'è un nemico vicino rispetto all'asse x
         if ((abs(array_nemici[i]->posX - eroe.posX) == util.SPAZIO_CELLE)&&(array_nemici[i]->posY==eroe.posY))
         {
-            eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
+            eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
         }
         // controllo se c'è un nemico vicino rispetto all'asse y
         if((abs(array_nemici[i]->posY - eroe.posY) == util.SPAZIO_CELLE)&&(array_nemici[i]->posX==eroe.posX))
         {
-            eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
+            eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
         }
         // controllo se c'è un nemico vicino rispetto alla diagonale principale in alto a sinistra
         if((eroe.posY+util.SPAZIO_CELLE==array_nemici[i]->posY)&&(eroe.posX+util.SPAZIO_CELLE==array_nemici[i]->posX))
         {
-            eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
+            eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
         }
         // controllo se c'è un nemico vicino rispetto alla diagonale principale in basso a destra
         if((eroe.posY-util.SPAZIO_CELLE==array_nemici[i]->posY)&&(eroe.posX-util.SPAZIO_CELLE==array_nemici[i]->posX))
         {
-            eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
+            eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
         }
         // controllo se c'è un nemico vicono rispetto alla diagonale secondaria
         if(eroe.posX-util.SPAZIO_CELLE==array_nemici[i]->posX)
         {
             if(eroe.posY+util.SPAZIO_CELLE==array_nemici[i]->posY)
             {
-                eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
+                eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
             }
         }
         if(eroe.posX+util.SPAZIO_CELLE==array_nemici[i]->posX)
         {
             if(eroe.posY-util.SPAZIO_CELLE==array_nemici[i]->posY)
             {
-                eroe.setVitaAttuale(eroe.vitaAttuale - array_nemici[i]->attacco);
+                eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
             }
         }
 

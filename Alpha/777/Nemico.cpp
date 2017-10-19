@@ -13,6 +13,6 @@ Nemico::Nemico(int tipo_nemico, int x, int y, int identificatore, int attacco_ne
     id=identificatore;
     attacco=attacco_nemico;
     // imposto la poszione del nemico per disegnarlo
-    std::cout<<"nemico ("<<identificatore<<") nella cella --> ["<<pos_cella_x<<", "<<pos_cella_y<<"] \n";
+    //std::cout<<"nemico ("<<identificatore<<") nella cella --> ["<<pos_cella_x<<", "<<pos_cella_y<<"] \n";
     grafica.setPosition(posX, posY);
 }
