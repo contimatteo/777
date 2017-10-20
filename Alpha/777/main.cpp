@@ -117,6 +117,12 @@ int main()
         Gioco.setVerticalSyncEnabled(true);
         // Process events
         sf::Event event;
+        /*
+        sf::Music music;
+        if (!music.openFromFile("../risorse/audio/main-song.ogg"))
+            return -1; // error
+        music.play();
+         */
         while (Gioco.pollEvent(event))
         {
             // controllo che la finestra del gioco non venga ridimensionata
