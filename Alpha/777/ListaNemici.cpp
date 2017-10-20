@@ -17,6 +17,33 @@ int calcolaLunghezza(int piano , int stanza)
     return ((piano+stanza)*2);
 }
 
+// funzione per spostare i nemici
+void ListaNemici::spostaNemici()
+{
+    Vector2<int> posizione={0,0};
+    util.azzeraPosizioni();
+    for(int i=0; i<numeroNemici; i++)
+    {
+        posizione=util.generaPosizioneRandom();
+        if((posizione.x*util.SPAZIO_CELLE))
+        std::cout<<i<<" -- posizione corrente  --> ["<<array_nemici[i]->pos_cella_x<<", "<<array_nemici[i]->pos_cella_y<<"] \n";
+        std::cout<<i<<" -- nuova posizione  --> ["<<posizione.x<<", "<<posizione.y<<"] \n";
+        std::cout<<i<<" -- lo sposto di  --> ["<<posizione.x-array_nemici[i]->pos_cella_x<<", "<<posizione.y-array_nemici[i]->pos_cella_y<<"] celle \n\n";
+        // riazzero temporaneamento la loro posizione
+        array_nemici[i]->spostamento_x = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_x));
+        array_nemici[i]->spostamento_y = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_y));
+        array_nemici[i]->muovi();
+        // ridisegno i nemici nella loro posizione
+        array_nemici[i]->spostamento_x = util.SPAZIO_CELLE * (posizione.x);
+        array_nemici[i]->spostamento_y = util.SPAZIO_CELLE * (posizione.y);
+        array_nemici[i]->muovi();
+        array_nemici[i]->pos_cella_x = posizione.x;
+        array_nemici[i]->pos_cella_y = posizione.y;
+        array_nemici[i]->posX += (util.SPAZIO_CELLE * posizione.x) ;
+        array_nemici[i]->posY += (util.SPAZIO_CELLE * posizione.y) ;
+    }
+}
+
 
 //creare una funzione che generi i nemici
 void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
@@ -87,14 +114,12 @@ void ListaNemici::stampaArray(Nemico *array[], int lunghezza)
     {
         std::cout<<"nemico ("<<i<<") nella cella --> ["<<array[i]->pos_cella_x<<", "<<array[i]->pos_cella_y<<"] \n";
     }
-    std::cout<<"\n--------------------\n";
 }
 
 // in caso di scontro con un nemico creare una funzione che elimini il nemico
 // funzione che richiamo quanod il personaggio attacca
 void ListaNemici::eliminaNemicoInPosizione(int posizione)
 {
-    std::cout<<"\n--------------------\n";
     for (int i=posizione; i<numeroNemici-1; i++)
     {
         array_nemici[i] = array_nemici[i+1];
@@ -114,13 +139,13 @@ void ListaNemici::cancellaArray()
 }
 
 
-void ListaNemici::disegnaNemici(RenderWindow &Gioco, ListaNemici &nemici)
+void ListaNemici::disegnaNemici(RenderWindow &Gioco)
 {
     //fare for per stampare nemici e stampare posizioni
-    for (int i=0; i<nemici.numeroNemici; i++)
+    for (int i=0; i<numeroNemici; i++)
     {
         //nemici.array_nemici[i]->grafica.setPosition(nemici.array_nemici[i]->posX, nemici.array_nemici[i]->posY);
-        Gioco.draw(nemici.array_nemici[i]->grafica);
+        Gioco.draw(array_nemici[i]->grafica);
     }
 }
 

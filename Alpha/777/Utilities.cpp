@@ -10,6 +10,7 @@ using namespace sf;
 
  const int Utilities::SPAZIO_CELLE = 40;
  const int Utilities::DIMENSIONE_CELLE = 25;
+
  const int Utilities::NUMERO_CASELLE_ASSE_X = 20;
  const int Utilities::NUMERO_CASELLE_ASSE_Y = 20;
 
@@ -49,7 +50,7 @@ using namespace sf;
 Vector2<int> lista_posizioni[100];
 int lunghezza_array_posizioni = -1;
 const int min_value = 0;
-const int max_value = (Utilities::NUMERO_CASELLE_ASSE_X-1);
+const int max_value = Utilities::NUMERO_CASELLE_ASSE_X-1;
 
 // funzioni
 bool Utilities::controlloDuplicato(Vector2<int> pos)
@@ -66,23 +67,38 @@ bool Utilities::controlloDuplicato(Vector2<int> pos)
     return false;
 }
 
+
+void Utilities::azzeraPosizioni()
+{
+    for(int i=0; i<lunghezza_array_posizioni; i++)
+    {
+        lista_posizioni[i]={1,1};
+    }
+    lunghezza_array_posizioni=-1;
+}
+
 Vector2<int> Utilities::generaPosizioneRandom()
 {
+    azzeraPosizioni();
     int rand_x = rand()%(max_value-min_value + 1) + min_value;
     int rand_y = rand()%(max_value-min_value + 1) + min_value;
     Vector2<int> posizione_corrente = {rand_x, rand_y};
     // controllo che non sia già stata creata una posizione uguale
-    if((controlloDuplicato(posizione_corrente)) || ((rand_x==1)&&(rand_y==1)))
+    if(controlloDuplicato(posizione_corrente))
         // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
         // if(funzione_porc_mi_dà_ok)
         generaPosizioneRandom();
     else
     {
-        // incremento la lunghezza dell'array
-        lunghezza_array_posizioni+=1;
-        // aggiungo la nuova posizione all'array di posizioni create
-        lista_posizioni[lunghezza_array_posizioni]=posizione_corrente;
-        //std::cout<<"["<<lunghezza_array_posizioni<<"] - "<<"posizione casuale generata: ("<<posizione_corrente.x<<", "<<posizione_corrente.y<<") \n";
-        return posizione_corrente;
+        if((rand_x!=0)&&(rand_y!=0)) {
+            // incremento la lunghezza dell'array
+            lunghezza_array_posizioni += 1;
+            // aggiungo la nuova posizione all'array di posizioni create
+            lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
+            //std::cout<<"["<<lunghezza_array_posizioni<<"] - "<<"posizione casuale generata: ("<<posizione_corrente.x<<", "<<posizione_corrente.y<<") \n";
+            return posizione_corrente;
+        }
+        else
+            generaPosizioneRandom();
     }
 }

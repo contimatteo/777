@@ -12,12 +12,6 @@ static Utilities util;
 
 // ----------------------------
 
-
-void test(Personaggio &eroe, ListaNemici &nemici)
-{
-    nemici.nemicoAttaccaPersonaggio(eroe);
-}
-
 void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio)
 {
     //controllo che la casella sia libera
@@ -86,9 +80,16 @@ void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici 
     disegnaFinestraDestra(Gioco);
     disegnaConsole(Gioco);
     disegnaEroe(Gioco, eroe);
-    nemici.disegnaNemici(Gioco, nemici);
+    nemici.disegnaNemici(Gioco);
     //disegnaElementiExtra(Gioco);
+}
 
+void azioni_nemico(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici)
+{
+    // controllo se togliere vita al personaggio
+    nemici.nemicoAttaccaPersonaggio(eroe);
+    // muovo i nemici
+    nemici.spostaNemici();
 }
 
 // ----------------------------
@@ -135,25 +136,25 @@ int main()
             // freccia Sinistra premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio);
             // test
-            test(eroe, nemici);
+            azioni_nemico(Gioco, eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, 1, 0, muovi_personaggio);
             // test
-            test(eroe, nemici);
+            azioni_nemico(Gioco, eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, 0, -1, muovi_personaggio);
             // test
-            test(eroe, nemici);
+            azioni_nemico(Gioco, eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) && muovi_personaggio) {
             // freccia GIU premuta: muovi il personaggio
             muoviEroe(Gioco, eroe, 0, 1, muovi_personaggio);
             // test
-            test(eroe, nemici);
+            azioni_nemico(Gioco, eroe, nemici);
         }
         // attacco eroe
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))||(sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad2)))

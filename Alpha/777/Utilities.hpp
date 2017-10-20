@@ -45,6 +45,7 @@ class Utilities
         //metodi
          static bool controlloDuplicato(sf::Vector2<int> pos);
          static sf::Vector2<int> generaPosizioneRandom();
+         static void azzeraPosizioni();
 
 };
 

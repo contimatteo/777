@@ -29,8 +29,9 @@ public:
     void nemicoAttaccaPersonaggio(Personaggio &eroe);
     void eliminaNemicoInPosizione(int posizione);
     void cancellaArray();
-    void disegnaNemici(RenderWindow &Gioco, ListaNemici &nemici);
+    void disegnaNemici(RenderWindow &Gioco);
     void stampaArray(Nemico *array[], int lunghezza);
+    void spostaNemici();
 
 };
 

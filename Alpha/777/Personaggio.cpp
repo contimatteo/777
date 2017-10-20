@@ -10,15 +10,9 @@ Personaggio::Personaggio(int tipo_personaggio): ElementoGrafico(tipo_personaggio
 
 void Personaggio::eliminaNemico(ListaNemici &nemici, int posizione, bool &flag)
 {
-    std::cout<<"nemico colpito in posizione "<<posizione<<"\n";
+    //std::cout<<"nemico colpito in posizione "<<posizione<<"\n";
     nemici.array_nemici[posizione]->vita= nemici.array_nemici[posizione]->vita - potenza;
     nemici.eliminaNemicoInPosizione(posizione);
-   /*if(potenza-nemici.array_nemici[posizione]->vita<=0)
-    {
-        // richiamiamo una funzione che elimina il nemico in posizione i
-        //nemici.eliminaNemicoInPosizione(posizione);
-        flag=true;
-    }*/
 }
 
 void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {

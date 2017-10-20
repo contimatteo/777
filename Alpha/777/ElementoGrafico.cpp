@@ -91,7 +91,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // altri
         case 4:
         {
-            texture.loadFromFile("../risorse/immagini/red.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/angolo-alto-destra.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // mura mappa
