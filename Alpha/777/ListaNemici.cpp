@@ -26,6 +26,8 @@ void ListaNemici::spostaNemici(Personaggio &eroe, int piano, int stanza)
     for(int i=0; i<numeroNemici; i++)
     {
         posizione = util.generaPosizioneRandom();
+        posizione.x+=1;
+        posizione.y+=1;
         /*if (!controlloPosizionePersonaggio(eroe))
         {
             //std::cout<<i<<" -- posizione corrente  --> ["<<array_nemici[i]->pos_cella_x<<", "<<array_nemici[i]->pos_cella_y<<"] \n";
