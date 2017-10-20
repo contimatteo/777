@@ -86,7 +86,7 @@ bool ListaNemici::controlloPosizionePersonaggio(Personaggio &eroe)
         if((array_nemici[i]->pos_cella_x==eroe.pos_cella_x)&&(array_nemici[i]->pos_cella_y==eroe.pos_cella_y))
         {
             // c'è un nemico che occupa la posizione del personaggio
-            std::cout<<numeroNemici<<" -- Trovato un nemico con la stessa posizione del personaggio \n";
+            //std::cout<<numeroNemici<<" -- Trovato un nemico con la stessa posizione del personaggio \n";
             return true;
         }
     }

@@ -31,14 +31,14 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
             if ((!flag)&&(abs(nemici.array_nemici[k]->pos_cella_x - pos_cella_x) == distanza) && (nemici.array_nemici[k]->pos_cella_y == pos_cella_y))
             {
                 eliminaNemico(nemici,k,flag);
-                std::cout << "trovato un nemico che va bene sull'asse x, a distanza = "<<distanza<<"\n";
+                //std::cout << "trovato un nemico che va bene sull'asse x, a distanza = "<<distanza<<"\n";
                 flag=true;
             }
             // controllo se c'è un nemico vicino rispetto all'asse y
             if ((!flag)&&(abs(nemici.array_nemici[k]->pos_cella_y - pos_cella_y) == distanza) && (nemici.array_nemici[k]->pos_cella_x == pos_cella_x))
             {
                 eliminaNemico(nemici,k,flag);
-                std::cout << "trovato un nemico che va bene sull'asse y, a distanza = "<<distanza<<"\n";
+                //std::cout << "trovato un nemico che va bene sull'asse y, a distanza = "<<distanza<<"\n";
                 flag=true;
             }
             // controllo se c'è un nemico sulla diagonale 2 in basso a dx
@@ -47,7 +47,7 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
                 if (pos_cella_x+distanza == nemici.array_nemici[k]->pos_cella_x)
                 {
                     eliminaNemico(nemici,k,flag);
-                    std::cout << "trovato un nemico che va bene sulla diagonale 2 in alto a dx, a distanza = "<<distanza<<"\n";
+                    //std::cout << "trovato un nemico che va bene sulla diagonale 2 in alto a dx, a distanza = "<<distanza<<"\n";
                     flag=true;
                 }
             }
@@ -57,7 +57,7 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
                 if (pos_cella_x-distanza == nemici.array_nemici[k]->pos_cella_x)
                 {
                     eliminaNemico(nemici,k,flag);
-                    std::cout << "trovato un nemico che va bene sulla diagonale 2 in basso a sx, a distanza = "<<distanza<<"\n";
+                    //std::cout << "trovato un nemico che va bene sulla diagonale 2 in basso a sx, a distanza = "<<distanza<<"\n";
                     flag=true;
                 }
             }
@@ -67,7 +67,7 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
                 if (pos_cella_x-distanza == nemici.array_nemici[k]->pos_cella_x)
                 {
                     eliminaNemico(nemici,k,flag);
-                    std::cout << "trovato un nemico che va bene sulla diagonale 1 in alto a sx, a distanza = "<<distanza<<"\n";
+                    //std::cout << "trovato un nemico che va bene sulla diagonale 1 in alto a sx, a distanza = "<<distanza<<"\n";
                     flag=true;
                 }
             }
@@ -77,7 +77,7 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
                 if (pos_cella_x+distanza == nemici.array_nemici[k]->pos_cella_x)
                 {
                     eliminaNemico(nemici,k,flag);
-                    std::cout << "trovato un nemico che va bene sulla diagonale 1 in basso a dx, a distanza = "<<distanza<<"\n";
+                    //std::cout << "trovato un nemico che va bene sulla diagonale 1 in basso a dx, a distanza = "<<distanza<<"\n";
                     flag=true;
                 }
             }
