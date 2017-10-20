@@ -89,7 +89,7 @@ void azioni_nemico(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici)
     // controllo se togliere vita al personaggio
     nemici.nemicoAttaccaPersonaggio(eroe);
     // muovo i nemici
-    nemici.spostaNemici();
+    nemici.spostaNemici(eroe);
 }
 
 // ----------------------------
