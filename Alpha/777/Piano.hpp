@@ -11,14 +11,17 @@ class Piano {
         private:
             int pos_scale_salire = 0;
             int pos_scale_scendere = 0;
-            int numero_mappe =  0;
+
+            void collega_mappe();
         public:
             Mappa arr_mappe[50];
+            int numero_mappe =  0;
             void setPos_Scale_Salire (int scale);
             void setPos_Scale_Scendere (int scale);
             int getPos_Scale_Salire ();
             int getPos_Scale_Scendere ();
             void crea(int n, int scale2);
+
 
 };
 
