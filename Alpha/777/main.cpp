@@ -109,6 +109,12 @@ int main()
     Personaggio eroe(1);
     // Instanzio i nemici
     ListaNemici nemici(2);
+    // Instazio la musica
+    Music music;
+    music.openFromFile("../risorse/audio/main-song.ogg");
+    music.setVolume(50);
+    music.setLoop(true);
+    music.play();
 
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen())
@@ -117,12 +123,7 @@ int main()
         Gioco.setVerticalSyncEnabled(true);
         // Process events
         sf::Event event;
-        /*
-        sf::Music music;
-        if (!music.openFromFile("../risorse/audio/main-song.ogg"))
-            return -1; // error
-        music.play();
-         */
+
         while (Gioco.pollEvent(event))
         {
             // controllo che la finestra del gioco non venga ridimensionata
