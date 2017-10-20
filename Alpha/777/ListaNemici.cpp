@@ -18,18 +18,18 @@ int calcolaLunghezza(int piano , int stanza)
 }
 
 // funzione per spostare i nemici
-void ListaNemici::spostaNemici(Personaggio &eroe)
+void ListaNemici::spostaNemici(Personaggio &eroe, int piano, int stanza)
 {
     Vector2<int> posizione={0,0};
     util.azzeraPosizioni();
+    bool finito=true;
     for(int i=0; i<numeroNemici; i++)
     {
-        posizione=util.generaPosizioneRandom();
-        if(!controlloPosizionePersonaggio(eroe))
+        posizione = util.generaPosizioneRandom();
+        /*if (!controlloPosizionePersonaggio(eroe))
         {
             //std::cout<<i<<" -- posizione corrente  --> ["<<array_nemici[i]->pos_cella_x<<", "<<array_nemici[i]->pos_cella_y<<"] \n";
-            //std::cout<<i<<" -- nuova posizione  --> ["<<posizione.x<<", "<<posizione.y<<"] \n";
-            //std::cout<<i<<" -- lo sposto di  --> ["<<posizione.x-array_nemici[i]->pos_cella_x<<", "<<posizione.y-array_nemici[i]->pos_cella_y<<"] celle \n\n";
+            std::cout<<i<<" -- nuova posizione  --> ["<<posizione.x<<", "<<posizione.y<<"] \n";
             // riazzero temporaneamento la loro posizione
             array_nemici[i]->spostamento_x = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_x));
             array_nemici[i]->spostamento_y = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_y));
@@ -42,12 +42,53 @@ void ListaNemici::spostaNemici(Personaggio &eroe)
             array_nemici[i]->pos_cella_y = posizione.y;
             array_nemici[i]->posX += (util.SPAZIO_CELLE * posizione.x);
             array_nemici[i]->posY += (util.SPAZIO_CELLE * posizione.y);
+            finito=true;
         }
         else
         {
-            posizione=util.generaPosizioneRandom();
+            int j;
+            for (j=0; j<numeroNemici; j++)
+            {
+                if((array_nemici[j]->pos_cella_x==eroe.pos_cella_x)&&(array_nemici[j]->pos_cella_y==eroe.pos_cella_y))
+                {
+                    array_nemici[j]->pos_cella_x=0;
+                    array_nemici[j]->pos_cella_y=0;
+                }
+            }
+            // cancello la posizione generata dall'array delle posizioni
+            for(int k=j; k<(calcolaLunghezza(piano, stanza)-1); k++)
+                lista_posizioni[k]=lista_posizioni[k+1];
+            i--;
+            finito=false;
+        }*/
+
+        // riazzero temporaneamento la loro posizione
+        array_nemici[i]->spostamento_x = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_x));
+        array_nemici[i]->spostamento_y = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_y));
+        array_nemici[i]->muovi();
+        // ridisegno i nemici nella loro posizione
+        array_nemici[i]->spostamento_x = util.SPAZIO_CELLE * (posizione.x);
+        array_nemici[i]->spostamento_y = util.SPAZIO_CELLE * (posizione.y);
+        array_nemici[i]->muovi();
+        array_nemici[i]->pos_cella_x = posizione.x;
+        array_nemici[i]->pos_cella_y = posizione.y;
+        array_nemici[i]->posX += (util.SPAZIO_CELLE * posizione.x);
+        array_nemici[i]->posY += (util.SPAZIO_CELLE * posizione.y);
+    }
+}
+
+bool ListaNemici::controlloPosizionePersonaggio(Personaggio &eroe)
+{
+    for (int i=0; i<numeroNemici; i++)
+    {
+        if((array_nemici[i]->pos_cella_x==eroe.pos_cella_x)&&(array_nemici[i]->pos_cella_y==eroe.pos_cella_y))
+        {
+            // c'è un nemico che occupa la posizione del personaggio
+            std::cout<<numeroNemici<<" -- Trovato un nemico con la stessa posizione del personaggio \n";
+            return true;
         }
     }
+    return false;
 }
 
 
@@ -153,20 +194,6 @@ void ListaNemici::disegnaNemici(RenderWindow &Gioco)
     }
 }
 
-bool ListaNemici::controlloPosizionePersonaggio(Personaggio &eroe)
-{
-    for (int i=0; i<numeroNemici; i++)
-    {
-        if((array_nemici[i]->pos_cella_x!=eroe.pos_cella_x)&&(array_nemici[i]->pos_cella_y!=eroe.pos_cella_y))
-        {
-            // il nemico non occupa la posizione del personaggio
-        }
-        else
-            return true;
-    }
-    return false;
-}
-
 //costruttore
 ListaNemici::ListaNemici(int stack)
 {
@@ -174,7 +201,7 @@ ListaNemici::ListaNemici(int stack)
     Vector2<int> posizione_nemico_corrente(0,0);
     int randomX=0, randomY=0;
     // ...
-    numeroNemici=calcolaLunghezza(2, 2);
+    numeroNemici=calcolaLunghezza(10, 20);
     for(int i=0; i<numeroNemici; i++)
     {
         // genero una hasmap di interi per la posizione (casuale)

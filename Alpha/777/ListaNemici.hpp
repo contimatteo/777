@@ -31,7 +31,7 @@ public:
     void cancellaArray();
     void disegnaNemici(RenderWindow &Gioco);
     void stampaArray(Nemico *array[], int lunghezza);
-    void spostaNemici(Personaggio &eroe);
+    void spostaNemici(Personaggio &eroe, int piano, int stanza);
     bool controlloPosizionePersonaggio(Personaggio &eroe);
 
 };

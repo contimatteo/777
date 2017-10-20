@@ -1,9 +1,9 @@
 //
 // Created by Mattia_Porcelli on 21/06/2017.
 //
-#include <c++/cstdlib>
-#include <c++/ctime>
-#include <c++/iostream>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
 #include "Piano.hpp"
 #include "ListaTorre.hpp"
 

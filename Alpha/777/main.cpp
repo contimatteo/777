@@ -9,6 +9,8 @@ using namespace sf;
 
 // ----------------------------
 static Utilities util;
+int piano=1;
+int stanza=1;
 
 // ----------------------------
 
@@ -89,7 +91,7 @@ void azioni_nemico(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici)
     // controllo se togliere vita al personaggio
     nemici.nemicoAttaccaPersonaggio(eroe);
     // muovo i nemici
-    nemici.spostaNemici(eroe);
+    //nemici.spostaNemici(eroe, piano, stanza);
 }
 
 // ----------------------------

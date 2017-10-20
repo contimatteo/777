@@ -6,8 +6,8 @@
 Nemico::Nemico(int tipo_nemico, int x, int y, int identificatore, int attacco_nemico ):ElementoGrafico(tipo_nemico)
 {
     cancellato=false;
-    pos_cella_y = y;
-    pos_cella_x = x;
+    pos_cella_y = y+1;
+    pos_cella_x = x+1;
     posX += util.SPAZIO_CELLE * x;
     posY += util.SPAZIO_CELLE * y;
     id=identificatore;

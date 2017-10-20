@@ -19,7 +19,6 @@ void Grafica::disegnaMappa(RenderWindow &Gioco)
     bordo_mappa.setOutlineThickness(1.5);
     Gioco.draw(bordo_mappa);
 
-    texture_mappa;
     texture_mappa.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     sf::Sprite immagine_mappa(texture_mappa);
     for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
