@@ -101,7 +101,7 @@ int main()
     srand(static_cast <unsigned int> (time(0)));
     bool muovi_personaggio=false, eroe_attacca=false;
     sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY), "777 - Game");
-    Gioco.setKeyRepeatEnabled(true);
+    //Gioco.setKeyRepeatEnabled(true);
 
     // Instanzio la mappa
     Grafica grafica(0);
@@ -114,7 +114,7 @@ int main()
     music.openFromFile("../risorse/audio/main-song.ogg");
     music.setVolume(50);
     music.setLoop(true);
-    music.play();
+    //music.play();
 
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen())
