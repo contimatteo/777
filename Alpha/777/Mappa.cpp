@@ -2,8 +2,8 @@
 // Created by Mattia_Porcelli on 10/10/2017.
 //
 #include <time.h>
-#include <c++/cstdlib>
-#include <c++/iostream>
+#include <cstdlib>
+#include <iostream>
 #include "Mappa.hpp"
 
 /*LEGENDA:
