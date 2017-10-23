@@ -45,6 +45,8 @@ public:
     //metodi
     static bool controlloDuplicato(sf::Vector2<int> pos);
     static sf::Vector2<int> generaPosizioneRandom();
+    static Vector2<int> generaPosizioneRandom(int eroe_x, int eroe_y);
+
     static void azzeraPosizioni();
 
 };

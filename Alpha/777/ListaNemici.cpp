@@ -20,50 +20,15 @@ int calcolaLunghezza(int piano , int stanza)
 // funzione per spostare i nemici
 void ListaNemici::spostaNemici(Personaggio &eroe, int piano, int stanza)
 {
+    std::cout<<"----------------------------------- \n";
     Vector2<int> posizione={0,0};
     util.azzeraPosizioni();
     bool finito=true;
     for(int i=0; i<numeroNemici; i++)
     {
-        posizione = util.generaPosizioneRandom();
+        posizione = util.generaPosizioneRandom((eroe.pos_cella_x), (eroe.pos_cella_y));
         posizione.x+=1;
         posizione.y+=1;
-        /*if (!controlloPosizionePersonaggio(eroe))
-        {
-            //std::cout<<i<<" -- posizione corrente  --> ["<<array_nemici[i]->pos_cella_x<<", "<<array_nemici[i]->pos_cella_y<<"] \n";
-            std::cout<<i<<" -- nuova posizione  --> ["<<posizione.x<<", "<<posizione.y<<"] \n";
-            // riazzero temporaneamento la loro posizione
-            array_nemici[i]->spostamento_x = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_x));
-            array_nemici[i]->spostamento_y = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_y));
-            array_nemici[i]->muovi();
-            // ridisegno i nemici nella loro posizione
-            array_nemici[i]->spostamento_x = util.SPAZIO_CELLE * (posizione.x);
-            array_nemici[i]->spostamento_y = util.SPAZIO_CELLE * (posizione.y);
-            array_nemici[i]->muovi();
-            array_nemici[i]->pos_cella_x = posizione.x;
-            array_nemici[i]->pos_cella_y = posizione.y;
-            array_nemici[i]->posX += (util.SPAZIO_CELLE * posizione.x);
-            array_nemici[i]->posY += (util.SPAZIO_CELLE * posizione.y);
-            finito=true;
-        }
-        else
-        {
-            int j;
-            for (j=0; j<numeroNemici; j++)
-            {
-                if((array_nemici[j]->pos_cella_x==eroe.pos_cella_x)&&(array_nemici[j]->pos_cella_y==eroe.pos_cella_y))
-                {
-                    array_nemici[j]->pos_cella_x=0;
-                    array_nemici[j]->pos_cella_y=0;
-                }
-            }
-            // cancello la posizione generata dall'array delle posizioni
-            for(int k=j; k<(calcolaLunghezza(piano, stanza)-1); k++)
-                lista_posizioni[k]=lista_posizioni[k+1];
-            i--;
-            finito=false;
-        }*/
-
         // riazzero temporaneamento la loro posizione
         array_nemici[i]->spostamento_x = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_x));
         array_nemici[i]->spostamento_y = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_y));
