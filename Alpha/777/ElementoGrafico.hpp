@@ -9,7 +9,7 @@
 #include "Utilities.hpp"
 using namespace sf;
 
-
+class Utilities;
 
 class ElementoGrafico
 {

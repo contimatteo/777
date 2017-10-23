@@ -19,9 +19,9 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi
     //controllo che la casella sia libera
     // if(funzione porc da ok)
     // {
-         eroe.setPosizione(x, y);
-         eroe.muovi();
-         muovi_personaggio = false;
+    eroe.setPosizione(x, y);
+    eroe.muovi();
+    muovi_personaggio = false;
     // }
 }
 
