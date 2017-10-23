@@ -9,7 +9,7 @@
 #include "Personaggio.hpp"
 #include "Utilities.hpp"
 
-const int NUMERO_NEMICI_MASSIMO=100;
+const int NUMERO_NEMICI_MASSIMO=200;
 
 class Personaggio;
 

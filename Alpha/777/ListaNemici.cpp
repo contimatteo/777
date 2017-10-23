@@ -14,19 +14,26 @@ using namespace sf;
 int calcolaLunghezza(int piano , int stanza)
 {
     //lughezza dell array (numero nemici nella stanza)
-    return ((piano+stanza)*2);
+    if((piano+stanza)*2<=NUMERO_NEMICI_MASSIMO)
+        return ((piano+stanza)*2);
+    else
+        return (NUMERO_NEMICI_MASSIMO);
 }
 
 // funzione per spostare i nemici
 void ListaNemici::spostaNemici(Personaggio &eroe, int piano, int stanza)
 {
-    std::cout<<"----------------------------------- \n";
+    //std::cout<<"----------------------------------- \n";
     Vector2<int> posizione={0,0};
     util.azzeraPosizioni();
     bool finito=true;
     for(int i=0; i<numeroNemici; i++)
     {
-        posizione = util.generaPosizioneRandom((eroe.pos_cella_x), (eroe.pos_cella_y));
+        posizione = util.generaPosizioneRandom(eroe.pos_cella_x, eroe.pos_cella_y);
+        while((posizione.x+1==eroe.pos_cella_x)&&(posizione.y+1==eroe.pos_cella_y))
+            // rigenero la posizione in caso che sia uguale a quella dell'eroe
+            posizione = util.generaPosizioneRandom(eroe.pos_cella_x, eroe.pos_cella_y);
+
         posizione.x+=1;
         posizione.y+=1;
         // riazzero temporaneamento la loro posizione
@@ -74,50 +81,66 @@ void ListaNemici::creaNemici(int pianoCorrente, int stanzaCorrente)
 }
 
 
-//creare una funzione che controlli se il nemico si trova a DIST=5 dal personaggio e togliere vita al personaggio
 void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
 {
-    //mi ricavo la lunghezza dell array per sapere quanti nemici ci sono nella stanza
-    //controllo la distanza
-    for( int i=0; i<numeroNemici; i++)
+    int i = 0;
+    int distanza = 1;
+    bool flag = false;
+    int gittata_nemico=1;
+    for (int k = 0; k < numeroNemici; k++)
     {
+        //std::cout<<"posizione nemico --> ["<<array_nemici[k]->pos_cella_x<<" , "<<array_nemici[k]->pos_cella_y<<"] \n";
         // controllo se c'è un nemico vicino rispetto all'asse x
-        if ((abs(array_nemici[i]->posX - eroe.posX) == util.SPAZIO_CELLE)&&(array_nemici[i]->posY==eroe.posY))
+        if ((abs(array_nemici[k]->pos_cella_x - eroe.pos_cella_x) == distanza) && (array_nemici[k]->pos_cella_y == eroe.pos_cella_y))
         {
             eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
+            //std::cout<<"nemico attacca personaggio rispetto all'asse x \n";
         }
         // controllo se c'è un nemico vicino rispetto all'asse y
-        if((abs(array_nemici[i]->posY - eroe.posY) == util.SPAZIO_CELLE)&&(array_nemici[i]->posX==eroe.posX))
+        if ((abs(array_nemici[k]->pos_cella_y - eroe.pos_cella_y) == distanza) && (array_nemici[k]->pos_cella_x == eroe.pos_cella_x))
         {
             eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
+            //std::cout<<"nemico attacca personaggio rispetto all'asse y \n";
         }
-        // controllo se c'è un nemico vicino rispetto alla diagonale principale in alto a sinistra
-        if((eroe.posY+util.SPAZIO_CELLE==array_nemici[i]->posY)&&(eroe.posX+util.SPAZIO_CELLE==array_nemici[i]->posX))
+        // controllo se c'è un nemico sulla diagonale 2 in basso a sx
+        if ((eroe.pos_cella_y-distanza == array_nemici[k]->pos_cella_y))
         {
-            eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
-        }
-        // controllo se c'è un nemico vicino rispetto alla diagonale principale in basso a destra
-        if((eroe.posY-util.SPAZIO_CELLE==array_nemici[i]->posY)&&(eroe.posX-util.SPAZIO_CELLE==array_nemici[i]->posX))
-        {
-            eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
-        }
-        // controllo se c'è un nemico vicono rispetto alla diagonale secondaria
-        if(eroe.posX-util.SPAZIO_CELLE==array_nemici[i]->posX)
-        {
-            if(eroe.posY+util.SPAZIO_CELLE==array_nemici[i]->posY)
+            if (eroe.pos_cella_x+distanza == array_nemici[k]->pos_cella_x)
             {
                 eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
+                //std::cout<<"nemico attacca personaggio sulla diagonale 2 in basso a sx\n";
             }
         }
-        if(eroe.posX+util.SPAZIO_CELLE==array_nemici[i]->posX)
+        // controllo se c'è un nemico sulla diagonale 2 in alto a dx
+        if ((eroe.pos_cella_y+distanza == array_nemici[k]->pos_cella_y))
         {
-            if(eroe.posY-util.SPAZIO_CELLE==array_nemici[i]->posY)
+            if (eroe.pos_cella_x-distanza == array_nemici[k]->pos_cella_x)
             {
                 eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
+                //std::cout<<"nemico attacca personaggio sulla diagonale 2 in alto a dx\n";
             }
         }
-
+        // controllo se c'è un nemico sulla diagonale 1 in basso a dx
+        if ((eroe.pos_cella_y-distanza == array_nemici[k]->pos_cella_y))
+        {
+            if (eroe.pos_cella_x-distanza == array_nemici[k]->pos_cella_x)
+            {
+                eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
+                //std::cout<<"nemico attacca personaggio sulla diagonale 1 in basso a dx\n";
+            }
+        }
+        // controllo se c'è un nemico sulla diagonale 2 in alto a sx
+        if ((eroe.pos_cella_y+distanza == array_nemici[k]->pos_cella_y))
+        {
+            if (eroe.pos_cella_x+distanza == array_nemici[k]->pos_cella_x)
+            {
+                eroe.vitaAttuale=eroe.vitaAttuale - array_nemici[i]->attacco;
+                //std::cout<<"nemico attacca personaggio sulla diagonale 1 in alto a sx \n";
+            }
+        }
     }
+    std::cout<<"vita eroe --> "<<eroe.vitaAttuale<<"\n";
+    std::cout<<"---------------------------------------\n";
 }
 
 void ListaNemici::stampaArray(Nemico *array[], int lunghezza)
@@ -168,11 +191,13 @@ ListaNemici::ListaNemici(int stack)
     Vector2<int> posizione_nemico_corrente(0,0);
     int randomX=0, randomY=0;
     // ...
-    numeroNemici=calcolaLunghezza(10, 20);
+    numeroNemici=calcolaLunghezza(10, 10);
     for(int i=0; i<numeroNemici; i++)
     {
-        // genero una hasmap di interi per la posizione (casuale)
         posizione_nemico_corrente=util.generaPosizioneRandom();
+        while((posizione_nemico_corrente.x==0)&&(posizione_nemico_corrente.y==0))
+            // genero una hasmap di interi per la posizione (casuale)
+            posizione_nemico_corrente=util.generaPosizioneRandom();
         // creo un nemico
         array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);
     }

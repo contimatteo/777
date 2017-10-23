@@ -19,7 +19,7 @@ sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
 const int Utilities::ALTEZZA_DISPLAY = desktop.height;
 const int Utilities::LARGHEZZA_DISPLAY = desktop.width;
 
-const int Utilities::NUMERO_NEMICI_MASSIMO = 100;
+const int Utilities::NUMERO_NEMICI_MASSIMO = 200;
 
 const int Utilities::ALTEZZA_MAPPA = SPAZIO_CELLE*NUMERO_CASELLE_ASSE_Y;
 const int Utilities::LARGHEZZA_MAPPA = SPAZIO_CELLE*NUMERO_CASELLE_ASSE_X;
@@ -105,7 +105,6 @@ Vector2<int> Utilities::generaPosizioneRandom()
 
 Vector2<int> Utilities::generaPosizioneRandom(int eroe_x, int eroe_y)
 {
-    //azzeraPosizioni();
     int rand_x = rand()%(max_value-min_value + 1) + min_value;
     int rand_y = rand()%(max_value-min_value + 1) + min_value;
     Vector2<int> posizione_corrente = {rand_x, rand_y};
@@ -113,31 +112,14 @@ Vector2<int> Utilities::generaPosizioneRandom(int eroe_x, int eroe_y)
     if(controlloDuplicato(posizione_corrente))
         // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
         // if(funzione_porc_mi_dà_ok)
-        generaPosizioneRandom();
+        generaPosizioneRandom(eroe_x, eroe_y);
     else
     {
-        std::cout << "posizione nemico --> " << (rand_x + 1) << " ~ " << (rand_y + 1) << " \n";
-        std::cout << "posizione eroe   --> " << eroe_x << " ~ " << eroe_y << " \n";
-        if ((rand_x + 1 != eroe_x) && (rand_y + 1 != eroe_y))
-        {
-            //std::cout << "trovato un nemico nella stessa posizione del personaggio \n";
-            //std::cout<<"posizione nemico --> " <<(rand_x+1)<<" ~ "<<(rand_y+1)<<" \n";
-            //std::cout<<"posizione eroe   --> "<<eroe_x<<" ~ "<<eroe_y<<" \n";
-            if ((rand_x + 1 != 0) && (rand_y + 1 != 0))
-            {
-                // incremento la lunghezza dell'array
-                lunghezza_array_posizioni += 1;
-                // aggiungo la nuova posizione all'array di posizioni create
-                lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
-                //std::cout<<"["<<lunghezza_array_posizioni<<"] - "<<"posizione casuale generata: ("<<posizione_corrente.x<<", "<<posizione_corrente.y<<") \n";
-                return posizione_corrente;
-            }
-            else
-                generaPosizioneRandom(eroe_x, eroe_y);
-        }
-        else
-        {
-            generaPosizioneRandom(eroe_x, eroe_y);
-        }
+        // incremento la lunghezza dell'array
+        lunghezza_array_posizioni += 1;
+        // aggiungo la nuova posizione all'array di posizioni create
+        lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
+        //std::cout<<"["<<lunghezza_array_posizioni<<"] - "<<"posizione casuale generata: ("<<posizione_corrente.x<<", "<<posizione_corrente.y<<") \n";
+        return posizione_corrente;
     }
 }

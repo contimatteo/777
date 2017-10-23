@@ -101,7 +101,7 @@ int main()
     srand(static_cast <unsigned int> (time(0)));
     bool muovi_personaggio=false, eroe_attacca=false;
     sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY), "777 - Game");
-    //Gioco.setKeyRepeatEnabled(true);
+    Gioco.setKeyRepeatEnabled(false);
 
     // Instanzio la mappa
     Grafica grafica(0);
