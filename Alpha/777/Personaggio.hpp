@@ -11,23 +11,26 @@
 #include "ListaNemici.hpp"
 #include "Utilities.hpp"
 
-
+/*! instanza della classe ListaNemici */
 class ListaNemici;
 
+/*! classe Personaggio, estensione della classe ElementoGrafico
+ *  descrizione della classe Personaggio
+ */
 class Personaggio:public ElementoGrafico {
 
 public:
     Utilities util;
     //int graphics;
-    int vitaMassima = 1000; //pet-
-    int vitaAttuale = 1000;
-    int manaMassimo = 100;  //pet-
+    int vitaMassima = 1000; /** <enum valore vitaMassima. */
+    int vitaAttuale = 1000; /** <enum valore vitaAttuale. */
+    int manaMassimo = 100;
     int manaAttuale = 100;
     int esperienza = 0;
     int livello = 1;
-    int gittata= 2;
+    int gittata= 2; /** <enum valore gittata. */
     int armatura = 10; //pet-
-    int potenza = 10; //pet-
+    int potenza = 10; /** <enum valore potenza. */
     int saggezza = 10; //pet-
     int critico = 5; //pet-
     //SETTARE POI DA DOVE FAR INIZIARE IL PERSONAGGIO
@@ -51,13 +54,28 @@ public:
 
     //_______________________________
 
-    // qundo il personaggio attacca un nemico
+    /*! \fn void personaggioAttaccaNemico (ListaNemici &nemici)
+     * @param nemici
+     * @details questa funzione viene richiamata quando il personaggio attacca il nemico vicino
+     */
     void personaggioAttaccaNemico(ListaNemici &nemici);
-    void eliminaNemico(ListaNemici &nemici, int posizione, bool &flag);
+
+    /*! \fn  void eliminiNemico(ListaNemici &nemici, int posizione, bool &flag)
+     *
+     * @param nemici
+     * @param posizione
+     * @param flag
+     * @details la funzione elimina un nemico ogni volta che il personaggio lo sconfigge
+     */
+     void eliminaNemico(ListaNemici &nemici, int posizione, bool &flag);
 
 
     //Costruttore
     Personaggio();
+    /**
+    * \brief Personaggio costruttore
+    * @param tipo_personaggio
+    */
     Personaggio(int tipo_personaggio);
 };
 

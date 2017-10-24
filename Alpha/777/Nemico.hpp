@@ -9,7 +9,8 @@
 
 
 
-class Nemico: public ElementoGrafico{
+class Nemico: public ElementoGrafico
+{
 
 public:
     int attacco;
