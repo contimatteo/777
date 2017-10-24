@@ -11,9 +11,9 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
     texture.loadFromFile("../risorse/immagini/menu-iniziale.jpg");
     Sprite immagine_menu(texture);
     immagine_menu.setScale(1, 1);
-    int pos_x = 0;
-    int pos_y = 0;
-    //immagine_menu.setPosition()
+    int pos_x = (util.LARGHEZZA_DISPLAY/2)-(texture.getSize().x/2);
+    int pos_y = (util.ALTEZZA_DISPLAY/2)-(texture.getSize().y/2);;
+    immagine_menu.setPosition(pos_x, pos_y);
 
     bool scelta=false;
     menu.create(sf::VideoMode((unsigned int)util.LARGHEZZA_DISPLAY, (unsigned int)util.ALTEZZA_DISPLAY), "777 - Menu");
