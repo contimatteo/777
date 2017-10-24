@@ -5,6 +5,7 @@
 #include "ElementoGrafico.hpp"
 #include "Personaggio.hpp"
 #include "Grafica.hpp"
+#include "MenuIniziale.hpp"
 using namespace sf;
 
 // ----------------------------
@@ -54,36 +55,18 @@ void disegnaFinestraDestra(RenderWindow &Gioco)
     Gioco.draw(finestra);
 }
 
-void disegnaConsole(RenderWindow &Gioco)
-{
-    // disegno la console
-    sf::RectangleShape console(sf::Vector2f(util.LARGHEZZA_CONSOLE, util.ALTEZZA_CONSOLE));
-    console.setPosition(util.POSIZIONE_PARTENZA_CONSOLE_X, util.POSIZIONE_PARTENZA_CONSOLE_Y);
-    console.setFillColor(util.COLORE_SFONDO);
-    console.setOutlineColor(sf::Color::White);
-    console.setOutlineThickness(1.5);
-    //Gioco.draw(console);
-}
-
 void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
 {
     Gioco.draw(eroe.grafica);
 }
 
 
-
-void disegnaElementiExtra(RenderWindow &Gioco)
-{
-}
-
 void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici)
 {
     disegnaFinestraSinistra(Gioco);
     disegnaFinestraDestra(Gioco);
-    disegnaConsole(Gioco);
     disegnaEroe(Gioco, eroe);
     nemici.disegnaNemici(Gioco);
-    //disegnaElementiExtra(Gioco);
 }
 
 void azioni_nemico(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici)
@@ -102,7 +85,10 @@ int main()
     bool muovi_personaggio=false, eroe_attacca=false;
     sf::RenderWindow Gioco(sf::VideoMode(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY), "777 - Game");
     Gioco.setKeyRepeatEnabled(false);
+    Gioco.setVisible(false);
 
+    // Instanzio il Menu Iniziale
+    MenuIniziale menu(Gioco);
     // Instanzio la mappa
     Grafica grafica(0);
     // Istanzio L' eroe
@@ -128,12 +114,14 @@ int main()
         {
             // controllo che la finestra del gioco non venga ridimensionata
             if (event.type == sf::Event::Resized) {
-                const Vector2u dimensioni = Vector2u(1200, 1200);
+                const Vector2u dimensioni = Vector2u(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY);
                 Gioco.setSize(dimensioni);
             }
             // controllo quando la finestra viene chiusa --> chiudo il gioco
             if (event.type == sf::Event::Closed)
+            {
                 Gioco.close();
+            }
         }
 
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))||(sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad1)))
@@ -183,7 +171,6 @@ int main()
         disegnaElementiGrafici(Gioco, eroe, nemici);
         // Aggiorno il Gioco con le modifiche
         Gioco.display();
-
     }
 
     // programma terminato correttamente
