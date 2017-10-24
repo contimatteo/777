@@ -25,13 +25,34 @@ public:
     // array nemici
     Nemico *array_nemici[NUMERO_NEMICI_MASSIMO]; /*! \typedef Nemico array_nemici[NUMERO_NEMICI_MASSIMO] */
     // array delle posizioni random generate
-    sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO]; 
+    sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO]; /*! \typedef Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO] */
     // costruttori
+
+    /*! \brief costruttore ListaNemici
+     * @param stack
+     */
     ListaNemici(int stack);
 
+    /*! \brief \fn void creaNemici(int pianoCorrente, int stanzaCorrente)
+     * @param pianoCorrente
+     * @param stanzaCorrente
+     * @details vengono generati i nemici in posizioni random all' interno della mappa
+     */
     void creaNemici(int pianoCorrente, int stanzaCorrente);
+
+    /*! \brief \fn void nemicoAttaccaPersonaggio(Personaggio &eroe)
+     * @param eroe
+     * @details funzione che controlla quando il personaggio si avvicina al nemico e in caso di scontro attacca il personaggio
+     */
     void nemicoAttaccaPersonaggio(Personaggio &eroe);
+
+    /*! \brief \fn void eliminaNemicoInPosizione(int posizione)
+     * @param posizione
+     * @details se il personaggio attacca il nemico e lo uccide viene cancellato il nemico
+     */
     void eliminaNemicoInPosizione(int posizione);
+
+    
     void cancellaArray();
     void disegnaNemici(RenderWindow &Gioco);
     void stampaArray(Nemico *array[], int lunghezza);
