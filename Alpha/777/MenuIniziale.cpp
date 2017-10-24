@@ -10,7 +10,7 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
     sf::Texture texture;
     texture.loadFromFile("../risorse/immagini/menu-iniziale.jpg");
     Sprite immagine_menu(texture);
-    immagine_menu.setScale(2, 2);
+    immagine_menu.setScale(1, 1);
 
     bool scelta=false;
     menu.create(sf::VideoMode(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY), "My window");

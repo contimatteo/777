@@ -11,11 +11,11 @@
 #include "ListaNemici.hpp"
 #include "Utilities.hpp"
 
-/*! instanza della classe ListaNemici */
+/*! definizione della classe ListaNemici */
 class ListaNemici;
 
-/*! classe Personaggio, estensione della classe ElementoGrafico
- *  descrizione della classe Personaggio
+/*! \class Personaggio
+ *  @details classe Personaggio estensione della classe ElementoGrafico
  */
 class Personaggio:public ElementoGrafico {
 

@@ -9,18 +9,26 @@
 #include "Utilities.hpp"
 using namespace sf;
 
-
+/*! \class \brief Grafica
+ *  @details la classe che disegna graficamente la mappa
+ */
 class Grafica
 {
  public:
     // attributi
-    Utilities util;
-    Texture texture_mappa;
+    Utilities util; /*! \typedef util */
+    Texture texture_mappa; /*! \typedef texture_mappa */
 
     // metodi
-
-    // costruttore
+    /*! \brief Grafica costruttore
+     * @param stack
+     */
     Grafica(int stack);
+
+    /*! \brief \fn disegnaMappa(RenderWindow &Gioco)
+     * @param Gioco
+     * @details disegna la mappa
+     */
     void disegnaMappa(RenderWindow &Gioco);
 
 };

@@ -8,23 +8,6 @@
 #include "ElementoGrafico.hpp"
 using namespace sf;
 
-/***************************************************************************************************
- * non usata
- */
-void ElementoGrafico::muovi(int x, int y)
-{
-    if((posX+(util.SPAZIO_CELLE * x))<(util.POSIZIONE_PARTENZA_MAPPA_X+util.LARGHEZZA_MAPPA))
-    {
-        posX = x;
-        if((posY+(util.SPAZIO_CELLE * y))<(util.POSIZIONE_PARTENZA_MAPPA_Y+util.ALTEZZA_MAPPA))
-        {
-            posY = y;
-            grafica.move(x, y);
-        }
-    }
-}
-// *****************************************************************************************
-
 void ElementoGrafico::muovi()
 {
     grafica.move(spostamento_x, spostamento_y);

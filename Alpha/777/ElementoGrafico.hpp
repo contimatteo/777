@@ -9,28 +9,40 @@
 #include "Utilities.hpp"
 using namespace sf;
 
+/*! definizione della classe Utilities */
 class Utilities;
 
+/*! \brief \class ElementoGrafico
+ * @details questa classe disegna tutti gli elementi del gioco
+ */
 class ElementoGrafico
 {
     private:
 
     public:
         // ATTRIBUTI
-        Sprite grafica;
-        Texture texture;
-        Utilities util;
-        RenderWindow Gioco;
-        int posX;
-        int posY;
-        int posX_iniziale, posY_iniziale;
-        int spostamento_x, spostamento_y;
-        int pos_cella_x, pos_cella_y;
+        Sprite grafica; /*! \typedef Sprite grafica*/
+        Texture texture; /*! \typedef Texture texture*/
+        Utilities util; /*! \typedef Utilities util*/
+        RenderWindow Gioco; /*! \typedef RenderWindow gioco*/
+        int posX; /*! \var int posX */
+        int posY; /*! \var int posY */
+        int posX_iniziale, posY_iniziale; /*! \var int posX_iniziale \var int posY_iniziale  */
+        int spostamento_x, spostamento_y; /*! \var int sopstamento_x \var int Spostamento_y */
+        int pos_cella_x, pos_cella_y; /*! \var int pos_cella_x \var int pos_cella_y*/
 
 
         //METODI
-        void muovi(int x, int y);
+        /*! \brief \fn muovi
+         * @details questa funzione sposta un elemento nella mappa
+         */
         void muovi();
+
+        /*! \brief \fn setPosizione(int x, int y)
+         * @param x
+         * @param y
+         * @details aggiorna la posizione dell' elemento grafico
+         */
         void setPosizione(int x, int y);
         //------------------------------------------
         /*
