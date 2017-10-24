@@ -86,7 +86,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // pavimento mappa
         case 11:
         {
-            texture.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/grass.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // default
