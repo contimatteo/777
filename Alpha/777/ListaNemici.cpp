@@ -173,7 +173,6 @@ void ListaNemici::cancellaArray()
     delete *array_nemici;
 }
 
-
 void ListaNemici::disegnaNemici(RenderWindow &Gioco)
 {
     //fare for per stampare nemici e stampare posizioni
