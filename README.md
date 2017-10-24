@@ -1,25 +1,47 @@
 # **777 Game**
-Il merge sort è un algoritmo di ordinamento basato su confronti che utilizza un processo di risoluzione di tipo ricorsivo, sfruttando la tecnica del Divide et Impera, che consiste nella suddivisione del problema in sotto-problemi della stessa natura di dimensione via via più piccola. Fu inventato da John von Neumann nel 1945.
+~ descrizione gioco
 
 ## Prima di Iniziare
 Il programma non necessita di una connessione a internet, ma richiede la presenza di un'interfaccia grafica attraverso la quale poter interagire con l'utente.
 
-###  Prerequisiti
-Sia per lo sviluppo che per il testing occorre:
+Per Giocare è necessario lanciare l'eseguibile chiamato "777" nella cartella "cmake-build-debug".
 
-	Aver installato java sulla propria macchina locale
+###  Prerequisiti per Sviluppare il Gioco:
+Per lo sviluppo occorre:
 
+	Aver installato la libreria SFML
 ###  Installazione
+
+#### Piattaforma Linux
+
 Per l'installazione è sufficiente:
 
 	Scaricare il contenuto della repository
+La cartella JavaDoc non è indispensabile, serve solo come guida all'interno del codice.
+
+#### Piattaforma Windows
+
+Per l'installazione è sufficiente:
+
+```
+Scaricare il contenuto della repository
+```
 
 La cartella JavaDoc non è indispensabile, serve solo come guida all'interno del codice.
+
+#### Piattaforma OSX
+
+Per l'installazione è sufficiente:
+
+```
+Scaricare il contenuto della repository
+```
+
+
 
 ## Testare il programma
 ###  Prima di partire
 Per iniziare:
-	
 	Scaricare e estrarre il contenuto della cartella "Executable"
 Creare un file di testo del tipo
 
@@ -71,7 +93,8 @@ Per sviluppare il progetto in IntelliJ o in Eclipse:
 Sviluppo dell'algoritmo MergeSort e implementato attraverso la sua esecuzione tramite rappresentazione grafica.
 
 ##  Sviluppato con
-- Java-Fx
+- C++
+- SFML (graphic library)
 
 ##  Modalità di esecuzione:
 - [x] Motion (esecuzione dell'algoritmo senza pause)
@@ -79,7 +102,7 @@ Sviluppo dell'algoritmo MergeSort e implementato attraverso la sua esecuzione tr
 - [ ] Step for single sub-Array (esecuzione dell'algoritmo passo-passo per l'ordinamento di ogni 'sotto-array')
 
 ##  Autore
-Conti Matteo
+Conti Matteo, Enrico Maria Fabbri, Mattia Porcelli
 
 ##  Licenza
 Questo programma è stato sviluppato sotto la licenza GNU GENERAL PUBLIC LICENSE (v.3). Leggere 'LICENSE.md' maggiori dettagli.

@@ -7,22 +7,22 @@
 #include "Utilities.hpp"
 using namespace sf;
 
+const int Utilities::NUMERO_NEMICI_MASSIMO = 200;
 
-const int Utilities::SPAZIO_CELLE = 40;
+sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
+const int Utilities::SPAZIO_CELLE = desktop.height/40;
 const int Utilities::DIMENSIONE_CELLE = 25;
 
 const int Utilities::NUMERO_CASELLE_ASSE_X = 20;
 const int Utilities::NUMERO_CASELLE_ASSE_Y = 20;
 
-sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
-
 const int Utilities::ALTEZZA_DISPLAY = desktop.height;
 const int Utilities::LARGHEZZA_DISPLAY = desktop.width;
 
-const int Utilities::NUMERO_NEMICI_MASSIMO = 200;
-
 const int Utilities::ALTEZZA_MAPPA = SPAZIO_CELLE*NUMERO_CASELLE_ASSE_Y;
 const int Utilities::LARGHEZZA_MAPPA = SPAZIO_CELLE*NUMERO_CASELLE_ASSE_X;
+//const int Utilities::POSIZIONE_PARTENZA_MAPPA_X = (((desktop.width/(SPAZIO_CELLE+1)-NUMERO_CASELLE_ASSE_X)/2))*SPAZIO_CELLE;
+//const int Utilities::POSIZIONE_PARTENZA_MAPPA_Y = (((desktop.height/(SPAZIO_CELLE+1))-NUMERO_CASELLE_ASSE_Y)/2)*SPAZIO_CELLE;
 const int Utilities::POSIZIONE_PARTENZA_MAPPA_X = (((desktop.width/(SPAZIO_CELLE+1)-NUMERO_CASELLE_ASSE_X)/2))*SPAZIO_CELLE;
 const int Utilities::POSIZIONE_PARTENZA_MAPPA_Y = (((desktop.height/(SPAZIO_CELLE+1))-NUMERO_CASELLE_ASSE_Y)/2)*SPAZIO_CELLE;
 
