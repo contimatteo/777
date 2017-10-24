@@ -13,8 +13,8 @@ const int Utilities::NUMERO_CASELLE_ASSE_X = 20;
 const int Utilities::NUMERO_CASELLE_ASSE_Y = 20;
 
 sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
-const int Utilities::SPAZIO_CELLE = desktop.height/(NUMERO_CASELLE_ASSE_Y*2);
-const int Utilities::DIMENSIONE_CELLE = SPAZIO_CELLE/2+2;
+const int Utilities::SPAZIO_CELLE = 25;
+const int Utilities::DIMENSIONE_CELLE = 24;
 
 const int Utilities::ALTEZZA_DISPLAY = desktop.height;
 const int Utilities::LARGHEZZA_DISPLAY = desktop.width;
