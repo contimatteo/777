@@ -26,7 +26,7 @@ const int Utilities::LARGHEZZA_MAPPA = SPAZIO_CELLE*NUMERO_CASELLE_ASSE_X;
 const int Utilities::POSIZIONE_PARTENZA_MAPPA_X = (((desktop.width/(SPAZIO_CELLE+1)-NUMERO_CASELLE_ASSE_X)/2))*SPAZIO_CELLE;
 const int Utilities::POSIZIONE_PARTENZA_MAPPA_Y = (((desktop.height/(SPAZIO_CELLE+1))-NUMERO_CASELLE_ASSE_Y)/2)*SPAZIO_CELLE;
 
-const int Utilities::MARGINE_MAPPA = 60;
+const int Utilities::MARGINE_MAPPA = 40;
 const sf::Color Utilities::COLORE_SFONDO = Color::Black;
 
 const int Utilities::ALTEZZA_FINESTRAsx = ALTEZZA_MAPPA + (2*MARGINE_MAPPA);
@@ -59,8 +59,6 @@ bool Utilities::controlloDuplicato(Vector2<int> pos)
     {
         if(lista_posizioni[i]==pos)
         {
-            //std::cout<<"posizione gia presente: ("<<lista_posizioni[i].x<<", "<<lista_posizioni[i].y<<") \n";
-            //std::cout<<"in posizione --> "<<i<<"\n";
             return true;
         }
     }

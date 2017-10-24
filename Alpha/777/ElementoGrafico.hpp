@@ -57,6 +57,10 @@ class ElementoGrafico
          * 12: ..
          */
         ElementoGrafico();
+
+        /*! \brief ElementoGrafico costruttore
+         * @param tipo_personaggio
+         */
         ElementoGrafico(int tipo_personaggio);
         //------------------------------------------
 
