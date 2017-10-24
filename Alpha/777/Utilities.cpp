@@ -9,12 +9,12 @@ using namespace sf;
 
 const int Utilities::NUMERO_NEMICI_MASSIMO = 200;
 
-sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
-const int Utilities::SPAZIO_CELLE = desktop.height/40;
-const int Utilities::DIMENSIONE_CELLE = 25;
-
 const int Utilities::NUMERO_CASELLE_ASSE_X = 20;
 const int Utilities::NUMERO_CASELLE_ASSE_Y = 20;
+
+sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
+const int Utilities::SPAZIO_CELLE = desktop.height/(NUMERO_CASELLE_ASSE_Y*2);
+const int Utilities::DIMENSIONE_CELLE = SPAZIO_CELLE/2+2;
 
 const int Utilities::ALTEZZA_DISPLAY = desktop.height;
 const int Utilities::LARGHEZZA_DISPLAY = desktop.width;
@@ -103,6 +103,7 @@ Vector2<int> Utilities::generaPosizioneRandom()
 
 Vector2<int> Utilities::generaPosizioneRandom(int eroe_x, int eroe_y)
 {
+    std::cout<<SPAZIO_CELLE<<" ~ "<<DIMENSIONE_CELLE<<"\n";
     int rand_x = rand()%(max_value-min_value + 1) + min_value;
     int rand_y = rand()%(max_value-min_value + 1) + min_value;
     Vector2<int> posizione_corrente = {rand_x, rand_y};
