@@ -52,11 +52,31 @@ public:
      */
     void eliminaNemicoInPosizione(int posizione);
 
-    
+    /*! \brief \fn void cancellaArray()
+     * @details viene liberato l' array
+     */
     void cancellaArray();
+
+    /*! \brief \fn void disegnaNemici(RenderWindow &Gioco)
+     * @param Gioco
+     * @details funzione grafica che disegna i nemici sulla mappa
+     */
     void disegnaNemici(RenderWindow &Gioco);
     void stampaArray(Nemico *array[], int lunghezza);
+
+    /*! \brief \fn void spostaNemici(Personaggio &eroe, int piano, int stanza)
+     * @param eroe
+     * @param piano
+     * @param stanza
+     * @details ogni volta che viene riaggiornata la mappa sposta i nemici in posizioni random
+     */
     void spostaNemici(Personaggio &eroe, int piano, int stanza);
+
+    /*! \brief \fn bool controlloPosizionePersonaggio(Personaggio &eroe)
+     * @param eroe
+     * @return
+     * @details ritorna se ha torvato il personaggio nella stessa posizione del nemico
+     */
     bool controlloPosizionePersonaggio(Personaggio &eroe);
 
 };
