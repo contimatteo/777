@@ -43,7 +43,13 @@ public:
     static const int POSIZIONE_PARTENZA_FINESTRAdx_Y;
 
     //metodi
+    /*! \brief \fn bool controlloDuplicato(sf::Vector2<int> pos)
+     * @details controlla se la posizione generata è unica
+     */
     static bool controlloDuplicato(sf::Vector2<int> pos);
+    /*! \brief \fn Vector2<int> generaPosizioneRandom();
+     * @details crea una nuova posizione random.
+     */
     static sf::Vector2<int> generaPosizioneRandom();
     static Vector2<int> generaPosizioneRandom(int eroe_x, int eroe_y);
 

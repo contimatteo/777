@@ -33,7 +33,7 @@ class ElementoGrafico
 
 
         //METODI
-        /*! \brief \fn muovi
+        /*! \brief \fn muovi()
          * @details questa funzione sposta un elemento nella mappa
          */
         void muovi();

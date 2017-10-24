@@ -18,8 +18,7 @@ public:
     //identificativo nemico
     int id;
     bool cancellato;
-    //Nemico();
-    //Nemico(int stack);
+
     Nemico(int tipo_nemico, int x, int y, int identificatore, int attacco_nemico );
 
 };
