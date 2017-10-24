@@ -5,5 +5,5 @@
 - [ ] scrivere la documentazione del progetto (doxygen) (@enricomariafabbri)
 - [ ] scrivere il readme.md (@mattethebest)
 - [ ] realizzare i menu laterali al gioco (indicatori di vita potenza etc..) (@?)
-- [ ] finire il gameplay del gioco (?)​
+- [ ] Finire il gameplay del gioco.(?)​
 

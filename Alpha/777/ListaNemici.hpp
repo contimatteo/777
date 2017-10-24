@@ -9,19 +9,23 @@
 #include "Personaggio.hpp"
 #include "Utilities.hpp"
 
-const int NUMERO_NEMICI_MASSIMO=200;
+const int NUMERO_NEMICI_MASSIMO=200; /*! \var const int NUEMRO_NEMICI_MASSIMO */
 
+/*! definisco una classe*/
 class Personaggio;
 
+/*! \class Lista nemici
+ * @define contine un array di oggetti, dove ogni elemento rappresenta un nemico
+ */
 class ListaNemici
 {
 public:
-    Utilities util;
-    int numeroNemici;
+    Utilities util; /*! \typedef Utilities util*/
+    int numeroNemici; /*! \var int numeroNemici */
     // array nemici
-    Nemico *array_nemici[NUMERO_NEMICI_MASSIMO];
+    Nemico *array_nemici[NUMERO_NEMICI_MASSIMO]; /*! \typedef Nemico array_nemici[NUMERO_NEMICI_MASSIMO] */
     // array delle posizioni random generate
-    sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO];
+    sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO]; 
     // costruttori
     ListaNemici(int stack);
 
