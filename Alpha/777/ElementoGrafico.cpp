@@ -62,19 +62,19 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // pet
         case 2:
         {
-            texture.loadFromFile("../risorse/immagini/red.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/red.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // nemico
         case 3:
         {
-            texture.loadFromFile("../risorse/immagini/Verde1.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Verde1.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // altri
         case 4:
         {
-            texture.loadFromFile("../risorse/immagini/angolo-alto-destra.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/angolo-alto-destra.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // mura mappa

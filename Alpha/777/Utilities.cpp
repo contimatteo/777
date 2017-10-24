@@ -103,7 +103,6 @@ Vector2<int> Utilities::generaPosizioneRandom()
 
 Vector2<int> Utilities::generaPosizioneRandom(int eroe_x, int eroe_y)
 {
-    std::cout<<SPAZIO_CELLE<<" ~ "<<DIMENSIONE_CELLE<<"\n";
     int rand_x = rand()%(max_value-min_value + 1) + min_value;
     int rand_y = rand()%(max_value-min_value + 1) + min_value;
     Vector2<int> posizione_corrente = {rand_x, rand_y};
