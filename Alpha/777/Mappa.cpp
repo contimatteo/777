@@ -2,8 +2,8 @@
 // Created by Mattia_Porcelli on 10/10/2017.
 //
 #include <time.h>
-#include <cstdlib>
-#include <iostream>
+#include <c++/cstdlib>
+#include <c++/iostream>
 #include "Mappa.hpp"
 
 /*LEGENDA:
@@ -300,6 +300,29 @@ void Mappa::riempi_mappa(){
 }
 
 
+//CHIAMARE QUESTA FUNZIONE SOLO DOPO AVER CHIAMATO LA FUNZIONE isAporta!!!
+int Mappa::idMappaPorta(int x, int y) {
+    int k = 0;
+    for (int i = 0; i < 3; i++){
+        if (portexy[i].x == x && portexy[i].y == y)
+            k = i;
+    }
+    return porte[k];
+}
+
+
+bool Mappa::isAporta(int x, int y){
+    for (int i = 0; i < 3; i++){
+        if(portexy[i].x == x && portexy[i].y == y)
+            return true;
+    }
+    return false;
+}
+
+/*
+ *  n = numero_porta
+ *  k = id_stanza
+ */
 void Mappa::inserisci_porta(int n , int k){ //N indica il numero di porta; k è l'identificativo della stanza da collegare.
         int px, py;
         do{
@@ -307,6 +330,8 @@ void Mappa::inserisci_porta(int n , int k){ //N indica il numero di porta; k è 
         py = rand() % 20;
         } while (location[px][py] != 6 && location[px][py]!= 5 );
         location[px][py] = 7;
+        portexy[n].x = px;
+        portexy[n].y = py;
         porte[n] = k;
 
 }
