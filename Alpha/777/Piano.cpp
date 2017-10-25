@@ -4,6 +4,7 @@
 
 #include <cstdlib>
 #include "Piano.hpp"
+//int t = Piano::numero_mappe;
 
 
 void Piano::setPos_Scale_Salire (int scale){ this->pos_scale_salire = scale;}
@@ -43,7 +44,7 @@ void Piano::setPos_Scale_Salire (int scale){ this->pos_scale_salire = scale;}
         collega_mappe();
     }
 
-void Piano::collega_mappe(){
+/*void Piano::collega_mappe(){
     if (numero_mappe != 1)
         if (numero_mappe == 2) {
             arr_mappe[0].inserisci_porta(arr_mappe[0].id, 1);
@@ -84,6 +85,75 @@ void Piano::collega_mappe(){
 
             }
         }
+}*/
+    int count(int arr[]){
+        int t = 0;
+        for (int i = 0; i < 3; i ++){
+            if (arr[i] < 0)
+                t++;
+        }
+        return t;
+    }
+
+    void Piano::collega_mappe(){
+    if (numero_mappe != 1){
+
+
+        if (numero_mappe == 2){
+            arr_mappe[0].inserisci_porta(0,1);
+            arr_mappe[1].inserisci_porta(0,0);
+        } else if (numero_mappe == 3){
+
+            arr_mappe[0].inserisci_porta(0,1);
+            arr_mappe[0].inserisci_porta(1,2);
+            arr_mappe[1].inserisci_porta(0,0);
+            arr_mappe[1].inserisci_porta(1,2);
+            arr_mappe[2].inserisci_porta(0,0);
+            arr_mappe[2].inserisci_porta(1,1);
+
+        } else {
+            int k = 0;
+            for (int i = 0; i < numero_mappe - 2; i ++) {
+                if (k == 0){
+
+                    arr_mappe[i].inserisci_porta(0, i + 1);
+                    arr_mappe[i].inserisci_porta(1, i + 2);
+                    arr_mappe[i + 1].inserisci_porta(2, i);
+                    arr_mappe[i + 2].inserisci_porta(2, i);
+
+
+                    k++;
+                } else if (k == 1 ){
+
+                    arr_mappe[i].inserisci_porta(0, i + 1);
+                    arr_mappe[i].inserisci_porta(1, i + 2);
+                    arr_mappe[i+1].inserisci_porta(1, i);
+                    arr_mappe[i+2].inserisci_porta(2, i);
+
+
+                    k++;
+                } else {
+
+                    arr_mappe[i].inserisci_porta(0, i+1);
+                    arr_mappe[i+1].inserisci_porta(1, i);
+                    arr_mappe[i+1].inserisci_porta(0,i+2);
+                    arr_mappe[i+2].inserisci_porta(2, i +1);
+                    k--;
+                //CONTROLLARE DURANTE DEBUGGING CHE QUESTO CODICE NON SERVA!!!
+                    /*if ( (i +1) < (numero_mappe - 2)){
+                        arr_mappe[i+1].inserisci_porta(0, i +2);
+                        arr_mappe[i+2].inserisci_porta(0, i + 1);
+                    }*/
+                }
+            }
+        }
+    }
 }
 
 
+#if 0
+
+
+
+
+#endif

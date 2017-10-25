@@ -56,7 +56,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // eroe
         case 1:
         {
-            texture.loadFromFile("../risorse/immagini/Viola.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Personaggio-1.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // pet
@@ -68,7 +68,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // nemico
         case 3:
         {
-            texture.loadFromFile("../risorse/immagini/Verde1.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Nemico.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // altri
@@ -80,13 +80,13 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // mura mappa
         case 10:
         {
-            texture.loadFromFile("../risorse/immagini/Marrone.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Marrone.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // pavimento mappa
         case 11:
         {
-            texture.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/grass.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // default

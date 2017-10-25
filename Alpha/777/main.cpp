@@ -37,7 +37,7 @@ void disegnaFinestraSinistra(RenderWindow &Gioco)
     // disegno finestra di sx
     sf::RectangleShape finestra(sf::Vector2f(util.LARGHEZZA_FINESTRAsx, util.ALTEZZA_FINESTRAsx));
     finestra.setPosition(util.POSIZIONE_PARTENZA_FINESTRAsx_X, util.POSIZIONE_PARTENZA_FINESTRAsx_Y);
-    finestra.setFillColor(util.COLORE_SFONDO);
+    finestra.setFillColor(sf::Color::Green);
     finestra.setOutlineColor(sf::Color::White);
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);
@@ -49,7 +49,7 @@ void disegnaFinestraDestra(RenderWindow &Gioco)
     // disegno finestra di dx
     sf::RectangleShape finestra(sf::Vector2f(util.LARGHEZZA_FINESTRAdx, util.ALTEZZA_FINESTRAdx));
     finestra.setPosition(util.POSIZIONE_PARTENZA_FINESTRAdx_X, util.POSIZIONE_PARTENZA_FINESTRAdx_Y);
-    finestra.setFillColor(util.COLORE_SFONDO);
+    finestra.setFillColor(sf::Color::Magenta);
     finestra.setOutlineColor(sf::Color::White);
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);

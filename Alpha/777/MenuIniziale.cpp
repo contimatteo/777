@@ -17,7 +17,7 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
 
     bool scelta=false;
     menu.create(sf::VideoMode((unsigned int)util.LARGHEZZA_DISPLAY, (unsigned int)util.ALTEZZA_DISPLAY), "777 - Menu");
-    menu.clear(sf::Color(250, 208, 196));
+
     menu.draw(immagine_menu);
     menu.display();
 

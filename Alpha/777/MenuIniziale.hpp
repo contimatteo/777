@@ -9,12 +9,20 @@
 #include <SFML/Window.hpp>
 #include "Utilities.hpp"
 using namespace sf;
+
+/*! \brief \class MenuIniziale
+ * @details questa classe serve per impostare il menu inziale del gioco
+ */
 class MenuIniziale
 {
  public:
-    Utilities util;
-    RenderWindow menu;
+    Utilities util; /*! \typedef Utilities util */
+    RenderWindow menu; /*! \typedef RenderWindow menu */
     // costruttore
+
+    /*! \brief \fn MenuIniziale
+    * @details costruttore della classe
+    */
     MenuIniziale(RenderWindow &Gioco);
 
 };
