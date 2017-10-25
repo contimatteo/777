@@ -10,6 +10,7 @@
 #include "ElementoGrafico.hpp"
 #include "ListaNemici.hpp"
 #include "Utilities.hpp"
+#include "ListaTorre.hpp"
 
 /*! definizione della classe ListaNemici */
 class ListaNemici;
@@ -76,7 +77,10 @@ public:
     * \brief Personaggio costruttore
     * @param tipo_personaggio
     */
-    Personaggio(int tipo_personaggio);
+    Personaggio(int tipo_personaggio, ListaTorre &lista_torre, int stanza);
+
+    void impostaPosizionePartenzaPersonaggio(int x, int y);
+
 };
 
 

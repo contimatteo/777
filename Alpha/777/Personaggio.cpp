@@ -2,10 +2,39 @@
 #include "ListaNemici.hpp"
 
 
-Personaggio::Personaggio(int tipo_personaggio): ElementoGrafico(tipo_personaggio)
+void Personaggio::impostaPosizionePartenzaPersonaggio(int x, int y)
 {
+    //std::cout<<"posizione partenza personaggio --> ["<<x<<", "<<y<<"] \n";
+    // inizializzo variabili posizioni
+    posX_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_X)+(x*util.SPAZIO_CELLE)-util.SPAZIO_CELLE;
+    posY_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_Y)+(y*util.SPAZIO_CELLE)-util.SPAZIO_CELLE;
+    posX=posX_iniziale; posY=posY_iniziale;
+    pos_cella_x=x;  pos_cella_y=y;
+    // imposto la sua posizione
+    grafica.setPosition(posX, posY);
+}
 
 
+
+Personaggio::Personaggio(int tipo_personaggio, ListaTorre &lista_torre, int stanza): ElementoGrafico(tipo_personaggio)
+{
+    int x=0; bool trovato=false; int y=0;
+    while ((x < 20)&&(!trovato))
+    {
+        while((y<20)&&(!trovato))
+        {
+            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(y,x)==9)
+            {
+                trovato = true;
+                impostaPosizionePartenzaPersonaggio(x+1, y+1);
+                y=20; x=20;
+            }
+            else
+                y++;
+        }
+        y=0;
+        x++;
+    }
 }
 
 void Personaggio::eliminaNemico(ListaNemici &nemici, int posizione, bool &flag)

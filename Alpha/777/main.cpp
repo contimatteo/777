@@ -6,6 +6,7 @@
 #include "Personaggio.hpp"
 #include "Grafica.hpp"
 #include "MenuIniziale.hpp"
+#include "ListaTorre.hpp"
 using namespace sf;
 
 // ----------------------------
@@ -15,21 +16,23 @@ int stanza=1;
 
 // ----------------------------
 
-void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio)
+void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio, ListaTorre &lista_torre)
 {
     //controllo che la casella sia libera
-    // if(funzione porc da ok)
-    // {
-    eroe.setPosizione(x, y);
-    eroe.muovi();
-    muovi_personaggio = false;
-    // }
+    //if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(x,y)==9)
+    //{
+        eroe.setPosizione(x, y);
+        eroe.muovi();
+        muovi_personaggio = false;
+    /*}
+    else
+        std::cout<<"merda \n";*/
 }
 
 
-void disegnaMappa(RenderWindow &Gioco, Grafica &grafica)
+void disegnaMappa(RenderWindow &Gioco, Grafica &grafica, ListaTorre &lista_torre)
 {
-    grafica.disegnaMappa(Gioco);
+    grafica.disegnaMappa(Gioco, lista_torre, stanza);
 }
 
 void disegnaFinestraSinistra(RenderWindow &Gioco)
@@ -87,12 +90,14 @@ int main()
     Gioco.setKeyRepeatEnabled(false);
     Gioco.setVisible(false);
 
+    // Instanzio la lista torre
+    ListaTorre lista_torre;
     // Instanzio il Menu Iniziale
     MenuIniziale menu(Gioco);
     // Instanzio la mappa
     Grafica grafica(0);
     // Istanzio L' eroe
-    Personaggio eroe(1);
+    Personaggio eroe(1, lista_torre, stanza);
     // Instanzio i nemici
     ListaNemici nemici(2);
     // Instazio la musica
@@ -131,25 +136,25 @@ int main()
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) && muovi_personaggio)
         {
             // freccia Sinistra premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio);
+            muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio, lista_torre);
             // test
             azioni_nemico(Gioco, eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, 1, 0, muovi_personaggio);
+            muoviEroe(Gioco, eroe, 1, 0, muovi_personaggio, lista_torre);
             // test
             azioni_nemico(Gioco, eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, 0, -1, muovi_personaggio);
+            muoviEroe(Gioco, eroe, 0, -1, muovi_personaggio, lista_torre);
             // test
             azioni_nemico(Gioco, eroe, nemici);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) && muovi_personaggio) {
             // freccia GIU premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, 0, 1, muovi_personaggio);
+            muoviEroe(Gioco, eroe, 0, 1, muovi_personaggio, lista_torre);
             // test
             azioni_nemico(Gioco, eroe, nemici);
         }
@@ -166,7 +171,7 @@ int main()
         // Clear screen
         Gioco.clear(util.COLORE_SFONDO);
         // disegno la mappa
-        disegnaMappa(Gioco, grafica);
+        disegnaMappa(Gioco, grafica, lista_torre);
         // disegno l'erore
         disegnaElementiGrafici(Gioco, eroe, nemici);
         // Aggiorno il Gioco con le modifiche

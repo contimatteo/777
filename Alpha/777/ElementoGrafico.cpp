@@ -44,12 +44,6 @@ void ElementoGrafico::setPosizione(int x, int y)
 
 ElementoGrafico::ElementoGrafico(int tipo_personaggio)
 {
-    // inizializzo variabili posizioni
-    posX_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_X);
-    posY_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_Y);
-    posX=posX_iniziale; posY=posY_iniziale;
-    pos_cella_x=1;  pos_cella_y=1;
-
     //Texture texture;
     switch(tipo_personaggio)
     {
@@ -99,6 +93,4 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
     }
     // imposto la sprite selezionata
     grafica.setTexture(texture);
-    // imposto la sua posizione
-    grafica.setPosition(posX, posY);
 }
