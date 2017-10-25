@@ -2,6 +2,7 @@
 // Created by Matteo Conti on 24/10/17.
 //
 
+#include <SFML/Audio/Music.hpp>
 #include "MenuIniziale.hpp"
 
 MenuIniziale::MenuIniziale(RenderWindow &Gioco)
@@ -14,6 +15,12 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
     int pos_x = (util.LARGHEZZA_DISPLAY/2)-(texture.getSize().x/2);
     int pos_y = (util.ALTEZZA_DISPLAY/2)-(texture.getSize().y/2);;
     immagine_menu.setPosition(pos_x, pos_y);
+    Music music;
+    music.openFromFile("../risorse/audio/menu-music.ogg");
+    music.setVolume(50);
+    music.setLoop(false);
+    //music.play();
+
 
     bool scelta=false;
     menu.create(sf::VideoMode((unsigned int)util.LARGHEZZA_DISPLAY, (unsigned int)util.ALTEZZA_DISPLAY), "777 - Menu");

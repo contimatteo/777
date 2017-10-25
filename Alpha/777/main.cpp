@@ -11,6 +11,8 @@ using namespace sf;
 
 // ----------------------------
 static Utilities util;
+Text text;
+Font font;
 int piano=1;
 int stanza=1;
 
@@ -44,7 +46,13 @@ void disegnaFinestraSinistra(RenderWindow &Gioco)
     finestra.setOutlineColor(sf::Color::White);
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);
-
+    font.loadFromFile("../risorse/OpenSans.ttf");
+    text.setFont(font);
+    text.setString("Hello world");
+    text.setFillColor(Color::Black);
+    text.setCharacterSize(100);
+    text.setPosition(100, 100);
+    Gioco.draw(text);
 }
 
 void disegnaFinestraDestra(RenderWindow &Gioco)
