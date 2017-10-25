@@ -80,13 +80,13 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // mura mappa
         case 10:
         {
-            texture.loadFromFile("../risorse/immagini/Marrone.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Marrone.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // pavimento mappa
         case 11:
         {
-            texture.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // default
