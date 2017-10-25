@@ -56,7 +56,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // eroe
         case 1:
         {
-            texture.loadFromFile("../risorse/immagini/Personaggio-2.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Personaggio-1.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // pet
