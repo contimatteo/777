@@ -55,10 +55,12 @@ public:
 
     static Vector2<int> generaPosizioneRandom();
     static Vector2<int> generaPosizioneRandom(ListaTorre &lista_torre, int stanza);
+    //static Vector2<int> generaPosizioneRandom2(ListaTorre &lista_torre, int stanza, int stack);
     static Vector2<int> generaPosizioneRandom(int eroe_x, int eroe_y);
 
     static void azzeraPosizioni();
     static bool controllaElementoGrafico(ListaTorre &lista_torre, int stanza, int x, int y);
+
 
     std::string convertInt(int number);
 

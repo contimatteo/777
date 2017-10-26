@@ -7,7 +7,7 @@
 #include "Utilities.hpp"
 using namespace sf;
 
-const int Utilities::NUMERO_NEMICI_MASSIMO = 200;
+const int Utilities::NUMERO_NEMICI_MASSIMO = 20;
 
 const int Utilities::NUMERO_CASELLE_ASSE_X = 20;
 const int Utilities::NUMERO_CASELLE_ASSE_Y = 20;
@@ -49,10 +49,11 @@ const int Utilities::POSIZIONE_PARTENZA_CONSOLE_Y = POSIZIONE_PARTENZA_MAPPA_Y+A
 
 // --------------------------------------------
 
-Vector2<int> lista_posizioni[100];
+Vector2<int> lista_posizioni[20];
 int lunghezza_array_posizioni = -1;
 const int min_value = 0;
 const int max_value = Utilities::NUMERO_CASELLE_ASSE_X-1;
+int cont=0;
 
 // funzioni
 bool Utilities::controlloDuplicato(Vector2<int> pos)
@@ -75,6 +76,7 @@ void Utilities::azzeraPosizioni()
         lista_posizioni[i]={0,0};
     }
     lunghezza_array_posizioni=-1;
+    cont=0;
 }
 
 bool Utilities::controllaElementoGrafico(ListaTorre &lista_torre, int stanza, int x, int y)
@@ -93,6 +95,7 @@ Vector2<int> Utilities::generaPosizioneRandom(ListaTorre &lista_torre, int stanz
 {
     int rand_x = rand()%(max_value-min_value + 1) + min_value;
     int rand_y = rand()%(max_value-min_value + 1) + min_value;
+    //std::cout<<"posizione casuale generata: ("<<rand_x<<", "<<rand_y<<") \n";
     Vector2<int> posizione_corrente = {rand_x, rand_y};
     // controllo che non sia già stata creata una posizione uguale
     if(controlloDuplicato(posizione_corrente))
@@ -104,10 +107,13 @@ Vector2<int> Utilities::generaPosizioneRandom(ListaTorre &lista_torre, int stanz
         {
             if ((rand_x > 0) && (rand_y > 0))
             {
+                cont++;
                 // incremento la lunghezza dell'array
                 lunghezza_array_posizioni += 1;
                 // aggiungo la nuova posizione all'array di posizioni create
                 lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
+                //std::cout <<"["<<cont<<"] - "<< "sposto il nemico nella cella [" << posizione_corrente.x << ", " << posizione_corrente.y << "] \n";
+                //std::cout<<"ok \n";
                 return posizione_corrente;
             }
             else
