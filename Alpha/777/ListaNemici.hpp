@@ -31,7 +31,7 @@ public:
     /*! \brief costruttore ListaNemici
      * @param stack
      */
-    ListaNemici(int stack);
+    ListaNemici(ListaTorre &lista_torre, int stanza);
 
     /*! \brief \fn void creaNemici(int pianoCorrente, int stanzaCorrente)
      * @param pianoCorrente
@@ -70,7 +70,7 @@ public:
      * @param stanza
      * @details ogni volta che viene riaggiornata la mappa sposta i nemici in posizioni random
      */
-    void spostaNemici(Personaggio &eroe, int piano, int stanza);
+    void spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, int piano, int stanza);
 
     /*! \brief \fn bool controlloPosizionePersonaggio(Personaggio &eroe)
      * @param eroe
