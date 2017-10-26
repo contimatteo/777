@@ -11,8 +11,6 @@ using namespace sf;
 
 // ----------------------------
 static Utilities util;
-Text text;
-Font font;
 int piano=1;
 int stanza=1;
 
@@ -37,7 +35,7 @@ void disegnaMappa(RenderWindow &Gioco, Grafica &grafica, ListaTorre &lista_torre
     grafica.disegnaMappa(Gioco, lista_torre, stanza);
 }
 
-void disegnaFinestraSinistra(RenderWindow &Gioco)
+void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe)
 {
     // disegno finestra di sx
     sf::RectangleShape finestra(sf::Vector2f(util.LARGHEZZA_FINESTRAsx, util.ALTEZZA_FINESTRAsx));
@@ -46,16 +44,14 @@ void disegnaFinestraSinistra(RenderWindow &Gioco)
     finestra.setOutlineColor(sf::Color::White);
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);
-    font.loadFromFile("../risorse/OpenSans.ttf");
-    text.setFont(font);
-    text.setString("Hello world");
-    text.setFillColor(Color::Black);
-    text.setCharacterSize(100);
-    text.setPosition(100, 100);
-    Gioco.draw(text);
+    grafica.creaTestiFinestraSinistra(Gioco, eroe);
+    Gioco.draw(grafica.status_eroe);
+    Gioco.draw(grafica.attacco_eroe);
+    Gioco.draw(grafica.vita_eroe);
+    Gioco.draw(grafica.gittata_eroe);
 }
 
-void disegnaFinestraDestra(RenderWindow &Gioco)
+void disegnaFinestraDestra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe)
 {
     // disegno finestra di dx
     sf::RectangleShape finestra(sf::Vector2f(util.LARGHEZZA_FINESTRAdx, util.ALTEZZA_FINESTRAdx));
@@ -72,10 +68,10 @@ void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
 }
 
 
-void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici)
+void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici, Grafica &grafica)
 {
-    disegnaFinestraSinistra(Gioco);
-    disegnaFinestraDestra(Gioco);
+    disegnaFinestraSinistra(Gioco, grafica, eroe);
+    disegnaFinestraDestra(Gioco, grafica, eroe);
     disegnaEroe(Gioco, eroe);
     nemici.disegnaNemici(Gioco);
 }
@@ -181,7 +177,7 @@ int main()
         // disegno la mappa
         disegnaMappa(Gioco, grafica, lista_torre);
         // disegno l'erore
-        disegnaElementiGrafici(Gioco, eroe, nemici);
+        disegnaElementiGrafici(Gioco, eroe, nemici, grafica);
         // Aggiorno il Gioco con le modifiche
         Gioco.display();
     }

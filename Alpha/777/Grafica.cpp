@@ -4,10 +4,27 @@
 
 #include "Grafica.hpp"
 
-
 Grafica::Grafica(int stack)
 {
-    // nothing to do
+    posizione_partenza_testo_x=util.POSIZIONE_PARTENZA_FINESTRAsx_X+util.MARGINE_MAPPA;
+    posizione_partenza_testo_y=util.POSIZIONE_PARTENZA_FINESTRAsx_Y+util.MARGINE_MAPPA;
+    font.loadFromFile("../risorse/OpenSans.ttf");
+    status_eroe.setFont(font);
+    status_eroe.setFillColor(Color::White);
+    status_eroe.setCharacterSize(50);
+    status_eroe.setPosition(posizione_partenza_testo_x, posizione_partenza_testo_y);
+    attacco_eroe.setFont(font);
+    attacco_eroe.setFillColor(Color::White);
+    attacco_eroe.setCharacterSize(20);
+    attacco_eroe.setPosition(posizione_partenza_testo_x, status_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
+    vita_eroe.setFont(font);
+    vita_eroe.setFillColor(Color::White);
+    vita_eroe.setCharacterSize(20);
+    vita_eroe.setPosition(posizione_partenza_testo_x, attacco_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
+    gittata_eroe.setFont(font);
+    gittata_eroe.setFillColor(Color::White);
+    gittata_eroe.setCharacterSize(20);
+    gittata_eroe.setPosition(posizione_partenza_testo_x, vita_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
 }
 
 void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza)
@@ -105,6 +122,18 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
             immagine_mappa.setPosition((util.POSIZIONE_PARTENZA_MAPPA_X)+(util.SPAZIO_CELLE*i),(util.POSIZIONE_PARTENZA_MAPPA_Y)+(util.SPAZIO_CELLE*j));
             Gioco.draw(immagine_mappa);
         }
+}
+
+
+// ------------
+
+void Grafica::creaTestiFinestraSinistra(RenderWindow &Gioco, Personaggio &eroe)
+{
+    // dettagli
+    status_eroe.setString("Status Eroe");
+    attacco_eroe.setString("Attacco Eroe = " + util.convertInt(eroe.potenza));
+    vita_eroe.setString("Vita Eroe = " + util.convertInt(eroe.vitaAttuale));
+    gittata_eroe.setString("Gittata Eroe = " + util.convertInt(eroe.gittata));
 }
 
 

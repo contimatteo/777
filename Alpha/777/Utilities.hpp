@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Window/VideoMode.hpp>
+#include <string>
 
 using namespace sf;
 
@@ -54,6 +55,9 @@ public:
     static Vector2<int> generaPosizioneRandom(int eroe_x, int eroe_y);
 
     static void azzeraPosizioni();
+
+    std::string convertInt(int number);
+
 
 };
 

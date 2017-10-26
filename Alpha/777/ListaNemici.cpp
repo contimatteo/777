@@ -140,7 +140,6 @@ void ListaNemici::nemicoAttaccaPersonaggio(Personaggio &eroe)
         }
     }
     std::cout<<"vita eroe --> "<<eroe.vitaAttuale<<"\n";
-    std::cout<<"---------------------------------------\n";
 }
 
 void ListaNemici::stampaArray(Nemico *array[], int lunghezza)

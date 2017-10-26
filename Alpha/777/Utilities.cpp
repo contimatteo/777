@@ -101,6 +101,7 @@ Vector2<int> Utilities::generaPosizioneRandom()
         else
             generaPosizioneRandom();
     }
+    return {0,0};
 }
 
 Vector2<int> Utilities::generaPosizioneRandom(int eroe_x, int eroe_y)
@@ -122,4 +123,10 @@ Vector2<int> Utilities::generaPosizioneRandom(int eroe_x, int eroe_y)
         //std::cout<<"["<<lunghezza_array_posizioni<<"] - "<<"posizione casuale generata: ("<<posizione_corrente.x<<", "<<posizione_corrente.y<<") \n";
         return posizione_corrente;
     }
+    return {0,0};
+}
+
+std::string Utilities::convertInt(int number)
+{
+    return std::to_string(number);
 }
