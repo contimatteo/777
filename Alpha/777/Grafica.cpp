@@ -39,7 +39,7 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
 
     Texture texture_mappa1, texture_mappa2, texture_mappa3, texture_mappa4, texture_mappa5, texture_mappa6, texture_mappa7,
             texture_mappa8, texture_mappa9, texture_mappa11, texture_mappa99, texture_mappa0;
-    texture_mappa0.loadFromFile("../risorse/immagini/Nero.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+    texture_mappa0.loadFromFile("../risorse/immagini/rosa.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa1.loadFromFile("../risorse/immagini/Marrone.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa2.loadFromFile("../risorse/immagini/Marrone.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa3.loadFromFile("../risorse/immagini/Marrone.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));

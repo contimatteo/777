@@ -72,9 +72,51 @@ void Utilities::azzeraPosizioni()
 {
     for(int i=0; i<lunghezza_array_posizioni; i++)
     {
-        lista_posizioni[i]={1,1};
+        lista_posizioni[i]={0,0};
     }
     lunghezza_array_posizioni=-1;
+}
+
+bool Utilities::controllaElementoGrafico(ListaTorre &lista_torre, int stanza, int x, int y)
+{
+    if(lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(y, x) == 9)
+    {
+        //std::cout << "nella cella [" << x << ", " << y << "] ci sta un "
+                  //<< lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(y - 1, x - 1) << "\n";
+        return true;
+    }
+    return false;
+}
+
+
+Vector2<int> Utilities::generaPosizioneRandom(ListaTorre &lista_torre, int stanza)
+{
+    int rand_x = rand()%(max_value-min_value + 1) + min_value;
+    int rand_y = rand()%(max_value-min_value + 1) + min_value;
+    Vector2<int> posizione_corrente = {rand_x, rand_y};
+    // controllo che non sia già stata creata una posizione uguale
+    if(controlloDuplicato(posizione_corrente))
+        generaPosizioneRandom(lista_torre, stanza);
+    else
+    {
+        // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
+        if(controllaElementoGrafico(lista_torre, stanza, rand_x, rand_y))
+        {
+            if ((rand_x > 0) && (rand_y > 0))
+            {
+                // incremento la lunghezza dell'array
+                lunghezza_array_posizioni += 1;
+                // aggiungo la nuova posizione all'array di posizioni create
+                lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
+                return posizione_corrente;
+            }
+            else
+                generaPosizioneRandom(lista_torre, stanza);
+        }
+        else
+            generaPosizioneRandom(lista_torre, stanza);
+    }
+    return {0,0};
 }
 
 Vector2<int> Utilities::generaPosizioneRandom()
@@ -85,20 +127,18 @@ Vector2<int> Utilities::generaPosizioneRandom()
     Vector2<int> posizione_corrente = {rand_x, rand_y};
     // controllo che non sia già stata creata una posizione uguale
     if(controlloDuplicato(posizione_corrente))
-        // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
-        // if(funzione_porc_mi_dà_ok)
         generaPosizioneRandom();
     else
     {
-        if((rand_x!=0)&&(rand_y!=0)) {
+        if ((rand_x != 0) && (rand_y != 0))
+        {
             // incremento la lunghezza dell'array
             lunghezza_array_posizioni += 1;
             // aggiungo la nuova posizione all'array di posizioni create
             lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
             //std::cout<<"["<<lunghezza_array_posizioni<<"] - "<<"posizione casuale generata: ("<<posizione_corrente.x<<", "<<posizione_corrente.y<<") \n";
             return posizione_corrente;
-        }
-        else
+        } else
             generaPosizioneRandom();
     }
     return {0,0};
