@@ -110,7 +110,7 @@ int main()
     // Istanzio L' eroe
     Personaggio eroe(1, lista_torre, stanza);
     // Instanzio i nemici
-    ListaNemici nemici(lista_torre, stanza);
+    ListaNemici nemici(lista_torre, eroe, stanza);
     // Instazio la musica
     Music music;
     music.openFromFile("../risorse/audio/main-song.ogg");

@@ -29,6 +29,8 @@ public:
     int potenza = 10; /** <enum valore potenza. */
     int livello=1;
     int gittata= 2; /** <enum valore gittata. */
+    int cella_di_patenza_asse_x;
+    int cella_di_patenza_asse_y;
     //SETTARE POI DA DOVE FAR INIZIARE IL PERSONAGGIO
     int contatoreSkill1=0;
     int contatoreSkill2=0;

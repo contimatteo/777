@@ -9,7 +9,7 @@
 #include "Personaggio.hpp"
 #include "Utilities.hpp"
 
-const int NUMERO_NEMICI_MASSIMO=200; /*! \var const int NUEMRO_NEMICI_MASSIMO */
+const int NUMERO_NEMICI_MASSIMO=20; /*! \var const int NUEMRO_NEMICI_MASSIMO */
 
 /*! definisco una classe*/
 class Personaggio;
@@ -31,7 +31,7 @@ public:
     /*! \brief costruttore ListaNemici
      * @param stack
      */
-    ListaNemici(ListaTorre &lista_torre, int stanza);
+    ListaNemici(ListaTorre &lista_torre, Personaggio &eroe, int stanza);
 
     /*! \brief \fn void creaNemici(int pianoCorrente, int stanzaCorrente)
      * @param pianoCorrente
