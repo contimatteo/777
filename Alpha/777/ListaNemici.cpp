@@ -151,7 +151,7 @@ void ListaNemici::stampaArray(Nemico *array[], int lunghezza)
 }
 
 // in caso di scontro con un nemico creare una funzione che elimini il nemico
-// funzione che richiamo quanod il personaggio attacca
+// funzione che richiamo quando il personaggio attacca
 void ListaNemici::eliminaNemicoInPosizione(int posizione)
 {
     for (int i=posizione; i<numeroNemici-1; i++)
