@@ -49,6 +49,7 @@ void Personaggio::eliminaNemico(ListaNemici &nemici, int posizione, bool &flag)
     {
         livello = livello+1;
         potenza = (livello*2)+10;
+        vitaAttuale= vitaAttuale+100;
         esperienza = 0;
     }
 }

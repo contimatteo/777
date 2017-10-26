@@ -62,6 +62,10 @@ void disegnaFinestraDestra(RenderWindow &Gioco, Grafica &grafica, Personaggio &e
     finestra.setOutlineColor(sf::Color::White);
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);
+    grafica.istruzioniGioco();
+    Gioco.draw(grafica.titolo_istruzioni_gioco);
+    Gioco.draw(grafica.istruzioni_gioco);
+
 }
 
 void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)

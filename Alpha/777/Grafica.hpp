@@ -28,6 +28,8 @@ class Grafica
     Text gittata_eroe;
     Text esperienza_eroe;
     Text livello_eroe;
+    Text istruzioni_gioco;
+    Text titolo_istruzioni_gioco;
 
     // metodi
     Grafica(int stack);
@@ -42,6 +44,7 @@ class Grafica
     void agiornaGittata(Personaggio &eroe);
     void agiornaEsperienza(Personaggio &eroe);
     void agiornaLivello(Personaggio &eroe);
+    void istruzioniGioco();
     //------------------------------------------
 
 };

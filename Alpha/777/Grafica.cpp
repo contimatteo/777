@@ -10,29 +10,37 @@ Grafica::Grafica(int stack)
     posizione_partenza_testo_y=util.POSIZIONE_PARTENZA_FINESTRAsx_Y+util.MARGINE_MAPPA;
     font.loadFromFile("../risorse/OpenSans.ttf");
     status_eroe.setFont(font);
-    status_eroe.setFillColor(Color::White);
+    status_eroe.setFillColor(Color::Red);
     status_eroe.setCharacterSize(50);
     status_eroe.setPosition(posizione_partenza_testo_x, posizione_partenza_testo_y);
     attacco_eroe.setFont(font);
-    attacco_eroe.setFillColor(Color::White);
+    attacco_eroe.setFillColor(Color::Blue);
     attacco_eroe.setCharacterSize(20);
-    attacco_eroe.setPosition(posizione_partenza_testo_x, status_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
+    attacco_eroe.setPosition(posizione_partenza_testo_x, status_eroe.getPosition().y+(4*util.MARGINE_MAPPA));
     vita_eroe.setFont(font);
-    vita_eroe.setFillColor(Color::White);
+    vita_eroe.setFillColor(Color::Blue);
     vita_eroe.setCharacterSize(20);
     vita_eroe.setPosition(posizione_partenza_testo_x, attacco_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
     gittata_eroe.setFont(font);
-    gittata_eroe.setFillColor(Color::White);
+    gittata_eroe.setFillColor(Color::Blue);
     gittata_eroe.setCharacterSize(20);
     gittata_eroe.setPosition(posizione_partenza_testo_x, vita_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
     esperienza_eroe.setFont(font);
-    esperienza_eroe.setFillColor(Color::White);
+    esperienza_eroe.setFillColor(Color::Blue);
     esperienza_eroe.setCharacterSize(20);
     esperienza_eroe.setPosition(posizione_partenza_testo_x, gittata_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
     livello_eroe.setFont(font);
-    livello_eroe.setFillColor(Color::White);
+    livello_eroe.setFillColor(Color::Blue);
     livello_eroe.setCharacterSize(20);
     livello_eroe.setPosition(posizione_partenza_testo_x, esperienza_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
+    titolo_istruzioni_gioco.setFont(font);
+    titolo_istruzioni_gioco.setFillColor(Color::Yellow);
+    titolo_istruzioni_gioco.setCharacterSize(50);
+    titolo_istruzioni_gioco.setPosition(util.POSIZIONE_PARTENZA_FINESTRAdx_X+util.MARGINE_MAPPA, util.POSIZIONE_PARTENZA_FINESTRAdx_Y+util.MARGINE_MAPPA);
+    istruzioni_gioco.setFont(font);
+    istruzioni_gioco.setFillColor(Color::Blue);
+    istruzioni_gioco.setCharacterSize(20);
+    istruzioni_gioco.setPosition(util.POSIZIONE_PARTENZA_FINESTRAdx_X+util.MARGINE_MAPPA, util.POSIZIONE_PARTENZA_FINESTRAdx_Y+(4*util.MARGINE_MAPPA));
 }
 
 void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza)
@@ -142,7 +150,7 @@ void Grafica::creaTestiFinestraSinistra(Personaggio &eroe)
     attacco_eroe.setString("Attacco Eroe = " + util.convertInt(eroe.potenza));
     vita_eroe.setString("Vita Eroe = " + util.convertInt(eroe.vitaAttuale));
     gittata_eroe.setString("Gittata Eroe = " + util.convertInt(eroe.gittata));
-    esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza) + " /10");
+    esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza) + "/10");
     livello_eroe.setString("Livello Eroe = " + util.convertInt(eroe.livello));
 }
 
@@ -174,4 +182,15 @@ void Grafica::agiornaGittata(Personaggio &eroe)
 void Grafica::agiornaEsperienza(Personaggio &eroe)
 {
     esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza));
+}
+
+// istruzione del gioco
+void Grafica::istruzioniGioco()
+{
+    titolo_istruzioni_gioco.setString("Istruzioni Gioco");
+    istruzioni_gioco.setString( "1) Premi uno e poi le frecce per muoverti\n\n2) Premi due e poi spazio perattaccare\n\n"
+                                        "3) Ogni nemico equivale ad un punto\n esperienza ogni 10 pt esperienza\n sali di livello\n\n"
+                                        "4) Ogni volta che sali di livello aumenta\n l'attacco e ti rigeneri di 100 punti vita");
+
+
 }
