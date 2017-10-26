@@ -44,6 +44,9 @@ public:
     static const int POSIZIONE_PARTENZA_FINESTRAdx_X;
     static const int POSIZIONE_PARTENZA_FINESTRAdx_Y;
 
+    static int posizione_partenza_personaggio_x;
+    static int posizione_partenza_personaggio_y;
+
     //metodi
     /*! \brief \fn bool controlloDuplicato(sf::Vector2<int> pos)
      * @details controlla se la posizione generata è unica

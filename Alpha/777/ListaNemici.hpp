@@ -31,7 +31,7 @@ public:
     /*! \brief costruttore ListaNemici
      * @param stack
      */
-    ListaNemici(ListaTorre &lista_torre, int stanza);
+    ListaNemici(ListaTorre &lista_torre, Personaggio &eroe, int stanza);
 
     /*! \brief \fn void creaNemici(int pianoCorrente, int stanzaCorrente)
      * @param pianoCorrente

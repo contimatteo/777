@@ -47,9 +47,12 @@ const int Utilities::LARGHEZZA_CONSOLE = (LARGHEZZA_MAPPA + (4*MARGINE_MAPPA))+(
 const int Utilities::POSIZIONE_PARTENZA_CONSOLE_X = POSIZIONE_PARTENZA_MAPPA_X-LARGHEZZA_FINESTRAsx-(2*MARGINE_MAPPA);
 const int Utilities::POSIZIONE_PARTENZA_CONSOLE_Y = POSIZIONE_PARTENZA_MAPPA_Y+ALTEZZA_MAPPA+(2*MARGINE_MAPPA);
 
+
+static int posizione_partenza_personaggio_x=0;
+static int posizione_partenza_personaggio_y=0;
 // --------------------------------------------
 
-Vector2<int> lista_posizioni[20];
+Vector2<int> lista_posizioni[200];
 int lunghezza_array_posizioni = -1;
 const int min_value = 0;
 const int max_value = Utilities::NUMERO_CASELLE_ASSE_X-1;

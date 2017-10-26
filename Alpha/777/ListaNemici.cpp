@@ -27,7 +27,7 @@ void ListaNemici::spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, int p
     util.azzeraPosizioni();
     bool finito=true;
     util.azzeraPosizioni();
-    //std::cout<<"posizione personaggio --> {"<<eroe.pos_cella_x<<", "<< eroe.pos_cella_y<<"} \n";
+    std::cout<<"posizione personaggio --> {"<<eroe.pos_cella_x<<", "<< eroe.pos_cella_y<<"} \n";
     for(int i=0; i<numeroNemici; i++)
     {
         finito=false;
@@ -38,8 +38,8 @@ void ListaNemici::spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, int p
             // rigenero la posizione in caso che sia uguale a quella dell'eroe
             posizione = util.generaPosizioneRandom(lista_torre, stanza);
         }
-        //posizione.x+=1;
-        //posizione.y+=1;
+        posizione.x+=1;
+        posizione.y+=1;
 
         // riazzero temporaneamento la loro posizione
         array_nemici[i]->spostamento_x = (util.SPAZIO_CELLE * (-array_nemici[i]->pos_cella_x));
@@ -191,17 +191,17 @@ void ListaNemici::disegnaNemici(RenderWindow &Gioco)
 }
 
 //costruttore
-ListaNemici::ListaNemici(ListaTorre &lista_torre, int stanza)
+ListaNemici::ListaNemici(ListaTorre &lista_torre, Personaggio &eroe, int stanza)
 {
     // posizioni random per istanza nemico
     Vector2<int> posizione_nemico_corrente(0,0);
     int randomX=0, randomY=0;
     // ...
-    numeroNemici=calcolaLunghezza(3, 3);
+    numeroNemici=calcolaLunghezza(1, 1);
     for(int i=0; i<numeroNemici; i++)
     {
         posizione_nemico_corrente=util.generaPosizioneRandom(lista_torre, stanza);
-        while((posizione_nemico_corrente.x==0)&&(posizione_nemico_corrente.y==0))
+        while((posizione_nemico_corrente.x!=eroe.cella_di_patenza_asse_x)&&(posizione_nemico_corrente.y!=eroe.cella_di_patenza_asse_y))
             // genero una hasmap di interi per la posizione (casuale)
             posizione_nemico_corrente=util.generaPosizioneRandom(lista_torre, stanza);
         // creo un nemico

@@ -10,6 +10,7 @@ void Personaggio::impostaPosizionePartenzaPersonaggio(int x, int y)
     posY_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_Y)+(y*util.SPAZIO_CELLE)-util.SPAZIO_CELLE;
     posX=posX_iniziale; posY=posY_iniziale;
     pos_cella_x=x;  pos_cella_y=y;
+    cella_di_patenza_asse_x=x; cella_di_patenza_asse_y=y;
     // imposto la sua posizione
     grafica.setPosition(posX, posY);
 }
