@@ -40,7 +40,7 @@ void ListaNemici::spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, int p
         }
         //posizione.x+=1;
         //posizione.y+=1;
-        if((posizione.x==0)&&(posizione.y==0))
+        if((posizione.x!=0)&&(posizione.y!=0))
             std::cout << "sposto il nemico nella cella [" << posizione.x << ", " << posizione.y << "] \n";
 
         // riazzero temporaneamento la loro posizione
