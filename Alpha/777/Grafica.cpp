@@ -25,6 +25,14 @@ Grafica::Grafica(int stack)
     gittata_eroe.setFillColor(Color::White);
     gittata_eroe.setCharacterSize(20);
     gittata_eroe.setPosition(posizione_partenza_testo_x, vita_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
+    esperienza_eroe.setFont(font);
+    esperienza_eroe.setFillColor(Color::White);
+    esperienza_eroe.setCharacterSize(20);
+    esperienza_eroe.setPosition(posizione_partenza_testo_x, gittata_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
+    livello_eroe.setFont(font);
+    livello_eroe.setFillColor(Color::White);
+    livello_eroe.setCharacterSize(20);
+    livello_eroe.setPosition(posizione_partenza_testo_x, esperienza_eroe.getPosition().y+(2*util.MARGINE_MAPPA));
 }
 
 void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza)
@@ -127,13 +135,43 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
 
 // ------------
 
-void Grafica::creaTestiFinestraSinistra(RenderWindow &Gioco, Personaggio &eroe)
+void Grafica::creaTestiFinestraSinistra(Personaggio &eroe)
 {
     // dettagli
     status_eroe.setString("Status Eroe");
     attacco_eroe.setString("Attacco Eroe = " + util.convertInt(eroe.potenza));
     vita_eroe.setString("Vita Eroe = " + util.convertInt(eroe.vitaAttuale));
     gittata_eroe.setString("Gittata Eroe = " + util.convertInt(eroe.gittata));
+    esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza) + " /10");
+    livello_eroe.setString("Livello Eroe = " + util.convertInt(eroe.livello));
 }
 
+// aggiorno la vita del personaggio
+void Grafica::agiornaVitaAttuale(Personaggio &eroe)
+{
+    vita_eroe.setString("Vita Eroe = " + util.convertInt(eroe.vitaAttuale));
+}
 
+// aggiorno la gittata del personaggio
+void Grafica::agiornaLivello(Personaggio &eroe)
+{
+    livello_eroe.setString("Vita Eroe = " + util.convertInt(eroe.livello));
+}
+
+// aggiorno l' attacco del personaggio
+void Grafica::agiornaAttacco(Personaggio &eroe)
+{
+    attacco_eroe.setString("Attacco Eroe = " + util.convertInt(eroe.potenza));
+}
+
+// aggiorno la gittata del personaggio
+void Grafica::agiornaGittata(Personaggio &eroe)
+{
+    gittata_eroe.setString("Vita Eroe = " + util.convertInt(eroe.gittata));
+}
+
+// aggiorno l' esperienza del personaggio
+void Grafica::agiornaEsperienza(Personaggio &eroe)
+{
+    esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza));
+}

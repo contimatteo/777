@@ -26,6 +26,8 @@ class Grafica
     Text vita_eroe;
     Text attacco_eroe;
     Text gittata_eroe;
+    Text esperienza_eroe;
+    Text livello_eroe;
 
     // metodi
     Grafica(int stack);
@@ -33,7 +35,14 @@ class Grafica
     // disegno la mappa
     void disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza);
     // disegno i testi nella finestra sinistra
-    void creaTestiFinestraSinistra(RenderWindow &Gioco, Personaggio &eroe);
+    void creaTestiFinestraSinistra(Personaggio &eroe);
+    //----------------------------------
+    void agiornaVitaAttuale(Personaggio &eroe);
+    void agiornaAttacco(Personaggio &eroe);
+    void agiornaGittata(Personaggio &eroe);
+    void agiornaEsperienza(Personaggio &eroe);
+    void agiornaLivello(Personaggio &eroe);
+    //------------------------------------------
 
 };
 

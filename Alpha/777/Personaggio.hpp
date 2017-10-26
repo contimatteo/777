@@ -25,15 +25,10 @@ public:
     //int graphics;
     int vitaMassima = 1000; /** <enum valore vitaMassima. */
     int vitaAttuale = 1000; /** <enum valore vitaAttuale. */
-    int manaMassimo = 100;
-    int manaAttuale = 100;
     int esperienza = 0;
-    int livello = 1;
-    int gittata= 2; /** <enum valore gittata. */
-    int armatura = 10; //pet-
     int potenza = 10; /** <enum valore potenza. */
-    int saggezza = 10; //pet-
-    int critico = 5; //pet-
+    int livello=1;
+    int gittata= 2; /** <enum valore gittata. */
     //SETTARE POI DA DOVE FAR INIZIARE IL PERSONAGGIO
     int contatoreSkill1=0;
     int contatoreSkill2=0;

@@ -44,6 +44,13 @@ void Personaggio::eliminaNemico(ListaNemici &nemici, int posizione, bool &flag)
     //std::cout << "posizione eroe ==> "<<pos_cella_x<<" ~ "<<pos_cella_y<<"\n";
     //std::cout << "posizione nemico ==> "<<nemici.array_nemici[posizione]->pos_cella_x<<" ~ "<<nemici.array_nemici[posizione]->pos_cella_y<<"\n";
     nemici.eliminaNemicoInPosizione(posizione);
+    esperienza = esperienza+1;
+    if(esperienza==10)
+    {
+        livello = livello+1;
+        potenza = (livello*2)+10;
+        esperienza = 0;
+    }
 }
 
 void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {

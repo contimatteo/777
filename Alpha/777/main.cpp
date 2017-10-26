@@ -44,11 +44,13 @@ void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio 
     finestra.setOutlineColor(sf::Color::White);
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);
-    grafica.creaTestiFinestraSinistra(Gioco, eroe);
+    grafica.creaTestiFinestraSinistra(eroe);
     Gioco.draw(grafica.status_eroe);
     Gioco.draw(grafica.attacco_eroe);
     Gioco.draw(grafica.vita_eroe);
     Gioco.draw(grafica.gittata_eroe);
+    Gioco.draw(grafica.esperienza_eroe);
+    Gioco.draw(grafica.livello_eroe);
 }
 
 void disegnaFinestraDestra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe)
