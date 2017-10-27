@@ -15,6 +15,27 @@ void Personaggio::impostaPosizionePartenzaPersonaggio(int x, int y)
     grafica.setPosition(posX, posY);
 }
 
+void Personaggio::resetPosizionePersonaggio(ListaTorre &lista_torre, int stanza)
+{
+    int x=0; bool trovato=false; int y=0;
+    while ((x < 20)&&(!trovato))
+    {
+        while((y<20)&&(!trovato))
+        {
+            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(y,x)==9)
+            {
+                trovato = true;
+                impostaPosizionePartenzaPersonaggio(x+1, y+1);
+                y=20; x=20;
+            }
+            else
+                y++;
+        }
+        y=0;
+        x++;
+    }
+}
+
 
 
 Personaggio::Personaggio(int tipo_personaggio, ListaTorre &lista_torre, int stanza): ElementoGrafico(tipo_personaggio)

@@ -62,7 +62,7 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
     texture_mappa4.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa5.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa6.loadFromFile("../risorse/immagini/muro-verticale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
-    texture_mappa7.loadFromFile("../risorse/immagini/rosa.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+    texture_mappa7.loadFromFile("../risorse/immagini/Bianco.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa8.loadFromFile("../risorse/immagini/freccia-giu.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa9.loadFromFile("../risorse/immagini/grass.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa11.loadFromFile("../risorse/immagini/freccia-su.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
@@ -200,16 +200,16 @@ void Grafica::istruzioniGioco()
 void Grafica::creoArrayPosizioni(ListaTorre &lista_torre, int stanza, int eroe_x, int eroe_y)
 {
     lunghezza_array=0;
-    array_posizioni_consentite[0]={eroe_x, eroe_y};
+    //array_posizioni_consentite[0]={eroe_x, eroe_y};
     for (int i=0; i<=util.NUMERO_CASELLE_ASSE_X; i++)
     {
         for (int j = 0; j <=util.NUMERO_CASELLE_ASSE_Y; j++)
         {
-            //std::cout<<lunghezza_array<<" - ["<<i+1<<", "<<j+1<<"] ==> "<<lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(j,i)<<" \n";
             if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(j,i)==9)
             {
                 lunghezza_array++;
                 array_posizioni_consentite[lunghezza_array]={i+1,j+1};
+                //std::cout<<lunghezza_array<<" - ["<<i+1<<", "<<j+1<<"] ==> "<<lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(j,i)<<" \n";
             }
 
         }

@@ -24,17 +24,71 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi
     prossima_posizione_eroe_x+=x;   prossima_posizione_eroe_y+=y;
     //controllo che la casella sia libera
     int valore_casella=lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(prossima_posizione_eroe_y, prossima_posizione_eroe_x);
-    // l'eroe puo' muoversi su porte, scale e erba
-    if((valore_casella==7) || (valore_casella==8) || (valore_casella==9) || (valore_casella==11))
+    // siamo sull'erba
+    if(valore_casella==9)
     {
         eroe.setPosizione(x, y);
         eroe.muovi();
-        // per evitare che i nemici si creino sopra l'eroe
-        grafica.array_posizioni_consentite[0]={eroe.pos_cella_x-1, eroe.pos_cella_y-1};
         muovi_personaggio = false;
     }
-    //else
-        //std::cout<<"merda \n";
+    // siamo su porte o scale
+    if((valore_casella==7) || (valore_casella==8) || (valore_casella==11))
+    {
+        eroe.setPosizione(x, y);
+        eroe.muovi();
+        muovi_personaggio = false;
+        switch(valore_casella)
+        {
+            // porta
+            case 7:
+            {
+                /*for(int k=0; k<lista_torre.getPianoAttuale(); k++)
+                {
+                    std::cout<<"trovata una porta --> ";
+                    std::cout<<lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(prossima_posizione_eroe_y, prossima_posizione_eroe_x)<<" \n";
+                    std::cout<<"la riconosce come porta? "<<(bool)lista_torre.torre->piano.arr_mappe[k].isAporta(prossima_posizione_eroe_x, prossima_posizione_eroe_y)<<" \n";
+                    if(!lista_torre.torre->piano.arr_mappe[k].isAporta(prossima_posizione_eroe_x, prossima_posizione_eroe_y))
+                    {
+                        // se entra vuol dire che in posizione [x,y] c'è una porta
+                        // k è l'indice che devo usare per l'array porte che sta dentro Mappa
+                        stanza=lista_torre.torre->piano.arr_mappe[k].idMappaPorta(prossima_posizione_eroe_x, prossima_posizione_eroe_y);
+                        std::cout<<" prossima stanza --> "<<stanza<<" \n";
+                    }
+                }*/
+
+                if((stanza+1)>piano)
+                    stanza=1;
+                else
+                    stanza++;
+                eroe.resetPosizionePersonaggio(lista_torre, stanza);
+                break;
+            }
+            // scala a scendere
+            case 8:
+            {
+                piano--;
+                stanza=1;
+                lista_torre.pianoPrecedente();
+                eroe.resetPosizionePersonaggio(lista_torre, stanza);
+                break;
+            }
+            // scala a salire
+            case 11:
+            {
+                piano++;
+                stanza=1;
+                lista_torre.prossimoPiano();
+                eroe.resetPosizionePersonaggio(lista_torre, stanza);
+                break;
+            }
+
+        }
+        // disegno la nuova stanza
+        grafica.disegnaMappa(Gioco, lista_torre, stanza);
+        // ricreo l'array delle posizioni consentite
+        grafica.creoArrayPosizioni(lista_torre, stanza, eroe.pos_cella_x, eroe.pos_cella_y);
+    }
+
 }
 
 
@@ -186,6 +240,7 @@ int main()
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space))&&(eroe_attacca))
         {
             eroe.personaggioAttaccaNemico(nemici);
+            //azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
             eroe_attacca=false;
         }
         // Clear screen

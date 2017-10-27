@@ -79,6 +79,8 @@ public:
     Personaggio(int tipo_personaggio, ListaTorre &lista_torre, int stanza);
 
     void impostaPosizionePartenzaPersonaggio(int x, int y);
+    void resetPosizionePersonaggio(ListaTorre &lista_torre, int stanza);
+
 
 };
 
