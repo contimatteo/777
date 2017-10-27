@@ -32,6 +32,8 @@ class Grafica
     Text livello_eroe;
     Text istruzioni_gioco;
     Text titolo_istruzioni_gioco;
+    Text stanza_attuale;
+    Text piano_attuale;
 
     // metodi
     Grafica(int stack);
@@ -48,6 +50,8 @@ class Grafica
     void agiornaLivello(Personaggio &eroe);
     void istruzioniGioco();
     void creoArrayPosizioni(ListaTorre &lista_torre, int stanza, int eroe_x, int eroe_y);
+    void agiornaPiano(Personaggio &eroe);
+    void agiornaStanza(Personaggio &eroe);
     //------------------------------------------
 
 };

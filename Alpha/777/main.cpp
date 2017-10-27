@@ -113,6 +113,8 @@ void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio 
     Gioco.draw(grafica.gittata_eroe);
     Gioco.draw(grafica.esperienza_eroe);
     Gioco.draw(grafica.livello_eroe);
+    Gioco.draw(grafica.stanza_attuale);
+    Gioco.draw(grafica.piano_attuale);
 }
 
 void disegnaFinestraDestra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe)

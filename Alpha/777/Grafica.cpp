@@ -41,6 +41,14 @@ Grafica::Grafica(int stack)
     istruzioni_gioco.setFillColor(Color::White);
     istruzioni_gioco.setCharacterSize(20);
     istruzioni_gioco.setPosition(util.POSIZIONE_PARTENZA_FINESTRAdx_X+util.MARGINE_MAPPA, util.POSIZIONE_PARTENZA_FINESTRAdx_Y+(4*util.MARGINE_MAPPA));
+    stanza_attuale.setFont(font);
+    stanza_attuale.setFillColor(Color::White);
+    stanza_attuale.setCharacterSize(20);
+    stanza_attuale.setPosition(posizione_partenza_testo_x, esperienza_eroe.getPosition().y+(4*util.MARGINE_MAPPA));
+    piano_attuale.setFont(font);
+    piano_attuale.setFillColor(Color::White);
+    piano_attuale.setCharacterSize(20);
+    piano_attuale.setPosition(posizione_partenza_testo_x, esperienza_eroe.getPosition().y+(6*util.MARGINE_MAPPA));
 }
 
 void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza)
@@ -152,13 +160,16 @@ void Grafica::creaTestiFinestraSinistra(Personaggio &eroe)
     gittata_eroe.setString("Gittata Eroe = " + util.convertInt(eroe.gittata));
     esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza) + "/10");
     livello_eroe.setString("Livello Eroe = " + util.convertInt(eroe.livello));
+    piano_attuale.setString("Piano Attuale = " );
+    stanza_attuale.setString("Stanza Attuale = ");
 }
-
+/*
 // aggiorno la vita del personaggio
 void Grafica::agiornaVitaAttuale(Personaggio &eroe)
 {
     vita_eroe.setString("Vita Eroe = " + util.convertInt(eroe.vitaAttuale));
 }
+ */
 
 // aggiorno la gittata del personaggio
 void Grafica::agiornaLivello(Personaggio &eroe)
@@ -183,6 +194,19 @@ void Grafica::agiornaEsperienza(Personaggio &eroe)
 {
     esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza));
 }
+
+// aggiorno i piani
+void Grafica::agiornaPiano(Personaggio &eroe)
+{
+    piano_attuale.setString("Piano Attuale = " );//+ util.convertInt(piano));
+}
+
+// aggiorno le stanze
+void Grafica::agiornaStanza(Personaggio &eroe)
+{
+    stanza_attuale.setString("Stanza Attuale = ");// + util.convertInt(stanza));
+}
+
 
 // istruzione del gioco
 void Grafica::istruzioniGioco()
