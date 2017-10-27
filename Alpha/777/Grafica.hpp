@@ -18,6 +18,8 @@ class Grafica
 {
  public:
     // attributi
+    Vector2<int> array_posizioni_consentite[1000];
+    int lunghezza_array;
     Utilities util; /*! \typedef util */
     int posizione_partenza_testo_x;
     int posizione_partenza_testo_y;
@@ -45,6 +47,7 @@ class Grafica
     void agiornaEsperienza(Personaggio &eroe);
     void agiornaLivello(Personaggio &eroe);
     void istruzioniGioco();
+    void creoArrayPosizioni(ListaTorre &lista_torre, int stanza, int eroe_x, int eroe_y);
     //------------------------------------------
 
 };

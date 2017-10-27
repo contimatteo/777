@@ -57,11 +57,14 @@ public:
      */
 
     static Vector2<int> generaPosizioneRandom();
-    static Vector2<int> generaPosizioneRandom(ListaTorre &lista_torre, int stanza);
+    static Vector2<int> generaPosizioneRandom(ListaTorre &lista_torre, int stanz, int eroe_x, int eroe_y);
     //static Vector2<int> generaPosizioneRandom2(ListaTorre &lista_torre, int stanza, int stack);
     static Vector2<int> generaPosizioneRandom(int eroe_x, int eroe_y);
+    static void generaPosizioneRandom(Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int stanza, Vector2<int> &posizione_generata);
 
+    static bool controlloPosizioneConsentita(Vector2<int> array_posizioni_consentite[], int length, Vector2<int> posizione_generata);
     static void azzeraPosizioni();
+    void eliminaPosizione(int x, int y);
     static bool controllaElementoGrafico(ListaTorre &lista_torre, int stanza, int x, int y);
 
 

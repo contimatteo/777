@@ -194,3 +194,24 @@ void Grafica::istruzioniGioco()
 
 
 }
+
+
+
+void Grafica::creoArrayPosizioni(ListaTorre &lista_torre, int stanza, int eroe_x, int eroe_y)
+{
+    lunghezza_array=0;
+    array_posizioni_consentite[0]={eroe_x, eroe_y};
+    for (int i=0; i<=util.NUMERO_CASELLE_ASSE_X; i++)
+    {
+        for (int j = 0; j <=util.NUMERO_CASELLE_ASSE_Y; j++)
+        {
+            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(j,i)==9)
+            {
+                lunghezza_array++;
+                array_posizioni_consentite[lunghezza_array]={i+1,j+1};
+                std::cout<<lunghezza_array<<" - ["<<i+1<<", "<<j+1<<"] \n";
+            }
+
+        }
+    }
+}
