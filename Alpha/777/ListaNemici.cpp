@@ -27,7 +27,7 @@ void ListaNemici::spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, Vecto
     util.azzeraPosizioni();
     bool finito=true;
     util.azzeraPosizioni();
-    std::cout<<"posizione personaggio --> {"<<eroe.pos_cella_x<<", "<< eroe.pos_cella_y<<"} \n";
+    //std::cout<<"posizione personaggio --> {"<<eroe.pos_cella_x<<", "<< eroe.pos_cella_y<<"} \n";
     for(int i=0; i<numeroNemici; i++)
     {
         /*finito=false;
@@ -56,10 +56,10 @@ void ListaNemici::spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, Vecto
         array_nemici[i]->pos_cella_y = posizione_nemico_corrente.y;
         array_nemici[i]->posX += (util.SPAZIO_CELLE * posizione_nemico_corrente.x);
         array_nemici[i]->posY += (util.SPAZIO_CELLE * posizione_nemico_corrente.y);
-        std::cout<<"nemico ("<<array_nemici[i]->id<<") nella cella --> ["<<array_nemici[i]->pos_cella_x<<", "<<array_nemici[i]->pos_cella_y<<"] \n";
+        //std::cout<<"nemico ("<<array_nemici[i]->id<<") nella cella --> ["<<array_nemici[i]->pos_cella_x<<", "<<array_nemici[i]->pos_cella_y<<"] \n";
 
     }
-    std::cout<<"----------------------------------- \n";
+    //std::cout<<"----------------------------------- \n";
 }
 
 bool ListaNemici::controlloPosizionePersonaggio(Personaggio &eroe)

@@ -16,20 +16,25 @@ int stanza=1;
 
 // ----------------------------
 
+int prossima_posizione_eroe_x=0; int prossima_posizione_eroe_y=0;
 void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio, ListaTorre &lista_torre, Grafica &grafica)
 {
-    int prossima_posizione_eroe_x=eroe.pos_cella_x+x;
-    int prossima_posizione_eroe_y=eroe.pos_cella_y+y;
+    prossima_posizione_eroe_x=(eroe.pos_cella_x)-1;
+    prossima_posizione_eroe_y=(eroe.pos_cella_y)-1;
+    prossima_posizione_eroe_x+=x;   prossima_posizione_eroe_y+=y;
     //controllo che la casella sia libera
-    if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(prossima_posizione_eroe_x,prossima_posizione_eroe_y)==9)
+    int valore_casella=lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(prossima_posizione_eroe_y, prossima_posizione_eroe_x);
+    // l'eroe puo' muoversi su porte, scale e erba
+    if((valore_casella==7) || (valore_casella==8) || (valore_casella==9) || (valore_casella==11))
     {
-        grafica.array_posizioni_consentite[0]={eroe.pos_cella_x, eroe.pos_cella_y};
         eroe.setPosizione(x, y);
         eroe.muovi();
+        // per evitare che i nemici si creino sopra l'eroe
+        grafica.array_posizioni_consentite[0]={eroe.pos_cella_x-1, eroe.pos_cella_y-1};
         muovi_personaggio = false;
     }
-    else
-        std::cout<<"merda \n";
+    //else
+        //std::cout<<"merda \n";
 }
 
 
@@ -157,19 +162,19 @@ int main()
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio, lista_torre, grafica);
+            muoviEroe(Gioco, eroe, 1, 0, muovi_personaggio, lista_torre, grafica);
             // test
             azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio, lista_torre, grafica);
+            muoviEroe(Gioco, eroe, 0, -1, muovi_personaggio, lista_torre, grafica);
             // test
             azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) && muovi_personaggio) {
             // freccia GIU premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio, lista_torre, grafica);
+            muoviEroe(Gioco, eroe, 0, 1, muovi_personaggio, lista_torre, grafica);
             // test
             azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
         }
