@@ -67,6 +67,8 @@ public:
      */
      void eliminaNemico(ListaNemici &nemici, int posizione, bool &flag);
 
+    void fineGioco(RenderWindow &Gioco);
+
 
     //Costruttore
     Personaggio();

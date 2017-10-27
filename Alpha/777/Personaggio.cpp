@@ -123,3 +123,13 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
     }
 }
 
+// fine del gioco
+void Personaggio::fineGioco(RenderWindow &Gioco)
+{
+    if (vitaAttuale <= 0)
+    {
+        Gioco.close();
+    }
+}
+
+
