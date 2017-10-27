@@ -81,7 +81,7 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
                 break;
             }
-            
+
         }
         // disegno la nuova stanza
         grafica.disegnaMappa(Gioco, lista_torre, stanza);
@@ -240,6 +240,7 @@ int main()
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space))&&(eroe_attacca))
         {
             eroe.personaggioAttaccaNemico(nemici);
+            //azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
             eroe_attacca=false;
         }
         // Clear screen
