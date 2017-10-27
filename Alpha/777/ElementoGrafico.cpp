@@ -68,7 +68,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
         // nemico
         case 3:
         {
-            texture.loadFromFile("../risorse/immagini/Nemico.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+            texture.loadFromFile("../risorse/immagini/Nemico-1.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
             break;
         }
         // altri
