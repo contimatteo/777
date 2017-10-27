@@ -15,8 +15,8 @@
 #BUG
 
 - [ ] nemici si creano sopra il personaggio
-- [ ] eroe esce dalla mappa
-- [ ] crasha il gioco (vedere file "porc_non_sa_fare_niente")
+- [x] eroe esce dalla mappa
+- [x] crasha il gioco (vedere file "porc_non_sa_fare_niente")
 - [ ] Due caselle sopra non elimina
 
 
