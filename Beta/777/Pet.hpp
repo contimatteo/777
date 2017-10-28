@@ -1,133 +1,126 @@
 //
-// Created by Matteo Conti on 26/06/17.
+// Created by enrico on 21-Jun-17.
 //
 
-#ifndef INC_777_PET_HPP
-#define INC_777_PET_HPP
+#ifndef INC_777_PET_H
+#define INC_777_PET_H
 
+    //CREAZIONE DELLA CLASSE PET
 
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics.hpp>
-#include "ElementoGrafico.hpp"
-using namespace sf;
-
-//****************************************************************
-//****************************************************************
-
-// PET
-class Pet : public ElementoGrafico
-{
+    class Pet {
     private:
+
         int vitaMax;
         int vitaAttuale;
         //INIZIALIZZATA NEL MAIN
         int x;
         int y;
-        Texture immagine;
-
 
     public:
-        Sprite grafica;
-        //GETTER E SETTER POSIZIONE-----------------------
-        void setX(int posizionex);
-        void setY(int posizioney);
-        int getX();
-        int getY();
-        //------------------------------------------------
-        int getPet();
-        void setPet(int vitaNuova);
-        void setImmagine(String percorso);
 
-        // costruttore
-        Pet(std::string nomeFile);
+    //GETTER E SETTER POSIZIONE______________________
+    void setX(int posizionex);
 
-        // distruttore
-        ~Pet();
+    void setY(int posizioney);
+
+    int getX();
+
+    int getY();
+    //_______________________________________________
+
+
+    int getPet();
+
+    void setPet(int vitaNuova);
+
+
 };
-
-//****************************************************************
-//****************************************************************
-
-// PET PER LA VITA MASSIMA
+//PET PER LA VITA MASSIMA
 class PetVita: public Pet
 {
 private:
-    char info;
+
+    char info='V';
 
 public:
+
     char getInfo();
-    void setInfo();
 };
 
-//****************************************************************
-//****************************************************************
-
-// PET PER MANA MASSIMO
+//PET PER IL MANA MASSIMO
 class PetMana: public Pet
 {
 private:
-    char info;
+
+    char info='M';
 
 public:
-    char getInfo();
-    void setInfo();
+
+    char getInfo()
+    {
+        return info;
+    }
 };
 
-//****************************************************************
-//****************************************************************
-
-// PET PER ARMATURA
+//PET PER ARMATURA
 class PetArmatura: public Pet
 {
 private:
-    char info;
+
+    char info='A';
 
 public:
-    char getInfo();
-    void setInfo();
+
+    char getInfo()
+    {
+        return info;
+    }
 };
 
-//****************************************************************
-//****************************************************************
-
-// PET PER POTENZA
+//PET PER POTENZA
 class PetPotenza: public Pet
 {
 private:
-    char info;
+
+    char info='P';
 
 public:
-    char getInfo();
-    void setInfo();
+
+    char getInfo()
+    {
+        return info;
+    }
 };
 
-//****************************************************************
-//****************************************************************
-
-// PET PER SAGGEZZA
+//PET PER SAGGEZZA
 class PetSaggezza: public Pet
 {
 private:
-    char info;
+
+    char info='S';
 
 public:
-    char getInfo();
-    void setInfo();
+
+    char getInfo()
+    {
+        return info;
+    }
 };
 
-//****************************************************************
-//****************************************************************
-
-// PET PER CRITICO
+//PET PER CRITICO
 class PetCritico: public Pet
 {
 private:
-    char info;
+
+    char info='C';
 
 public:
-    char getInfo();
-    void setInfo();
+
+    char getInfo()
+    {
+        return info;
+    }
 };
 
 
-#endif //INC_777_PET_HPP
+#endif //INC_777_PET_H

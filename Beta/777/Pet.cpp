@@ -1,68 +1,25 @@
-//
-// Created by Matteo Conti on 26/06/17.
-//
-
 #include "Pet.hpp"
 
-#include <SFML/Graphics.hpp>
-using namespace sf;
 
-void Pet::setImmagine(String percorso)
+//PET--------
+
+void Pet::setX(int posizionex){x=posizionex;}
+void Pet::setY(int posizioney){y=posizioney;}
+int Pet::getX() {return x;}
+int Pet::getY() {return y;}
+int Pet::getPet() { return vitaMax;}
+void Pet::setPet(int vitaNuova)
 {
-    this->immagine.~Texture();
-    this->immagine.loadFromFile(percorso);
-    this->grafica.setTexture(this->immagine);
-}
-
-/*********************************************************
- *
- * PET
- */
-
-//GETTER E SETTER POSIZIONE______________________
-void Pet::setX(int posizionex)
-{
-    this->x = posizionex;
-    this->grafica.setPosition(posizionex, this->grafica.getPosition().y);
-}
-void Pet::setY(int posizioney)
-{
-    this->y = posizioney;
-    this->grafica.setPosition(this->grafica.getPosition().x, posizioney);
-}
-int Pet::getX() { return this->x;}
-int Pet::getY() {return this->y;}
-//_______________________________________________
-
-int Pet::getPet()
-{
-    return this->vitaMax;
-}
-
-void Pet::setPet(int vitaNuova) {
-    if ((vitaNuova + vitaAttuale) > this->vitaMax) {
-        vitaAttuale = vitaMax;
-    } else {
-        this->vitaAttuale = vitaNuova + vitaAttuale;
+    if ((vitaNuova+vitaAttuale) > vitaMax)
+    {
+        vitaAttuale=vitaMax;
+    }
+    else
+    {
+        vitaAttuale = vitaNuova+vitaAttuale;
     }
 }
-
-// costruttore
-Pet::Pet(std::string nomeFile)
-{
-    std::string percorso = "../risorse/immagini/";
-    percorso.append(nomeFile);
-    percorso.append(".png");
-    Texture immagine;
-    immagine.loadFromFile(percorso);
-    grafica.setTexture(immagine);
-}
-
-// distruttore
-Pet::~Pet()
-{
-    //this->grafica.~Drawable();
-}
+//-------------
 
 //*********************************************************
 /*********************************************************
@@ -74,11 +31,6 @@ char PetVita::getInfo()
 {
     return info;
 }
-void PetVita::setInfo()
-{
-    info='V';
-}
-
 //*********************************************************
 /*********************************************************
  *
@@ -88,10 +40,6 @@ void PetVita::setInfo()
 char PetMana::getInfo()
 {
     return info;
-}
-void PetMana::setInfo()
-{
-    info='M';
 }
 
 //*********************************************************
@@ -104,11 +52,6 @@ char PetArmatura::getInfo()
 {
     return info;
 }
-void PetArmatura::setInfo()
-{
-    info='A';
-}
-
 //*********************************************************
 /*********************************************************
  *
@@ -119,10 +62,6 @@ char PetPotenza::getInfo()
 {
     return info;
 }
-void PetPotenza::setInfo()
-{
-    info='P';
-}
 
 //*********************************************************
 /*********************************************************
@@ -132,13 +71,8 @@ void PetPotenza::setInfo()
 
 char PetSaggezza::getInfo()
 {
-    return this->info;
+    return info;
 }
-void PetSaggezza::setInfo()
-{
-    info='S';
-}
-
 //*********************************************************
 /*********************************************************
  *
@@ -147,12 +81,10 @@ void PetSaggezza::setInfo()
 
 char PetCritico::getInfo()
 {
-    return this->info;
+    return info;
 }
-void PetCritico::setInfo()
-{
-    info='C';
-}
-
 //*********************************************************
+
+//--------------
+
 

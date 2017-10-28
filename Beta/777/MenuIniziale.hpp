@@ -1,39 +1,31 @@
 //
-// Created by Matteo Conti on 23/06/17.
+// Created by Matteo Conti on 24/10/17.
 //
 
 #ifndef INC_777_MENUINIZIALE_HPP
 #define INC_777_MENUINIZIALE_HPP
-#include <SFML/Graphics/RectangleShape.hpp>
-#include <SFML/Graphics.hpp>
+
+#include <iostream>
+#include <SFML/Window.hpp>
+#include "Utilities.hpp"
 using namespace sf;
 
+/*! \brief \class MenuIniziale
+ * @details questa classe serve per impostare il menu inziale del gioco
+ */
 class MenuIniziale
 {
-    private:
-        // attributi
-        int                 scelta;
-        RenderWindow        ContenitoreGioco;
-        RectangleShape      contenitore;
-        RectangleShape      titoloGioco;
-        RectangleShape      rettangoloScelta1;
-        RectangleShape      rettangoloScelta2;
-        RectangleShape      rettangoloScelta3;
-        RectangleShape      rettangoloScelta4;
-        Font                font;
-        Text                rettangolo1Testo;
-        Text                rettangolo2Testo;
-        Text                rettangolo3Testo;
-        Text                rettangolo4Testo;
-        // metodi
-        int scegliOpzione();
-        void creaGraficaMenuIniziale();
-        //void inizioSceltaMenuIniziale();
+ public:
+    Utilities util; /*! \typedef Utilities util */
+    RenderWindow menu; /*! \typedef RenderWindow menu */
+    // costruttore
 
-    public:
-        void visualizzaMenu();
-        // costruttori
-        MenuIniziale(int thread);
+    /*! \brief \fn MenuIniziale
+    * @details costruttore della classe
+    */
+    MenuIniziale(RenderWindow &Gioco);
 
 };
+
+
 #endif //INC_777_MENUINIZIALE_HPP
