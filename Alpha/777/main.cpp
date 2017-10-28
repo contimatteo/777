@@ -17,7 +17,7 @@ int stanza=1;
 // ----------------------------
 
 int prossima_posizione_eroe_x=0; int prossima_posizione_eroe_y=0;
-void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi_personaggio, ListaTorre &lista_torre, Grafica &grafica)
+void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, Grafica &grafica, ListaNemici &nemici, int x, int y, bool &muovi_personaggio)
 {
     prossima_posizione_eroe_x=(eroe.pos_cella_x)-1;
     prossima_posizione_eroe_y=(eroe.pos_cella_y)-1;
@@ -55,12 +55,12 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi
                         std::cout<<" prossima stanza --> "<<stanza<<" \n";
                     }
                 }*/
-
                 if((stanza+1)>piano)
                     stanza=1;
                 else
                     stanza++;
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
+                nemici.ricreaNemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
                 break;
             }
             // scala a scendere
@@ -70,6 +70,7 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi
                 stanza=1;
                 lista_torre.pianoPrecedente();
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
+                nemici.ricreaNemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
                 break;
             }
             // scala a salire
@@ -79,10 +80,15 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, int x, int y, bool &muovi
                 stanza=1;
                 lista_torre.prossimoPiano();
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
+                nemici.ricreaNemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
                 break;
             }
 
         }
+        // aggiorno nel menu il piano
+        grafica.aggiornaPiano(piano);
+        // aggiorno nel menu la stanza
+        grafica.aggiornaStanza(stanza);
         // disegno la nuova stanza
         grafica.disegnaMappa(Gioco, lista_torre, stanza);
         // ricreo l'array delle posizioni consentite
@@ -106,7 +112,7 @@ void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio 
     finestra.setOutlineColor(sf::Color::White);
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);
-    grafica.creaTestiFinestraSinistra(eroe);
+    grafica.creaTestiFinestraSinistra(eroe, piano, stanza);
     Gioco.draw(grafica.status_eroe);
     Gioco.draw(grafica.attacco_eroe);
     Gioco.draw(grafica.vita_eroe);
@@ -175,7 +181,7 @@ int main()
     Grafica grafica(0);
     grafica.creoArrayPosizioni(lista_torre, stanza, eroe.cella_di_patenza_asse_x, eroe.cella_di_patenza_asse_y);
     // Instanzio i nemici
-    ListaNemici nemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, stanza);
+    ListaNemici nemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
     // Instazio la musica
     Music music;
     music.openFromFile("../risorse/audio/main-song.ogg");
@@ -212,25 +218,25 @@ int main()
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) && muovi_personaggio)
         {
             // freccia Sinistra premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, -1, 0, muovi_personaggio, lista_torre, grafica);
+            muoviEroe(Gioco, eroe, lista_torre, grafica, nemici, -1, 0, muovi_personaggio);
             // test
             azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) && muovi_personaggio) {
             // freccia Destra premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, 1, 0, muovi_personaggio, lista_torre, grafica);
+            muoviEroe(Gioco, eroe, lista_torre, grafica, nemici, 1, 0, muovi_personaggio);
             // test
             azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && muovi_personaggio) {
             // freccia SU premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, 0, -1, muovi_personaggio, lista_torre, grafica);
+            muoviEroe(Gioco, eroe, lista_torre, grafica, nemici, 0, -1, muovi_personaggio);
             // test
             azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
         }
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) && muovi_personaggio) {
             // freccia GIU premuta: muovi il personaggio
-            muoviEroe(Gioco, eroe, 0, 1, muovi_personaggio, lista_torre, grafica);
+            muoviEroe(Gioco, eroe, lista_torre, grafica, nemici, 0, 1, muovi_personaggio);
             // test
             azioni_nemico(Gioco, eroe, nemici, lista_torre, grafica);
         }
@@ -252,7 +258,7 @@ int main()
         // disegno l'erore
         disegnaElementiGrafici(Gioco, eroe, nemici, grafica);
         // Aggiorno il Gioco con le modifiche
-        eroe.fineGioco(Gioco);
+        //eroe.fineGioco(Gioco);
         Gioco.display();
     }
     // programma terminato correttamente

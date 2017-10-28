@@ -41,17 +41,17 @@ class Grafica
     // disegno la mappa
     void disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza);
     // disegno i testi nella finestra sinistra
-    void creaTestiFinestraSinistra(Personaggio &eroe);
+    void creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza);
     //----------------------------------
-    void agiornaVitaAttuale(Personaggio &eroe);
-    void agiornaAttacco(Personaggio &eroe);
-    void agiornaGittata(Personaggio &eroe);
-    void agiornaEsperienza(Personaggio &eroe);
+    void aggiornaVitaAttuale(Personaggio &eroe);
+    void aggiornaAttacco(Personaggio &eroe);
+    void aggiornaGittata(Personaggio &eroe);
+    void aggiornaEsperienza(Personaggio &eroe);
     void agiornaLivello(Personaggio &eroe);
     void istruzioniGioco();
     void creoArrayPosizioni(ListaTorre &lista_torre, int stanza, int eroe_x, int eroe_y);
-    void agiornaPiano(Personaggio &eroe);
-    void agiornaStanza(Personaggio &eroe);
+    void aggiornaPiano(int piano);
+    void aggiornaStanza(int stanza);
     //------------------------------------------
 
 };

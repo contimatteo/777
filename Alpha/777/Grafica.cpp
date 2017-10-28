@@ -151,7 +151,7 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
 
 // ------------
 
-void Grafica::creaTestiFinestraSinistra(Personaggio &eroe)
+void Grafica::creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza)
 {
     // dettagli
     status_eroe.setString("Status Eroe");
@@ -160,8 +160,8 @@ void Grafica::creaTestiFinestraSinistra(Personaggio &eroe)
     gittata_eroe.setString("Gittata Eroe = " + util.convertInt(eroe.gittata));
     esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza) + "/10");
     livello_eroe.setString("Livello Eroe = " + util.convertInt(eroe.livello));
-    piano_attuale.setString("Piano Attuale = " );
-    stanza_attuale.setString("Stanza Attuale = ");
+    piano_attuale.setString("Piano Attuale = " + util.convertInt(piano));
+    stanza_attuale.setString("Stanza Attuale = " + util.convertInt(stanza));
 }
 /*
 // aggiorno la vita del personaggio
@@ -171,6 +171,7 @@ void Grafica::agiornaVitaAttuale(Personaggio &eroe)
 }
  */
 
+/*
 // aggiorno la gittata del personaggio
 void Grafica::agiornaLivello(Personaggio &eroe)
 {
@@ -178,33 +179,33 @@ void Grafica::agiornaLivello(Personaggio &eroe)
 }
 
 // aggiorno l' attacco del personaggio
-void Grafica::agiornaAttacco(Personaggio &eroe)
+void Grafica::aggiornaAttacco(Personaggio &eroe)
 {
     attacco_eroe.setString("Attacco Eroe = " + util.convertInt(eroe.potenza));
 }
 
 // aggiorno la gittata del personaggio
-void Grafica::agiornaGittata(Personaggio &eroe)
+void Grafica::aggiornaGittata(Personaggio &eroe)
 {
     gittata_eroe.setString("Vita Eroe = " + util.convertInt(eroe.gittata));
 }
 
 // aggiorno l' esperienza del personaggio
-void Grafica::agiornaEsperienza(Personaggio &eroe)
+void Grafica::aggiornaEsperienza(Personaggio &eroe)
 {
     esperienza_eroe.setString("Esperienza Eroe = " + util.convertInt(eroe.esperienza));
 }
-
+*/
 // aggiorno i piani
-void Grafica::agiornaPiano(Personaggio &eroe)
+void Grafica::aggiornaPiano(int piano)
 {
-    piano_attuale.setString("Piano Attuale = " );//+ util.convertInt(piano));
+    piano_attuale.setString("Piano Attuale = " + util.convertInt(piano));
 }
 
 // aggiorno le stanze
-void Grafica::agiornaStanza(Personaggio &eroe)
+void Grafica::aggiornaStanza(int stanza)
 {
-    stanza_attuale.setString("Stanza Attuale = ");// + util.convertInt(stanza));
+    stanza_attuale.setString("Stanza Attuale = " + util.convertInt(stanza));
 }
 
 

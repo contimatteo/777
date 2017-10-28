@@ -147,6 +147,7 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
 // fine del gioco
 void Personaggio::fineGioco(RenderWindow &Gioco)
 {
+    std::cout<<" ha vinto tony \n";
     if (vitaAttuale <= 0)
     {
         Gioco.close();

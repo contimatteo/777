@@ -31,7 +31,7 @@ public:
     /*! \brief costruttore ListaNemici
      * @param stack
      */
-    ListaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int stanza);
+    ListaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int piano, int stanza);
 
     /*! \brief \fn void creaNemici(int pianoCorrente, int stanzaCorrente)
      * @param pianoCorrente
@@ -78,6 +78,8 @@ public:
      * @details ritorna se ha torvato il personaggio nella stessa posizione del nemico
      */
     bool controlloPosizionePersonaggio(Personaggio &eroe);
+
+    void ricreaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int piano, int stanza);
 
 };
 
