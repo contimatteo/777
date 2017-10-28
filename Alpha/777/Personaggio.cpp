@@ -73,7 +73,7 @@ void Personaggio::eliminaNemico(ListaNemici &nemici, int posizione, bool &flag)
         vitaAttuale= vitaAttuale+100;
         if(vitaAttuale>=1000)
         {
-            vitaAttuale=1000;
+            vitaAttuale=vitaAttuale;
         }
         esperienza = 0;
     }
