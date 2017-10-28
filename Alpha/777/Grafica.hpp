@@ -49,24 +49,20 @@ class Grafica
      * @details questa funzione si occupa di disegnare correttamente la mappa all' interno della finestra di gioco
      */
     void disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza);
-<<<<<<< HEAD
-    // disegno i testi nella finestra sinistra
-    void creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza);
-=======
 
+    // disegno i testi nella finestra sinistra
     /*! \brief \fn creaTestiFinestraSinistra
      * @param eroe
      * @details funzione che prepare la finestra sx laterale dove vengono inseriti i dati del gioco agiornati
      */
-    void creaTestiFinestraSinistra(Personaggio &eroe);
+    void creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza);
 
->>>>>>> origin/master
     //----------------------------------
-    void aggiornaVitaAttuale(Personaggio &eroe);
+    /*void aggiornaVitaAttuale(Personaggio &eroe);
     void aggiornaAttacco(Personaggio &eroe);
     void aggiornaGittata(Personaggio &eroe);
     void aggiornaEsperienza(Personaggio &eroe);
-    void agiornaLivello(Personaggio &eroe);
+    void agiornaLivello(Personaggio &eroe);*/
     /*! \brief \fn istrizioniGioco
      * @details funzione che si occupa di scrivere le istruzioni del gioco nella finestra dx
      */
