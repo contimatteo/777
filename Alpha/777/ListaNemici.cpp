@@ -21,7 +21,7 @@ int calcolaLunghezza(int piano , int stanza)
 }
 
 // funzione per spostare i nemici
-void ListaNemici::spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int piano, int stanza)
+void ListaNemici::spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int eroe_x, int eroe_y, int piano, int stanza)
 {
     Vector2<int> posizione_nemico_corrente;
     util.azzeraPosizioni();
@@ -30,18 +30,7 @@ void ListaNemici::spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, Vecto
     //std::cout<<"posizione personaggio --> {"<<eroe.pos_cella_x<<", "<< eroe.pos_cella_y<<"} \n";
     for(int i=0; i<numeroNemici; i++)
     {
-        /*finito=false;
-        posizione = util.generaPosizioneRandom(lista_torre, stanza, eroe.pos_cella_x, eroe.pos_cella_y);
-        //std::cout<<"["<<i<<"] - "<<"posizione casuale generata: ("<<posizione.x<<", "<<posizione.y<<") \n";
-        while((posizione.x+1!=eroe.pos_cella_x)&&(posizione.y+1!=eroe.pos_cella_y)&&(lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(posizione.y, posizione.x)!=9))
-        {
-            // rigenero la posizione in caso che sia uguale a quella dell'eroe
-            posizione = util.generaPosizioneRandom(lista_torre, stanza, eroe.pos_cella_x, eroe.pos_cella_y);
-        }
-        posizione.x+=1;
-        posizione.y+=1;*/
-
-        util.generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, stanza, posizione_nemico_corrente);
+        util.generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe_x, eroe_y, stanza, posizione_nemico_corrente);
         posizione_nemico_corrente.x+=1;
         posizione_nemico_corrente.y+=1;
         // riazzero temporaneamento la loro posizione
@@ -221,7 +210,7 @@ ListaNemici::ListaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vector2<int
     numeroNemici=calcolaLunghezza(piano, stanza);
     for(int i=0; i<numeroNemici; i++)
     {
-        util.generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, stanza, posizione_nemico_corrente);
+        util.generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe.pos_cella_x, eroe.pos_cella_y, stanza, posizione_nemico_corrente);
         // creo un nemico
         //std::cout<<"2 - posizione casuale generata: ("<<posizione_nemico_corrente.x+1<<", "<<posizione_nemico_corrente.y+1<<") \n";
         array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);

@@ -111,7 +111,7 @@ bool Utilities::controllaElementoGrafico(ListaTorre &lista_torre, int stanza, in
     return false;
 }
 
-
+/*
 Vector2<int> Utilities::generaPosizioneRandom(ListaTorre &lista_torre, int stanza, int eroe_x, int eroe_y)
 {
     int rand_x = rand()%(max_value-min_value + 1) + min_value;
@@ -192,6 +192,7 @@ Vector2<int> Utilities::generaPosizioneRandom(int eroe_x, int eroe_y)
     }
     return {0,0};
 }
+*/
 
 bool Utilities::controlloPosizioneConsentita(Vector2<int> array_posizioni_consentite[], int length, Vector2<int> posizione_generata)
 {
@@ -243,6 +244,47 @@ void Utilities::generaPosizioneRandom(Vector2<int> array_posizioni_consentite[],
         // if(funzione_porc_mi_dà_ok)
         generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, stanza, posizione_generata);
     }
+    //return {0,0};
+}
+
+void Utilities::generaPosizioneRandom(Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int eroe_x, int eroe_y, int stanza, Vector2<int> &posizione_generata)
+{
+    rand_x = rand()%(max_value-min_value + 1) + min_value;
+    rand_y = rand()%(max_value-min_value + 1) + min_value;
+    posizione_corrente.x =rand_x;   posizione_corrente.y=rand_y;
+    // controllo che non sia già stata creata una posizione uguale
+    //std::cout<<"--- genero una nuova posizione e controllo se va bene --> ["<<rand_x+1<<", "<<rand_y+1<<"] \n";
+    if((posizione_corrente.x+1!=eroe_x) || (posizione_corrente.y+1!=eroe_y))
+    {
+        if (!controlloDuplicato(posizione_corrente) /*&& (rand_x<=NUMERO_CASELLE_ASSE_X) && (rand_y<=NUMERO_CASELLE_ASSE_X)*/)
+        {
+            if (controlloPosizioneConsentita(array_posizioni_consentite, lunghezza_arr_pos, posizione_corrente))
+            {
+                //std::cout << "la posizione va bene \n";
+                // incremento la lunghezza dell'array
+                lunghezza_array_posizioni += 1;
+                // aggiungo la nuova posizione all'array di posizioni create
+                lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
+                //std::cout<<"1 - posizione casuale generata: ("<<posizione_corrente.x+1<<", "<<posizione_corrente.y+1<<") \n";
+                posizione_generata = posizione_corrente;
+                //return posizione_corrente;
+            }
+            else
+            {
+                //std::cout << "la posizione non è nell'array di posizioni consentite \n";
+                generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe_x, eroe_y, stanza, posizione_generata);
+            }
+        }
+        else
+        {
+            //std::cout<<"la posizione è duplicata \n";
+            // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
+            // if(funzione_porc_mi_dà_ok)
+            generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe_x, eroe_y, stanza, posizione_generata);
+        }
+    }
+    else
+        generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe_x, eroe_y, stanza, posizione_generata);
     //return {0,0};
 }
 

@@ -158,7 +158,7 @@ void azioni_nemico(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici, 
     nemici.nemicoAttaccaPersonaggio(eroe);
     // muovo i nemici
     util.azzeraPosizioni();
-    nemici.spostaNemici(eroe, lista_torre, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
+    nemici.spostaNemici(eroe, lista_torre, grafica.array_posizioni_consentite, grafica.lunghezza_array, eroe.pos_cella_x, eroe.pos_cella_y, piano, stanza);
 }
 
 // ----------------------------

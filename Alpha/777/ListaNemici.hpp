@@ -79,7 +79,7 @@ public:
      * @param stanza
      * @details ogni volta che viene riaggiornata la mappa sposta i nemici in posizioni random
      */
-    void spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int piano, int stanza);
+    void spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int eroe_x, int eroe_y, int piano, int stanza);
 
     /*! \brief \fn bool controlloPosizionePersonaggio
      * @param eroe
