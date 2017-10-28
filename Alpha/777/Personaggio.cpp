@@ -4,7 +4,6 @@
 
 void Personaggio::impostaPosizionePartenzaPersonaggio(int x, int y)
 {
-    //std::cout<<"posizione partenza personaggio --> ["<<x<<", "<<y<<"] \n";
     // inizializzo variabili posizioni
     posX_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_X)+(x*util.SPAZIO_CELLE)-util.SPAZIO_CELLE;
     posY_iniziale=(util.POSIZIONE_PARTENZA_MAPPA_Y)+(y*util.SPAZIO_CELLE)-util.SPAZIO_CELLE;
@@ -72,6 +71,10 @@ void Personaggio::eliminaNemico(ListaNemici &nemici, int posizione, bool &flag)
         livello = livello+1;
         potenza = (livello*2)+10;
         vitaAttuale= vitaAttuale+100;
+        if(vitaAttuale>=1000)
+        {
+            vitaAttuale=1000;
+        }
         esperienza = 0;
     }
 }
