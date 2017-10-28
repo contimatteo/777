@@ -15,10 +15,10 @@
 
 #BUG
 
-- [ ] nemici si creano sopra il personaggio
+- [x] nemici si creano sopra il personaggio
 - [x] eroe esce dalla mappa
 - [x] crasha il gioco (vedere file "porc_non_sa_fare_niente")
-- [ ] Due caselle sopra non elimina
+- [x] Due caselle sopra non elimina
 
 
 
@@ -28,4 +28,5 @@
 
 - [ ] fare l'align-center sul testo nella finestra destra
 - [ ] Animazioni
-- [ ] Numero nemici (da sistemare) (attacco e numero)​
+- [x] Numero nemici (da sistemare)
+- [ ] Aumentare la potenza dell'attacco dei nemici
