@@ -28,51 +28,60 @@ public:
     sf::Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO]; /*! \typedef Vector2<int> lista_posizioni[NUMERO_NEMICI_MASSIMO] */
     // costruttori
 
-    /*! \brief costruttore ListaNemici
-     * @param stack
+    /*! \brief \fn ListaNemici
+     * @param lista_torre
+     * @param eroe
+     * @param array_posizioni_consentite
+     * @param lunghezza_arr_pos
+     * @param stanza
+     * @details costruttore ListaNemici
      */
     ListaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int piano, int stanza);
 
-    /*! \brief \fn void creaNemici(int pianoCorrente, int stanzaCorrente)
+    /*! \brief \fn void creaNemici
      * @param pianoCorrente
      * @param stanzaCorrente
      * @details vengono generati i nemici in posizioni random all' interno della mappa
      */
     void creaNemici(int pianoCorrente, int stanzaCorrente);
 
-    /*! \brief \fn void nemicoAttaccaPersonaggio(Personaggio &eroe)
+    /*! \brief \fn void nemicoAttaccaPersonaggio
      * @param eroe
      * @details funzione che controlla quando il personaggio si avvicina al nemico e in caso di scontro attacca il personaggio
      */
     void nemicoAttaccaPersonaggio(Personaggio &eroe);
 
-    /*! \brief \fn void eliminaNemicoInPosizione(int posizione)
+    /*! \brief \fn void eliminaNemicoInPosizione
      * @param posizione
      * @details se il personaggio attacca il nemico e lo uccide viene cancellato il nemico
      */
     void eliminaNemicoInPosizione(int posizione);
 
-    /*! \brief \fn void cancellaArray()
+    /*! \brief \fn void cancellaArray
      * @details viene liberato l' array
      */
     void cancellaArray();
 
-    /*! \brief \fn void disegnaNemici(RenderWindow &Gioco)
+    /*! \brief \fn void disegnaNemici
      * @param Gioco
      * @details funzione grafica che disegna i nemici sulla mappa
      */
     void disegnaNemici(RenderWindow &Gioco);
+
     void stampaArray(Nemico *array[], int lunghezza);
 
-    /*! \brief \fn void spostaNemici(Personaggio &eroe, int piano, int stanza)
+    /*! \brief \fn void spostaNemici
      * @param eroe
+     * @param lista_torre
+     * @param array_posizioni_consentite
+     * @param lunghezza_arr_pos
      * @param piano
      * @param stanza
      * @details ogni volta che viene riaggiornata la mappa sposta i nemici in posizioni random
      */
     void spostaNemici(Personaggio &eroe, ListaTorre &lista_torre, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int piano, int stanza);
 
-    /*! \brief \fn bool controlloPosizionePersonaggio(Personaggio &eroe)
+    /*! \brief \fn bool controlloPosizionePersonaggio
      * @param eroe
      * @return
      * @details ritorna se ha torvato il personaggio nella stessa posizione del nemico

@@ -23,34 +23,14 @@ class Personaggio:public ElementoGrafico {
 public:
     Utilities util;
     //int graphics;
-    int vitaMassima = 1000; /** <enum valore vitaMassima. */
-    int vitaAttuale = 1000; /** <enum valore vitaAttuale. */
-    int esperienza = 0;
-    int potenza = 10; /** <enum valore potenza. */
-    int livello=1;
-    int gittata= 2; /** <enum valore gittata. */
-    int cella_di_patenza_asse_x;
-    int cella_di_patenza_asse_y;
-    //SETTARE POI DA DOVE FAR INIZIARE IL PERSONAGGIO
-    int contatoreSkill1=0;
-    int contatoreSkill2=0;
-    int contatoreSkill3=0;
-    int contatoreSkill4=0;
-    int lv_skill1=1;
-    int lv_skill2=1;
-    int lv_skill3=1;
-    int lv_skill4=1;
-    //______________________________
-
-    //int dmg_skill1 = (1 + (saggezza/50) ) *100* (1+(lv_skill1/10))  + valore random da 1 a 19+lv skill  ;
-
-    //int dmg_skill2 = (1 + (lv_skill2/50) ) *100*(1+(lv_skill2/10)) /* + valore random da 1 a 19+lv skill */ ;
-
-    //int dmg_skill3 = (1 + (lv_skill3/50) ) *100* (1+(lv_skill3/10)) /* + valore random da 1 a 19+lv skill */ ;
-
-    //int dmg_skill4 = (1 + (lv_skill4/50) ) *100* (1+(lv_skill4/10))/* + valore random da 1 a 19+lv skill */ ;
-
-    //_______________________________
+    int vitaMassima = 1000; /*! \var int vitaMassima*/
+    int vitaAttuale = 1000; /*! \var int vitaAttuale*/
+    int esperienza = 0; /*! \var int esperienza*/
+    int potenza = 10; /*! \var int potenza*/
+    int livello=1; /*! \var int livello*/
+    int gittata= 2; /*! \var int gittata*/
+    int cella_di_patenza_asse_x; /*! \var int cella_di_patenza_asse_x*/
+    int cella_di_patenza_asse_y; /*! \var int cella_di_patenza_asse_y*/
 
     /*! \fn void personaggioAttaccaNemico (ListaNemici &nemici)
      * @param nemici
@@ -72,13 +52,26 @@ public:
 
     //Costruttore
     Personaggio();
-    /**
-    * \brief Personaggio costruttore
-    * @param tipo_personaggio
-    */
-    Personaggio(int tipo_personaggio, ListaTorre &lista_torre, int stanza);
 
+    /*! \brief \fn Personaggio
+     * @param tipo_personaggio
+     * @param lista_torre
+     * @param stanza
+     * @details cstruttore classe Personaggio
+     */
+    Personaggio(int tipo_personaggio, ListaTorre &lista_torre, int stanza);
+    /*! \brief \fn impostaPosizionePartenzaPersonaggio
+     * @param x
+     * @param y
+     * @details imposta sulla finestra di gioco dove deve partire il personaggio
+     */
     void impostaPosizionePartenzaPersonaggio(int x, int y);
+
+    /*! \brief \fn resetPosizionePersonaggio
+     * @param lista_torre
+     * @param stanza
+     * @details funzione che cerca da dove far ripartire il personaggio
+     */
     void resetPosizionePersonaggio(ListaTorre &lista_torre, int stanza);
 
 

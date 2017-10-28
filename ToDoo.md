@@ -2,12 +2,13 @@
 
 - [ ] Finire le funzioni per la creazione e il collegamento delle stanze (porcilcoglione)
 - [ ] Integrare le funzioni di creazione mappa-stanza-piano (@mattethebest + @porcilcoglione)
-- [ ] finire di sistemare le immagini per il gioco (@enricomariafabbri)
+- [x] finire di sistemare le immagini per il gioco (@enricomariafabbri) 
+- [ ] Fare il display dell' immagine di game over (@?)
 - [x] implementare menu inziale (@mattethebest)
 - [ ] scrivere la documentazione del progetto (doxygen) (@enricomariafabbri)
 - [ ] scrivere il readme.md (@mattethebest)
 - [x] realizzare i menu laterali al gioco (indicatori di vita potenza etc..) (@?)
-- [ ] Finire il gameplay del gioco.(?)
+- [ ] Finire il gameplay del gioco.(?) 
 
 
 
@@ -27,5 +28,4 @@
 
 - [ ] fare l'align-center sul testo nella finestra destra
 - [ ] Animazioni
-- [ ] Numero nemici (da sistemare) (attacco e numero)
-- [ ] ​
+- [ ] Numero nemici (da sistemare) (attacco e numero)​
