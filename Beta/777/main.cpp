@@ -258,7 +258,7 @@ int main()
         // disegno l'erore
         disegnaElementiGrafici(Gioco, eroe, nemici, grafica);
         // Aggiorno il Gioco con le modifiche
-        //eroe.fineGioco(Gioco);
+        eroe.fineGioco(Gioco);
         Gioco.display();
     }
     // programma terminato correttamente
