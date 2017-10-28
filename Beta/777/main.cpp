@@ -187,7 +187,7 @@ int main()
     music.openFromFile("../risorse/audio/main-song.ogg");
     music.setVolume(50);
     music.setLoop(true);
-    //music.play();
+    music.play();
 
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen())
@@ -258,7 +258,7 @@ int main()
         // disegno l'erore
         disegnaElementiGrafici(Gioco, eroe, nemici, grafica);
         // Aggiorno il Gioco con le modifiche
-        eroe.fineGioco(Gioco);
+        //eroe.fineGioco(Gioco);
         Gioco.display();
     }
     // programma terminato correttamente
