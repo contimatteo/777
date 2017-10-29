@@ -9,15 +9,21 @@ class Mappa{
 
     public:
     //ATTRIBUTI
-    int id;
-    int location[20][20];
-    int porte[3] = {-1, -1 ,-1};
+    int id; /*! \var int id*/
+    int location[20][20]; /*! \var int location*/
+    int porte[3] = {-1, -1 ,-1}; /*! \var int porte*/
+
+    /*! \brief \struct coord
+     * \typedef coord
+     */
     struct {
-        int x;
-        int y;
+        int x; /*! \var int x */
+        int y; /*! \var int y */
     }typedef coord;
     coord portexy[3];
+
     //METODI
+    /*! \brief */
     void crea_mappa(int n);
     void riempi_mappa();
     void inserisci_porta(int n, int k);

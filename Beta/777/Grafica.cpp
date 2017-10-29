@@ -49,6 +49,10 @@ Grafica::Grafica(int stack)
     piano_attuale.setFillColor(Color::White);
     piano_attuale.setCharacterSize(20);
     piano_attuale.setPosition(posizione_partenza_testo_x, esperienza_eroe.getPosition().y+(6*util.MARGINE_MAPPA));
+    attacco_nemico.setFont(font);
+    attacco_nemico.setFillColor(Color::White);
+    attacco_nemico.setCharacterSize(20);
+    attacco_nemico.setPosition(posizione_partenza_testo_x, esperienza_eroe.getPosition().y+(8*util.MARGINE_MAPPA));
 }
 
 void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza)
@@ -63,13 +67,13 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
 
     Texture texture_mappa1, texture_mappa2, texture_mappa3, texture_mappa4, texture_mappa5, texture_mappa6, texture_mappa7,
             texture_mappa8, texture_mappa9, texture_mappa11, texture_mappa99, texture_mappa0;
-    texture_mappa0.loadFromFile("../risorse/immagini/Nero.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+    texture_mappa0.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa1.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa2.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa3.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa4.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa5.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
-    texture_mappa6.loadFromFile("../risorse/immagini/muro-verticale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
+    texture_mappa6.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa7.loadFromFile("../risorse/immagini/porta.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa8.loadFromFile("../risorse/immagini/freccia-giu.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
     texture_mappa9.loadFromFile("../risorse/immagini/grass.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
@@ -151,7 +155,7 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
 
 // ------------
 
-void Grafica::creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza)
+void Grafica::creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza, ListaNemici &nemici)
 {
     // dettagli
     status_eroe.setString("Status Eroe");
@@ -162,6 +166,7 @@ void Grafica::creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza
     livello_eroe.setString("Livello Eroe = " + util.convertInt(eroe.livello));
     piano_attuale.setString("Piano Attuale = " + util.convertInt(piano));
     stanza_attuale.setString("Stanza Attuale = " + util.convertInt(stanza));
+    attacco_nemico.setString("Attacco Nemico = " + util.convertInt(nemici.array_nemici[0]->attacco));
 }
 /*
 // aggiorno la vita del personaggio

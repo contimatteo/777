@@ -34,6 +34,7 @@ class Grafica
     Text titolo_istruzioni_gioco; /*! \typedef Text titolo_istruzioni_gioco */
     Text stanza_attuale; /*! \typedef Text stanza_attuale */
     Text piano_attuale; /*! \typedef Text piano_attuale */
+    Text attacco_nemico;
 
     // metodi
     /*! \brief \fn Grafica
@@ -42,7 +43,7 @@ class Grafica
      */
     Grafica(int stack);
 
-    /*! \brief \fn disegnaMappa
+    /*! \brief \fn void disegnaMappa
      * @param Gioco
      * @param lista_torre
      * @param stanza
@@ -51,11 +52,14 @@ class Grafica
     void disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza);
 
     // disegno i testi nella finestra sinistra
-    /*! \brief \fn creaTestiFinestraSinistra
+    /*! \brief \fn void creaTestiFinestraSinistra
      * @param eroe
+     * @param piano
+     * @param stanza
+     * @param nemici
      * @details funzione che prepare la finestra sx laterale dove vengono inseriti i dati del gioco agiornati
      */
-    void creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza);
+    void creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza, ListaNemici &nemici);
 
     //----------------------------------
     /*void aggiornaVitaAttuale(Personaggio &eroe);
@@ -63,11 +67,13 @@ class Grafica
     void aggiornaGittata(Personaggio &eroe);
     void aggiornaEsperienza(Personaggio &eroe);
     void agiornaLivello(Personaggio &eroe);*/
-    /*! \brief \fn istrizioniGioco
+
+    /*! \brief \fn void istrizioniGioco
      * @details funzione che si occupa di scrivere le istruzioni del gioco nella finestra dx
      */
     void istruzioniGioco();
-    /*! \brief \fn creoArrayPosizioni
+
+    /*! \brief \fn void creoArrayPosizioni
      * @param lista_torre
      * @param stanza
      * @param eroe_x
@@ -75,7 +81,17 @@ class Grafica
      * @details una funzione che ricerca all' interno della mappa tutte le posizioni possibili su cui spostarsi e ne tiene traccia
      */
     void creoArrayPosizioni(ListaTorre &lista_torre, int stanza, int eroe_x, int eroe_y);
+
+    /*! \brief \fn void aggiornaPiano
+     * @param piano
+     * @details aggiorna il piano a display
+     */
     void aggiornaPiano(int piano);
+
+    /*! \brief \fn void aggiornaStanza
+    * @param stanza
+    * @details aggiorna la stanza a display
+    */
     void aggiornaStanza(int stanza);
     //------------------------------------------
 

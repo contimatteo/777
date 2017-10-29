@@ -184,6 +184,14 @@ void ListaNemici::disegnaNemici(RenderWindow &Gioco)
 
 Vector2<int> posizione_nemico_corrente;
 
+void ListaNemici::aggiornaAttaccoNemici(int valore)
+{
+    for (int i=0; i<numeroNemici; i++)
+    {
+        array_nemici[i]->attacco += valore;
+    }
+}
+
 void ListaNemici::ricreaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int piano, int stanza)
 {
     // posizioni random per istanza nemico

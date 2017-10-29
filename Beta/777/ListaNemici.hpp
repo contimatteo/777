@@ -76,6 +76,8 @@ public:
      * @param array_posizioni_consentite
      * @param lunghezza_arr_pos
      * @param piano
+     * @param eroe_x
+     * @param eroe_y
      * @param stanza
      * @details ogni volta che viene riaggiornata la mappa sposta i nemici in posizioni random
      */
@@ -88,6 +90,21 @@ public:
      */
     bool controlloPosizionePersonaggio(Personaggio &eroe);
 
+    /*! \brief \fn void aggiornaAttaccoNemici
+     * @param valore
+     * @details aumenta o diminuisce l'attacco del nemico
+     */
+    void aggiornaAttaccoNemici(int valore);
+
+    /*! \brief \fn void ricreaNemici
+     * @param lista_torre
+     * @param eroe
+     * @param array_posizioni_consentite
+     * @param lunghezza_arr_pos
+     * @param piano
+     * @param stanza
+     * @details funzione che con l aumentare delle stanze e piani ricrea i nemici
+     */
     void ricreaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int piano, int stanza);
 
 };

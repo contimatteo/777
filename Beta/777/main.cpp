@@ -71,6 +71,7 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
                 lista_torre.pianoPrecedente();
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
                 nemici.ricreaNemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
+                nemici.aggiornaAttaccoNemici(-100);
                 break;
             }
             // scala a salire
@@ -81,6 +82,7 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
                 lista_torre.prossimoPiano();
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
                 nemici.ricreaNemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
+                nemici.aggiornaAttaccoNemici(100);
                 break;
             }
 
@@ -103,7 +105,7 @@ void disegnaMappa(RenderWindow &Gioco, Grafica &grafica, ListaTorre &lista_torre
     grafica.disegnaMappa(Gioco, lista_torre, stanza);
 }
 
-void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe)
+void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe, ListaNemici &nemici)
 {
     // disegno finestra di sx
     sf::RectangleShape finestra(sf::Vector2f(util.LARGHEZZA_FINESTRAsx, util.ALTEZZA_FINESTRAsx));
@@ -112,7 +114,7 @@ void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio 
     finestra.setOutlineColor(sf::Color::White);
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);
-    grafica.creaTestiFinestraSinistra(eroe, piano, stanza);
+    grafica.creaTestiFinestraSinistra(eroe, piano, stanza, nemici);
     Gioco.draw(grafica.status_eroe);
     Gioco.draw(grafica.attacco_eroe);
     Gioco.draw(grafica.vita_eroe);
@@ -121,6 +123,7 @@ void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio 
     Gioco.draw(grafica.livello_eroe);
     Gioco.draw(grafica.stanza_attuale);
     Gioco.draw(grafica.piano_attuale);
+    Gioco.draw(grafica.attacco_nemico);
 }
 
 void disegnaFinestraDestra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe)
@@ -146,7 +149,7 @@ void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
 
 void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici, Grafica &grafica)
 {
-    disegnaFinestraSinistra(Gioco, grafica, eroe);
+    disegnaFinestraSinistra(Gioco, grafica, eroe, nemici);
     disegnaFinestraDestra(Gioco, grafica, eroe);
     disegnaEroe(Gioco, eroe);
     nemici.disegnaNemici(Gioco);

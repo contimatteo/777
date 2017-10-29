@@ -25,7 +25,7 @@ class ListaTorre{
     };
         typedef nodo *Lista;
 
-        Lista torre = new nodo;
+        Lista torre = new nodo; /*! \typedef torre = new nodo*/
 
         /*! \brief \fn ListaTorre
          * @details costruttore ListaTorre
@@ -40,14 +40,17 @@ class ListaTorre{
         int getPianoMassimoRaggiunto();
         void setPianoMassimoRaggiunto( int piano );
         void setPianoAttuale (int piano);
+
         /*! \brief \fn creaProssimoPiano
          * @details genera un nuovo nodo per crearci il piano
          */
         void creaProssimoPiano ();
+
         /*! \brief \fn prossimoPiano
          * @details si muove nel piano successivo
          */
         void prossimoPiano ();
+
         /*! \brief \fn pinorecedente
         * @details si muove nel piano precedente
          */
