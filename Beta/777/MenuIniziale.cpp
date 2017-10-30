@@ -72,8 +72,8 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
         {
             scelta=false;
             // chiudo il Gioco
+            Gioco.close();
             menu.close();
-            //Gioco.close();
         }
 
     }
