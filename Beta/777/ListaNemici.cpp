@@ -197,6 +197,7 @@ void ListaNemici::ricreaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vecto
     // posizioni random per istanza nemico
     //posizione_nemico_corrente(0,0);
     int randomX=0, randomY=0;
+    int attacco = array_nemici[0]->attacco;
     // ...
     numeroNemici=calcolaLunghezza(piano, stanza);
     for(int i=0; i<numeroNemici; i++)
@@ -204,7 +205,7 @@ void ListaNemici::ricreaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vecto
         util.generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, stanza, posizione_nemico_corrente);
         // creo un nemico
         //std::cout<<"2 - posizione casuale generata: ("<<posizione_nemico_corrente.x+1<<", "<<posizione_nemico_corrente.y+1<<") \n";
-        array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);
+        array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, attacco);
     }
 }
 
@@ -221,6 +222,6 @@ ListaNemici::ListaNemici(ListaTorre &lista_torre, Personaggio &eroe, Vector2<int
         util.generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe.pos_cella_x, eroe.pos_cella_y, stanza, posizione_nemico_corrente);
         // creo un nemico
         //std::cout<<"2 - posizione casuale generata: ("<<posizione_nemico_corrente.x+1<<", "<<posizione_nemico_corrente.y+1<<") \n";
-        array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 10);
+        array_nemici[i]= new Nemico(3, posizione_nemico_corrente.x, posizione_nemico_corrente.y, i, 50);
     }
 }

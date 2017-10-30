@@ -196,9 +196,11 @@ void Grafica::aggiornaStanza(int stanza)
 void Grafica::istruzioniGioco()
 {
     titolo_istruzioni_gioco.setString("Istruzioni Gioco");
-    istruzioni_gioco.setString( "1) Premi uno e poi le frecce per muoverti\n\n2) Premi due e poi spazio perattaccare\n\n"
-                                        "3) Ogni nemico equivale ad un punto\n esperienza ogni 10 pt esperienza\n sali di livello\n\n"
-                                        "4) Ogni volta che sali di livello aumenta\n l'attacco e ti rigeneri di 100 punti vita");
+    istruzioni_gioco.setString(
+                                "1) Premi uno e poi le frecce per muoverti \n\n 2) Premi due e poi spazio perattaccare \n\n"
+                                "3) Ogni nemico equivale ad un punto \n esperienza ogni 10 pt esperienza\n sali di livello \n\n"
+                                "4) Ogni volta che sali di livello aumenta \n l'attacco e ti rigeneri di 100 punti vita \n \n \n \n \n"
+                                    "scopo del gioco: \n \nTROVA TONY EFFE \n");
 
 
 }

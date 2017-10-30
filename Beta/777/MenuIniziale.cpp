@@ -57,10 +57,6 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
                 Gioco.close();
             }
         }
-        /*if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num0))||(sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad0)))
-        {
-            scelta = true;
-        }*/
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::A)) && scelta)
         {
             scelta=false;

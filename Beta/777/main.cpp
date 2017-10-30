@@ -80,7 +80,7 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
                 lista_torre.pianoPrecedente();
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
                 nemici.ricreaNemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
-                nemici.aggiornaAttaccoNemici(-80);
+                nemici.aggiornaAttaccoNemici(-50);
                 break;
             }
             // scala a salire
@@ -91,7 +91,7 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
                 lista_torre.prossimoPiano();
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
                 nemici.ricreaNemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
-                nemici.aggiornaAttaccoNemici(80);
+                nemici.aggiornaAttaccoNemici(50);
                 break;
             }
             default:
