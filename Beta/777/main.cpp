@@ -23,7 +23,7 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
     prossima_posizione_eroe_y=(eroe.pos_cella_y)-1;
     prossima_posizione_eroe_x+=x;   prossima_posizione_eroe_y+=y;
     //controllo che la casella sia libera
-    int valore_casella=lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(prossima_posizione_eroe_y, prossima_posizione_eroe_x);
+    int valore_casella=lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(prossima_posizione_eroe_x, prossima_posizione_eroe_y);
     // siamo sull'erba
     if(valore_casella==9)
     {
@@ -42,23 +42,16 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
             // porta
             case 7:
             {
-                /*for(int k=0; k<lista_torre.getPianoAttuale(); k++)
+                for(int k=0; k<lista_torre.getPianoAttuale(); k++)
                 {
-                    std::cout<<"trovata una porta --> ";
-                    std::cout<<lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(prossima_posizione_eroe_y, prossima_posizione_eroe_x)<<" \n";
-                    std::cout<<"la riconosce come porta? "<<(bool)lista_torre.torre->piano.arr_mappe[k].isAporta(prossima_posizione_eroe_x, prossima_posizione_eroe_y)<<" \n";
-                    if(!lista_torre.torre->piano.arr_mappe[k].isAporta(prossima_posizione_eroe_x, prossima_posizione_eroe_y))
+                    if(lista_torre.torre->piano.arr_mappe[k].isAporta(prossima_posizione_eroe_x, prossima_posizione_eroe_y))
                     {
                         // se entra vuol dire che in posizione [x,y] c'è una porta
                         // k è l'indice che devo usare per l'array porte che sta dentro Mappa
-                        stanza=lista_torre.torre->piano.arr_mappe[k].idMappaPorta(prossima_posizione_eroe_x, prossima_posizione_eroe_y);
-                        std::cout<<" prossima stanza --> "<<stanza<<" \n";
+                        stanza=lista_torre.torre->piano.arr_mappe[k].idMappaPorta(prossima_posizione_eroe_x, prossima_posizione_eroe_y)+1;
+                        //std::cout<<" prossima stanza --> "<<stanza<<" \n";
                     }
-                }*/
-                if((stanza+1)>piano)
-                    stanza=1;
-                else
-                    stanza++;
+                }
                 eroe.resetPosizionePersonaggio(lista_torre, stanza);
                 nemici.ricreaNemici(lista_torre, eroe, grafica.array_posizioni_consentite, grafica.lunghezza_array, piano, stanza);
                 break;
@@ -96,7 +89,6 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
         // ricreo l'array delle posizioni consentite
         grafica.creoArrayPosizioni(lista_torre, stanza, eroe.pos_cella_x, eroe.pos_cella_y);
     }
-
 }
 
 
@@ -190,7 +182,7 @@ int main()
     music.openFromFile("../risorse/audio/main-song.ogg");
     music.setVolume(50);
     music.setLoop(true);
-    music.play();
+    //music.play();
 
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen())

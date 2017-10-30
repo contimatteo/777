@@ -102,7 +102,7 @@ void Utilities::eliminaPosizione(int x, int y)
 
 bool Utilities::controllaElementoGrafico(ListaTorre &lista_torre, int stanza, int x, int y)
 {
-    if(lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(y, x) == 9)
+    if(lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(x, y) == 9)
     {
         //std::cout << "nella cella [" << x << ", " << y << "] ci sta un "
                   //<< lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(y - 1, x - 1) << "\n";

@@ -22,7 +22,7 @@ void Personaggio::resetPosizionePersonaggio(ListaTorre &lista_torre, int stanza)
     {
         while((y<20)&&(!trovato))
         {
-            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(y,x)==9)
+            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(x,y)==9)
             {
                 trovato = true;
                 impostaPosizionePartenzaPersonaggio(x+1, y+1);
@@ -45,7 +45,7 @@ Personaggio::Personaggio(int tipo_personaggio, ListaTorre &lista_torre, int stan
     {
         while((y<20)&&(!trovato))
         {
-            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(y,x)==9)
+            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(x,y)==9)
             {
                 trovato = true;
                 impostaPosizionePartenzaPersonaggio(x+1, y+1);
@@ -147,9 +147,9 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
 // fine del gioco
 void Personaggio::fineGioco(RenderWindow &Gioco)
 {
-    std::cout<<" ha vinto tony \n";
     if (vitaAttuale <= 0)
     {
+        std::cout<<" ha vinto tony \n";
         Gioco.close();
     }
 }

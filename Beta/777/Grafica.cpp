@@ -84,7 +84,7 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
     for (int i=0; i<util.NUMERO_CASELLE_ASSE_X; i++)
         for (int j=0; j<util.NUMERO_CASELLE_ASSE_Y; j++)
         {
-            switch(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(j,i))
+            switch(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(i,j))
             {
                 case 0:
                 {
@@ -235,7 +235,7 @@ void Grafica::creoArrayPosizioni(ListaTorre &lista_torre, int stanza, int eroe_x
     {
         for (int j = 0; j <=util.NUMERO_CASELLE_ASSE_Y; j++)
         {
-            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(j,i)==9)
+            if(lista_torre.torre->piano.arr_mappe[stanza-1].restituisci_valore(i,j)==9)
             {
                 lunghezza_array++;
                 array_posizioni_consentite[lunghezza_array]={i+1,j+1};
