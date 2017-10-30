@@ -30,6 +30,10 @@ sudo apt-get install libsfml-dev
 
 https://www.sfml-dev.org/tutorials/2.4/start-vc.php
 
+##### CodeBlocks
+
+https://www.sfml-dev.org/tutorials/2.4/start-cb.php
+
 #### Piattaforma OSX
 
 Per l'installazione è sufficiente aver installato il gestore di pacchetti HomeBrew per OSX.
@@ -44,8 +48,16 @@ brew install sfml
 
 Per Giocare è sufficiente lanciare l'eseguibile chiamato "777" nella cartella "cmake-build-debug".
 
-## Sviluppo
-Sviluppo di un gioco a mappa espandibile e piu livelli, implementato tramite grafica 2d. 
+## Realizzazione
+Sviluppo di un gioco a mappa espandibile a più livelli, implementato tramite grafica 2d. 
+
+Gioco basato su un sistema di generazione di mappe random che si susseguono come in un edificio reale: esiste un'unica torre in cui vi sono diverse stanze suddivise per piani.
+
+Il numero di nemici è determinato dalla stanza e dal piano a cui siamo.
+
+I nemici cambiano la loro posizione in modo random e il loro attacco cresce proporzionalmente con la visita della torre.
+
+Lo scopo del gioco è: trovare Tony Effe.
 
 ##  Sviluppato con
 - C++
@@ -53,3 +65,7 @@ Sviluppo di un gioco a mappa espandibile e piu livelli, implementato tramite gra
 
 ##  Autori
 Conti Matteo, Enrico Maria Fabbri, Mattia Porcelli
+
+## Licenza
+
+Questo programma è stato sviluppato sotto la licenza GNU GENERAL PUBLIC LICENSE (v.3). Leggere 'LICENSE.md' maggiori dettagli.
