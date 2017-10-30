@@ -9,6 +9,9 @@ using namespace sf;
 
 const int Utilities::NUMERO_NEMICI_MASSIMO = 20;
 
+const int Utilities::GIOCO_FINITO_PIANO = 15;
+const int Utilities::GIOCO_FINITO_STANZA = 15;
+
 const int Utilities::NUMERO_CASELLE_ASSE_X = 20;
 const int Utilities::NUMERO_CASELLE_ASSE_Y = 20;
 

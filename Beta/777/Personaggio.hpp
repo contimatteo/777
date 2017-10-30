@@ -47,7 +47,8 @@ public:
      */
      void eliminaNemico(ListaNemici &nemici, int posizione, bool &flag);
 
-    void fineGioco(RenderWindow &Gioco);
+    void fineGiocoHaPerso(RenderWindow &Gioco);
+    void fineGiocoHaVinto(RenderWindow &Gioco, int piano, int stanza);
 
 
     //Costruttore
