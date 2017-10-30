@@ -144,8 +144,8 @@ void Personaggio::personaggioAttaccaNemico(ListaNemici &nemici) {
     }
 }
 
-// fine del gioco
-void Personaggio::fineGioco(RenderWindow &Gioco)
+// fine del gioco --> ha perso
+void Personaggio::fineGiocoHaPerso(RenderWindow &Gioco)
 {
     if (vitaAttuale <= 0)
     {
@@ -158,6 +158,29 @@ void Personaggio::fineGioco(RenderWindow &Gioco)
         int posizione_x=0, posizione_y=0;
         Texture immagine;
         immagine.loadFromFile("../risorse/immagini/game-over.png");
+        Sprite tony(immagine);
+        posizione_x=(util.LARGHEZZA_DISPLAY-larghezza_immagine)/2;
+        posizione_y=(util.ALTEZZA_DISPLAY-altezza_immagine)/2;
+        tony.setPosition(posizione_x, posizione_y);
+        Gioco.draw(tony);
+    }
+}
+
+
+// fine del gioco --> ha vinto
+void Personaggio::fineGiocoHaVinto (RenderWindow &Gioco, int piano, int stanza)
+{
+    if((piano==util.GIOCO_FINITO_PIANO)&&(stanza==util.GIOCO_FINITO_STANZA))
+    {
+        RectangleShape sfondoTony(Vector2f(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY));
+        sfondoTony.setFillColor(Color::Black);
+        sfondoTony.setPosition(0,0);
+        Gioco.draw(sfondoTony);
+        // disegno la faccia di Tony
+        int larghezza_immagine=619, altezza_immagine=434;
+        int posizione_x=0, posizione_y=0;
+        Texture immagine;
+        immagine.loadFromFile("../risorse/immagini/tony.png");
         Sprite tony(immagine);
         posizione_x=(util.LARGHEZZA_DISPLAY-larghezza_immagine)/2;
         posizione_y=(util.ALTEZZA_DISPLAY-altezza_immagine)/2;

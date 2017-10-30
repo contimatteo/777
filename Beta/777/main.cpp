@@ -260,8 +260,11 @@ int main()
         disegnaMappa(Gioco, grafica, lista_torre);
         // disegno l'erore
         disegnaElementiGrafici(Gioco, eroe, nemici, grafica);
-        // Aggiorno il Gioco con le modifiche
-        eroe.fineGioco(Gioco);
+        // controllo se ha perso
+        eroe.fineGiocoHaPerso(Gioco);
+        // controllo se ha vinto
+        eroe.fineGiocoHaVinto(Gioco, piano, stanza);
+        // display
         Gioco.display();
     }
     // programma terminato correttamente

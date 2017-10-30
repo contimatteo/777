@@ -18,6 +18,9 @@ public:
     static const int SPAZIO_CELLE;
     static const int DIMENSIONE_CELLE;
 
+    static const int GIOCO_FINITO_PIANO;
+    static const int GIOCO_FINITO_STANZA;
+
     static const int NUMERO_CASELLE_ASSE_X;
     static const int NUMERO_CASELLE_ASSE_Y;
     static const int ALTEZZA_DISPLAY;
