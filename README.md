@@ -1,7 +1,5 @@
 # **777 Game**
 
-
-
 ##Prima di Iniziare
 
 Il programma non necessita di una connessione a internet, ma richiede la presenza di un'interfaccia grafica attraverso la quale poter interagire con l'utente.
@@ -57,7 +55,7 @@ Il numero di nemici è determinato dalla stanza e dal piano a cui siamo.
 
 I nemici cambiano la loro posizione in modo random e il loro attacco cresce proporzionalmente con la visita della torre.
 
-Lo scopo del gioco è: trovare Tony Effe.
+Lo scopo del gioco è trovare Tony Effe.
 
 ##  Sviluppato con
 - C++
