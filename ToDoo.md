@@ -9,7 +9,7 @@
 - [x] scrivere il readme.md (@mattethebest)
 - [x] realizzare i menu laterali al gioco (indicatori di vita potenza etc..) (@?)
 - [ ] Finire il gameplay del gioco.(?) 
-- [ ] Fare il display dell' immagine quando vince (@?)
+- [x] Fare il display dell' immagine quando vince (@?)
 
 
 
