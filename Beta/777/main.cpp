@@ -1,3 +1,9 @@
+/*
+ * @author          Conti Matteo
+ * @date            30/01/2017
+ * @project         777 Game
+ * @github_repo     'https://github.com/contimatteo/777-Game'
+ */
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -13,7 +19,6 @@ using namespace sf;
 static Utilities util;
 int piano=1;
 int stanza=1;
-
 // ----------------------------
 
 int prossima_posizione_eroe_x=0; int prossima_posizione_eroe_y=0;

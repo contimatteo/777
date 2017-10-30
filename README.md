@@ -36,7 +36,9 @@ In caso non dovesse funzionare sara necessario aggiungere il percorso di SFML al
 
 #### Piattaforma OSX
 
-Per l'installazione è sufficiente lanciare questo codice da terminale:
+Per l'installazione è sufficiente aver installato il gestore di pacchetti HomeBrew per OSX.
+
+Fatto ciò basta lanciare il seguente comando da terminale:
 
 ```
 brew install sfml
