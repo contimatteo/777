@@ -24,7 +24,7 @@ public:
     Utilities util;
     //int graphics;
     int vitaMassima = 1000; /*! \var int vitaMassima*/
-    int vitaAttuale = 1000; /*! \var int vitaAttuale*/
+    int vitaAttuale; /*! \var int vitaAttuale*/
     int esperienza = 0; /*! \var int esperienza*/
     int potenza = 10; /*! \var int potenza*/
     int livello=1; /*! \var int livello*/

@@ -40,6 +40,7 @@ void Personaggio::resetPosizionePersonaggio(ListaTorre &lista_torre, int stanza)
 
 Personaggio::Personaggio(int tipo_personaggio, ListaTorre &lista_torre, int stanza): ElementoGrafico(tipo_personaggio)
 {
+    vitaAttuale=1000;
     int x=0; bool trovato=false; int y=0;
     while ((x < 20)&&(!trovato))
     {
