@@ -149,8 +149,20 @@ void Personaggio::fineGioco(RenderWindow &Gioco)
 {
     if (vitaAttuale <= 0)
     {
-        std::cout<<" ha vinto tony \n";
-        Gioco.close();
+        RectangleShape sfondoTony(Vector2f(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY));
+        sfondoTony.setFillColor(Color::Black);
+        sfondoTony.setPosition(0,0);
+        Gioco.draw(sfondoTony);
+        // disegno la faccia di Tony
+        int larghezza_immagine=600, altezza_immagine=700;
+        int posizione_x=0, posizione_y=0;
+        Texture immagine;
+        immagine.loadFromFile("../risorse/immagini/tony.png");
+        Sprite tony(immagine);
+        posizione_x=(util.LARGHEZZA_DISPLAY-larghezza_immagine)/2;
+        posizione_y=(util.ALTEZZA_DISPLAY-altezza_immagine)/2;
+        tony.setPosition(posizione_x, posizione_y);
+        Gioco.draw(tony);
     }
 }
 

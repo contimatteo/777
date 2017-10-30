@@ -78,7 +78,10 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
                 nemici.aggiornaAttaccoNemici(100);
                 break;
             }
-
+            default:
+            {
+                // unreachable code
+            }
         }
         // aggiorno nel menu il piano
         grafica.aggiornaPiano(piano);
@@ -107,14 +110,14 @@ void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio 
     finestra.setOutlineThickness(1.5);
     Gioco.draw(finestra);
     grafica.creaTestiFinestraSinistra(eroe, piano, stanza, nemici);
+    Gioco.draw(grafica.piano_attuale);
+    Gioco.draw(grafica.stanza_attuale);
     Gioco.draw(grafica.status_eroe);
     Gioco.draw(grafica.attacco_eroe);
     Gioco.draw(grafica.vita_eroe);
     Gioco.draw(grafica.gittata_eroe);
     Gioco.draw(grafica.esperienza_eroe);
     Gioco.draw(grafica.livello_eroe);
-    Gioco.draw(grafica.stanza_attuale);
-    Gioco.draw(grafica.piano_attuale);
     Gioco.draw(grafica.attacco_nemico);
 }
 
@@ -253,7 +256,7 @@ int main()
         // disegno l'erore
         disegnaElementiGrafici(Gioco, eroe, nemici, grafica);
         // Aggiorno il Gioco con le modifiche
-        //eroe.fineGioco(Gioco);
+        eroe.fineGioco(Gioco);
         Gioco.display();
     }
     // programma terminato correttamente

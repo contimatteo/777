@@ -7,6 +7,12 @@
 
 MenuIniziale::MenuIniziale(RenderWindow &Gioco)
 {
+// sfondo menu
+    RectangleShape sfondoMenu(Vector2f(util.LARGHEZZA_DISPLAY, util.ALTEZZA_DISPLAY));
+    Color colore_sfondo;
+    colore_sfondo.r=250;    colore_sfondo.g=208;    colore_sfondo.b=196;
+    sfondoMenu.setFillColor(colore_sfondo);
+    sfondoMenu.setPosition(0,0);
     // grafica menù
     sf::Texture texture;
     texture.loadFromFile("../risorse/immagini/menu-iniziale.jpg");
@@ -15,16 +21,16 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
     int pos_x = (util.LARGHEZZA_DISPLAY/2)-(texture.getSize().x/2);
     int pos_y = (util.ALTEZZA_DISPLAY/2)-(texture.getSize().y/2);;
     immagine_menu.setPosition(pos_x, pos_y);
+    // musica
     Music music;
     music.openFromFile("../risorse/audio/menu-music.ogg");
     music.setVolume(50);
     music.setLoop(false);
     //music.play();
 
-
     bool scelta=false;
     menu.create(sf::VideoMode((unsigned int)util.LARGHEZZA_DISPLAY, (unsigned int)util.ALTEZZA_DISPLAY), "777 - Menu");
-
+    menu.draw(sfondoMenu);
     menu.draw(immagine_menu);
     menu.display();
 
