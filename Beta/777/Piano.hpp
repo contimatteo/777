@@ -63,7 +63,7 @@ class Piano {
     /*! \brief \fn void crea
      * @param n
      * @param scale2
-     * @details
+     * @details crea le scale a salire e scendere all' interno della stanza
      */
     void crea(int n, int scale2);
 };

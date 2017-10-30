@@ -28,7 +28,7 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
     music.setLoop(false);
     //music.play();
 
-    bool scelta=false;
+    bool scelta=true;
     menu.create(sf::VideoMode((unsigned int)util.LARGHEZZA_DISPLAY, (unsigned int)util.ALTEZZA_DISPLAY), "777 - Menu");
     menu.draw(sfondoMenu);
     menu.draw(immagine_menu);
@@ -57,10 +57,10 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
                 Gioco.close();
             }
         }
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num0))||(sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad0)))
+        /*if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Num0))||(sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad0)))
         {
             scelta = true;
-        }
+        }*/
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::A)) && scelta)
         {
             scelta=false;

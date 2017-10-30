@@ -17,11 +17,22 @@ using namespace sf;
 
 // ----------------------------
 static Utilities util;
-int piano=1;
-int stanza=1;
+int piano=1; /*! \var int piano */
+int stanza=1; /*! \var int stanza*/
 // ----------------------------
 
 int prossima_posizione_eroe_x=0; int prossima_posizione_eroe_y=0;
+/*! \brief \fn void muoviEroe
+ * @param Gioco
+ * @param eroe
+ * @param lista_torre
+ * @param grafica
+ * @param nemici
+ * @param x
+ * @param y
+ * @param muovi_personaggio
+ * @details funzione che permette all' eroe di muoversi nella mappa
+ */
 void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, Grafica &grafica, ListaNemici &nemici, int x, int y, bool &muovi_personaggio)
 {
     prossima_posizione_eroe_x=(eroe.pos_cella_x)-1;
@@ -99,12 +110,24 @@ void muoviEroe(RenderWindow &Gioco, Personaggio &eroe, ListaTorre &lista_torre, 
     }
 }
 
-
+/*! \brief \fn void disegnaMappa
+ * @param Gioco
+ * @param grafica
+ * @param lista_torre
+ * @details richiama la funzione che disegna la mappa
+ */
 void disegnaMappa(RenderWindow &Gioco, Grafica &grafica, ListaTorre &lista_torre)
 {
     grafica.disegnaMappa(Gioco, lista_torre, stanza);
 }
 
+/*! \brief \fn void disegnaFinestraSinistra
+ * @param Gioco
+ * @param grafica
+ * @param eroe
+ * @param nemici
+ * @details funzione che disegna la finestra sx del gioco con i relativi parametri
+ */
 void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe, ListaNemici &nemici)
 {
     // disegno finestra di sx
@@ -126,6 +149,12 @@ void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio 
     Gioco.draw(grafica.attacco_nemico);
 }
 
+/*! \brief \fn void disegnaFinestraDestra
+ * @param Gioco
+ * @param grafica
+ * @param eroe
+ * @details funzione che disegna la finestra dx del gioco con i relativi parametri
+ */
 void disegnaFinestraDestra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe)
 {
     // disegno finestra di dx
