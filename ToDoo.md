@@ -1,32 +1,23 @@
 # TO-DOO
 
-- [ ] Finire le funzioni per la creazione e il collegamento delle stanze (porcilcoglione)
-- [ ] Integrare le funzioni di creazione mappa-stanza-piano (@mattethebest + @porcilcoglione)
+- [x] Finire le funzioni per la creazione e il collegamento delle stanze (porcilcoglione)
+- [x] Integrare le funzioni di creazione mappa-stanza-piano (@mattethebest + @porcilcoglione)
 - [x] finire di sistemare le immagini per il gioco (@enricomariafabbri) 
-- [ ] Fare il display dell' immagine di game over (@?)
+- [x] Fare il display dell' immagine di game over (@?)
 - [x] implementare menu inziale (@mattethebest)
 - [ ] scrivere la documentazione del progetto (doxygen) (@enricomariafabbri)
-- [ ] scrivere il readme.md (@mattethebest)
+- [x] scrivere il readme.md (@mattethebest)
 - [x] realizzare i menu laterali al gioco (indicatori di vita potenza etc..) (@?)
 - [ ] Finire il gameplay del gioco.(?) 
+- [ ] Fare il display dell' immagine quando vince (@?)
 
 
 
 
 #BUG
 
-- [x] nemici si creano sopra il personaggio
-- [x] eroe esce dalla mappa
-- [x] crasha il gioco (vedere file "porc_non_sa_fare_niente")
-- [x] Due caselle sopra non elimina
-
-
 
 
 
 # MIGLIORIE
 
-- [ ] fare l'align-center sul testo nella finestra destra
-- [ ] Animazioni
-- [x] Numero nemici (da sistemare)
-- [ ] Aumentare la potenza dell'attacco dei nemici
