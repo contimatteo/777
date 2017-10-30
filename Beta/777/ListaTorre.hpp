@@ -33,13 +33,10 @@ class ListaTorre{
         ListaTorre (){
         torre->precedente = NULL;
         torre ->successivo = NULL;
-        torre->piano.crea(pianoMassimoRaggiunto , -1); //fare funzione che crea un piano di X mappe (1 in questo caso)
+        torre->piano.crea(pianoMassimoRaggiunto , -1);
         }
 
         int getPianoAttuale ();
-        int getPianoMassimoRaggiunto();
-        void setPianoMassimoRaggiunto( int piano );
-        void setPianoAttuale (int piano);
 
         /*! \brief \fn creaProssimoPiano
          * @details genera un nuovo nodo per crearci il piano

@@ -344,17 +344,6 @@ void Mappa::setNull(){
     }
 }
 
-bool Mappa::isNull(){
-    bool flag = true;
-    for (int i = 0; i < 20; i++){
-        for (int j = 0 ; j < 20; j++){
-            if (location[i][j] != 0)
-                flag = false;
-        }
-    }
-    return flag;
-}
-
 void Mappa::inserisci_scala_salire(){
     int px, py;
     //srand(time(0));

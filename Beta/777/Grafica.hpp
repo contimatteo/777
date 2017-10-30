@@ -61,13 +61,6 @@ class Grafica
      */
     void creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza, ListaNemici &nemici);
 
-    //----------------------------------
-    /*void aggiornaVitaAttuale(Personaggio &eroe);
-    void aggiornaAttacco(Personaggio &eroe);
-    void aggiornaGittata(Personaggio &eroe);
-    void aggiornaEsperienza(Personaggio &eroe);
-    void agiornaLivello(Personaggio &eroe);*/
-
     /*! \brief \fn void istrizioniGioco
      * @details funzione che si occupa di scrivere le istruzioni del gioco nella finestra dx
      */
