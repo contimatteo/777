@@ -70,8 +70,9 @@ void Personaggio::eliminaNemico(ListaNemici &nemici, int posizione, bool &flag)
     if(esperienza==10)
     {
         livello = livello+1;
-        potenza = (livello*2)+10;
         vitaAttuale= vitaAttuale+100;
+        if (vitaAttuale <= 1000)
+            vitaAttuale=vitaMassima;
         esperienza = 0;
     }
 }
