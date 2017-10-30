@@ -240,7 +240,7 @@ int main()
     music.openFromFile("../risorse/audio/main-song.ogg");
     music.setVolume(50);
     music.setLoop(true);
-    //music.play();
+    music.play();
 
     // eseguo il gioco finchè la finestra rimane aperta
     while (Gioco.isOpen())

@@ -15,7 +15,7 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
     sfondoMenu.setPosition(0,0);
     // grafica menù
     sf::Texture texture;
-    texture.loadFromFile("../risorse/immagini/menu-iniziale.jpg");
+    texture.loadFromFile("../risorse/immagini/menu-iniziale.png");
     Sprite immagine_menu(texture);
     immagine_menu.setScale(1, 1);
     int pos_x = (util.LARGHEZZA_DISPLAY/2)-(texture.getSize().x/2);
@@ -26,7 +26,7 @@ MenuIniziale::MenuIniziale(RenderWindow &Gioco)
     music.openFromFile("../risorse/audio/menu-music.ogg");
     music.setVolume(50);
     music.setLoop(false);
-    //music.play();
+    music.play();
 
     bool scelta=true;
     menu.create(sf::VideoMode((unsigned int)util.LARGHEZZA_DISPLAY, (unsigned int)util.ALTEZZA_DISPLAY), "777 - Menu");
