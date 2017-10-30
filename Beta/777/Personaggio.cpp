@@ -154,10 +154,10 @@ void Personaggio::fineGioco(RenderWindow &Gioco)
         sfondoTony.setPosition(0,0);
         Gioco.draw(sfondoTony);
         // disegno la faccia di Tony
-        int larghezza_immagine=600, altezza_immagine=700;
+        int larghezza_immagine=619, altezza_immagine=434;
         int posizione_x=0, posizione_y=0;
         Texture immagine;
-        immagine.loadFromFile("../risorse/immagini/tony.png");
+        immagine.loadFromFile("../risorse/immagini/game-over.png");
         Sprite tony(immagine);
         posizione_x=(util.LARGHEZZA_DISPLAY-larghezza_immagine)/2;
         posizione_y=(util.ALTEZZA_DISPLAY-altezza_immagine)/2;

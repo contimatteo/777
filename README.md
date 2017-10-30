@@ -14,7 +14,7 @@ per lo sviluppo ocorre:
 Aver installato la libreria SFML
 ```
 
-### Installazione:
+### Installare SFML:
 
 #### Piattaforma Linux
 
@@ -26,13 +26,9 @@ sudo apt-get install libsfml-dev
 
 #### Piattaforma Windows
 
-Per l'installazione è sufficiente:
+##### Visual Studio
 
-```
-Scaricare SFML da internet e aggiungerlo alla cartella  del programma
-```
-
-In caso non dovesse funzionare sara necessario aggiungere il percorso di SFML alle variabili di sistema e alla "cmake-list.txt" del programma.
+https://www.sfml-dev.org/tutorials/2.4/start-vc.php
 
 #### Piattaforma OSX
 
