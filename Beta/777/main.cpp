@@ -153,7 +153,7 @@ void disegnaFinestraSinistra(RenderWindow &Gioco, Grafica &grafica, Personaggio 
  * @param Gioco
  * @param grafica
  * @param eroe
- * @details funzione che disegna la finestra dx del gioco con i relativi parametri
+ * @details funzione che disegna la finestra dx del gioco con le istruzioni
  */
 void disegnaFinestraDestra(RenderWindow &Gioco, Grafica &grafica, Personaggio &eroe)
 {
@@ -170,12 +170,23 @@ void disegnaFinestraDestra(RenderWindow &Gioco, Grafica &grafica, Personaggio &e
 
 }
 
+/*! \brief \fn void disegnaEroe
+ * @param Gioco
+ * @param eroe
+ * @details richiama la funzione che disegna l' eroe
+ */
 void disegnaEroe(RenderWindow &Gioco, Personaggio &eroe)
 {
     Gioco.draw(eroe.grafica);
 }
 
-
+/*! \brief \fn void disegnaElementiGrafici
+ * @param Gioco
+ * @param eroe
+ * @param nemici
+ * @param grafica
+ * @details richiama piu funzioni per disegnare tutti gli elementi del gioco
+ */
 void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici, Grafica &grafica)
 {
     disegnaFinestraSinistra(Gioco, grafica, eroe, nemici);
@@ -184,6 +195,14 @@ void disegnaElementiGrafici(RenderWindow &Gioco, Personaggio &eroe, ListaNemici 
     nemici.disegnaNemici(Gioco);
 }
 
+/*! \brief \fn void azioni_nemico
+ * @param Gioco
+ * @param eroe
+ * @param nemici
+ * @param lista_torre
+ * @param grafica
+ * @details richiama tutte le funzioni che permettono i movimenti dei nemici
+ */
 void azioni_nemico(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici, ListaTorre &lista_torre, Grafica &grafica)
 {
     // controllo se togliere vita al personaggio
@@ -194,7 +213,9 @@ void azioni_nemico(RenderWindow &Gioco, Personaggio &eroe, ListaNemici &nemici, 
 }
 
 // ----------------------------
-
+/*! \brief \fn int main
+ * @return
+ */
 int main()
 {
     srand(static_cast <unsigned int> (time(0)));
