@@ -8,11 +8,14 @@
 #include "ElementoGrafico.hpp"
 using namespace sf;
 
+// muovo il personaggio nella nuova posizione
+// (attenzione: se la posizione non viene cambiata il personaggio non si muove)
 void ElementoGrafico::muovi()
 {
     grafica.move(spostamento_x, spostamento_y);
 }
 
+// imposto la nuova posizione del personaggio
 void ElementoGrafico::setPosizione(int x, int y)
 {
     int mossa_asse_x=util.SPAZIO_CELLE * x;
@@ -50,7 +53,7 @@ ElementoGrafico::ElementoGrafico(int tipo_personaggio)
     posX=posX_iniziale; posY=posY_iniziale;
     pos_cella_x=1;  pos_cella_y=1;
 
-    //Texture texture;
+    // in base al valore di 'tipo_personaggio' disegno la texture corrispondente
     switch(tipo_personaggio)
     {
         // eroe

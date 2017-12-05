@@ -8,60 +8,59 @@
 using namespace sf;
 
 const int Utilities::NUMERO_NEMICI_MASSIMO = 20;
-
+// IMPOSTO LA STANZA NELLA QUALE IL GIOCO TERMINA E IL PLAYER VINCE
 const int Utilities::GIOCO_FINITO_PIANO = 15;
 const int Utilities::GIOCO_FINITO_STANZA = 15;
-
+// NUMERO CASELLE
 const int Utilities::NUMERO_CASELLE_ASSE_X = 20;
 const int Utilities::NUMERO_CASELLE_ASSE_Y = 20;
-
-sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
+// DIMESIONE_CELLE + MARGINE(=1)
 const int Utilities::SPAZIO_CELLE = 41;
+// DIMENSIONE DELLE CELLE
 const int Utilities::DIMENSIONE_CELLE = 40;
-
+// ALTEZZA E LARGHEZZA DELLA FINESTRA PRINCIPALE (full screen)
+sf::VideoMode desktop = sf::VideoMode().getDesktopMode();
 const int Utilities::ALTEZZA_DISPLAY = desktop.height;
 const int Utilities::LARGHEZZA_DISPLAY = desktop.width;
-
+// DIMENSIONI MAPPA
 const int Utilities::ALTEZZA_MAPPA = SPAZIO_CELLE*NUMERO_CASELLE_ASSE_Y;
 const int Utilities::LARGHEZZA_MAPPA = SPAZIO_CELLE*NUMERO_CASELLE_ASSE_X;
-//const int Utilities::POSIZIONE_PARTENZA_MAPPA_X = (((desktop.width/(SPAZIO_CELLE+1)-NUMERO_CASELLE_ASSE_X)/2))*SPAZIO_CELLE;
-//const int Utilities::POSIZIONE_PARTENZA_MAPPA_Y = (((desktop.height/(SPAZIO_CELLE+1))-NUMERO_CASELLE_ASSE_Y)/2)*SPAZIO_CELLE;
+// POSIZIONE DI PARTENZA DELLA MAPPA
 const int Utilities::POSIZIONE_PARTENZA_MAPPA_X = (((desktop.width/(SPAZIO_CELLE+1)-NUMERO_CASELLE_ASSE_X)/2))*SPAZIO_CELLE + MARGINE_MAPPA;
 const int Utilities::POSIZIONE_PARTENZA_MAPPA_Y = (((desktop.height/(SPAZIO_CELLE+1))-NUMERO_CASELLE_ASSE_Y)/2)*SPAZIO_CELLE;
-
-
+// MARGINE MAPPA
 const int Utilities::MARGINE_MAPPA = 40;
+// COLORE DI SFONDO
 const sf::Color Utilities::COLORE_SFONDO = Color::Black;
-
-// l' altezza di entrambe le finestre va bene e anche la loro posizione rispetto a y
+// DIMENSIONI FINESTRA SX
 const int Utilities::ALTEZZA_FINESTRAsx = ALTEZZA_MAPPA + (2*MARGINE_MAPPA);
-// l'8 finale è aggiunto perchè c'è un bug nel posizionamento sull'asse x della finestra sinistra
 const int Utilities::LARGHEZZA_FINESTRAsx = ((LARGHEZZA_DISPLAY/2) - (LARGHEZZA_MAPPA/2) - (2* MARGINE_MAPPA));
+// POSIZIONE DI PARTENZA DELLA FINESTRA SX
 const int Utilities::POSIZIONE_PARTENZA_FINESTRAsx_X = MARGINE_MAPPA;
 const int Utilities::POSIZIONE_PARTENZA_FINESTRAsx_Y = POSIZIONE_PARTENZA_MAPPA_Y-MARGINE_MAPPA;
-
+// DIMENSIONI FINESTRA DX
 const int Utilities::ALTEZZA_FINESTRAdx = ALTEZZA_MAPPA + (2*MARGINE_MAPPA);
 const int Utilities::LARGHEZZA_FINESTRAdx = ((LARGHEZZA_DISPLAY/2) - (LARGHEZZA_MAPPA/2) - (2* MARGINE_MAPPA));
+// POSIZIONE DI PARTENZA DELLA FINESTRA DX
 const int Utilities::POSIZIONE_PARTENZA_FINESTRAdx_X = POSIZIONE_PARTENZA_MAPPA_X+LARGHEZZA_MAPPA+ MARGINE_MAPPA;
 const int Utilities::POSIZIONE_PARTENZA_FINESTRAdx_Y = POSIZIONE_PARTENZA_MAPPA_Y-MARGINE_MAPPA;
 
+/* CONSOLE NON IMPLEMENTATA
 const int Utilities::ALTEZZA_CONSOLE = (ALTEZZA_DISPLAY)-(ALTEZZA_MAPPA+POSIZIONE_PARTENZA_MAPPA_Y)-(6*MARGINE_MAPPA);
 const int Utilities::LARGHEZZA_CONSOLE = (LARGHEZZA_MAPPA + (4*MARGINE_MAPPA))+(LARGHEZZA_FINESTRAsx)+(LARGHEZZA_FINESTRAdx);
 const int Utilities::POSIZIONE_PARTENZA_CONSOLE_X = POSIZIONE_PARTENZA_MAPPA_X-LARGHEZZA_FINESTRAsx-(2*MARGINE_MAPPA);
-const int Utilities::POSIZIONE_PARTENZA_CONSOLE_Y = POSIZIONE_PARTENZA_MAPPA_Y+ALTEZZA_MAPPA+(2*MARGINE_MAPPA);
+const int Utilities::POSIZIONE_PARTENZA_CONSOLE_Y = POSIZIONE_PARTENZA_MAPPA_Y+ALTEZZA_MAPPA+(2*MARGINE_MAPPA);*/
 
-
-static int posizione_partenza_personaggio_x=0;
-static int posizione_partenza_personaggio_y=0;
 // --------------------------------------------
 
-Vector2<int> lista_posizioni[20];
+// array posizioni
+Vector2<int> lista_posizioni[100];
 int lunghezza_array_posizioni = -1;
 const int min_value = 0;
 const int max_value = Utilities::NUMERO_CASELLE_ASSE_X-1;
 int cont=0;
 
-// funzioni
+// controllo se nel mio array di posizioni c'è una posizione duplicata
 bool Utilities::controlloDuplicato(Vector2<int> pos)
 {
     for(int i=0; i<lunghezza_array_posizioni; i++)
@@ -75,7 +74,7 @@ bool Utilities::controlloDuplicato(Vector2<int> pos)
     return false;
 }
 
-
+// azzero l'array delle posizioni
 void Utilities::azzeraPosizioni()
 {
     for(int i=0; i<lunghezza_array_posizioni; i++)
@@ -86,6 +85,7 @@ void Utilities::azzeraPosizioni()
     cont=0;
 }
 
+// funzione NON USATA per eliminare una posizione dal mio array di posizioni
 void Utilities::eliminaPosizione(int x, int y)
 {
     int start=0;
@@ -103,23 +103,17 @@ void Utilities::eliminaPosizione(int x, int y)
     lunghezza_array_posizioni -= 1;
 }
 
+// funzione per controllare se la casella è percorribile
 bool Utilities::controllaElementoGrafico(ListaTorre &lista_torre, int stanza, int x, int y)
 {
-    if(lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(x, y) == 9)
-    {
-        //std::cout << "nella cella [" << x << ", " << y << "] ci sta un "
-                  //<< lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(y - 1, x - 1) << "\n";
-        return true;
-    }
-    return false;
+    return (lista_torre.torre->piano.arr_mappe[stanza - 1].restituisci_valore(x, y) == 9);
 }
 
+// controllo se la posizione in input è già presente nell'array
 bool Utilities::controlloPosizioneConsentita(Vector2<int> array_posizioni_consentite[], int length, Vector2<int> posizione_generata)
 {
     for(int i=0; i<length; i++)
     {
-        //std::cout<<i<<"\t controllo che la posizione corrente --> ["<<array_posizioni_consentite[i].x<<", "<<array_posizioni_consentite[i].y<<"] \n";
-        //std::cout<<i<<"\t sia uguale a  --> ["<<posizione_generata.x+1<<", "<<posizione_generata.y+1<<"] \n";
         if(array_posizioni_consentite[i].x==posizione_generata.x+1)
             if(array_posizioni_consentite[i].y==posizione_generata.y+1)
             {
@@ -129,85 +123,82 @@ bool Utilities::controlloPosizioneConsentita(Vector2<int> array_posizioni_consen
     }
     return false;
 }
+
 Vector2<int> posizione_corrente={0,0};
 int rand_x=0; int rand_y=0;
 
+// genero una nuova posizione random per i nemici
 void Utilities::generaPosizioneRandom(Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int stanza, Vector2<int> &posizione_generata)
 {
+    // genero una coppia di numeri random
     rand_x = rand()%(max_value-min_value + 1) + min_value;
     rand_y = rand()%(max_value-min_value + 1) + min_value;
     posizione_corrente.x =rand_x;   posizione_corrente.y=rand_y;
     // controllo che non sia già stata creata una posizione uguale
-    //std::cout<<"--- genero una nuova posizione e controllo se va bene --> ["<<rand_x+1<<", "<<rand_y+1<<"] \n";
     if(!controlloDuplicato(posizione_corrente) /*&& (rand_x<=NUMERO_CASELLE_ASSE_X) && (rand_y<=NUMERO_CASELLE_ASSE_X)*/)
     {
+        // controllo che la mia posizione sia consentita
         if(controlloPosizioneConsentita(array_posizioni_consentite, lunghezza_arr_pos, posizione_corrente)) {
-            //std::cout << "la posizione va bene \n";
             // incremento la lunghezza dell'array
             lunghezza_array_posizioni += 1;
             // aggiungo la nuova posizione all'array di posizioni create
             lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
-            //std::cout<<"1 - posizione casuale generata: ("<<posizione_corrente.x+1<<", "<<posizione_corrente.y+1<<") \n";
+            // assegno la posizione generata alla variabile posizione passata per riferimento ==> return
             posizione_generata=posizione_corrente;
-            //return posizione_corrente;
         }
         else
         {
-            //std::cout << "la posizione non è nell'array di posizioni consentite \n";
+            // la posizione non è consentita (è un muro o una casella percorribile)
             generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, stanza, posizione_generata);
         }
     }
     else
     {
-        //std::cout<<"la posizione è duplicata \n";
-        // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
-        // if(funzione_porc_mi_dà_ok)
+        // ho già generato questa posizione
         generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, stanza, posizione_generata);
     }
     //return {0,0};
 }
 
+// genero una nuova posizione random per i nemici
 void Utilities::generaPosizioneRandom(Vector2<int> array_posizioni_consentite[], int lunghezza_arr_pos, int eroe_x, int eroe_y, int stanza, Vector2<int> &posizione_generata)
 {
+    // genero una coppia di numeri random
     rand_x = rand()%(max_value-min_value + 1) + min_value;
     rand_y = rand()%(max_value-min_value + 1) + min_value;
     posizione_corrente.x =rand_x;   posizione_corrente.y=rand_y;
-    // controllo che non sia già stata creata una posizione uguale
-    //std::cout<<"--- genero una nuova posizione e controllo se va bene --> ["<<rand_x+1<<", "<<rand_y+1<<"] \n";
+    // controllo che la posizione corrente appena generata non sia uguale a quella dell'eroe
     if((posizione_corrente.x+1!=eroe_x) || (posizione_corrente.y+1!=eroe_y))
     {
+        // controllo che non sia già stata creata una posizione uguale
         if (!controlloDuplicato(posizione_corrente) /*&& (rand_x<=NUMERO_CASELLE_ASSE_X) && (rand_y<=NUMERO_CASELLE_ASSE_X)*/)
         {
+            // controllo che la mia posizione sia consentita
             if (controlloPosizioneConsentita(array_posizioni_consentite, lunghezza_arr_pos, posizione_corrente))
             {
-                //std::cout << "la posizione va bene \n";
                 // incremento la lunghezza dell'array
                 lunghezza_array_posizioni += 1;
                 // aggiungo la nuova posizione all'array di posizioni create
                 lista_posizioni[lunghezza_array_posizioni] = posizione_corrente;
-                //std::cout<<"1 - posizione casuale generata: ("<<posizione_corrente.x+1<<", "<<posizione_corrente.y+1<<") \n";
+                // assegno la posizione generata alla variabile posizione passata per riferimento ==> return
                 posizione_generata = posizione_corrente;
-                //return posizione_corrente;
             }
             else
             {
-                //std::cout << "la posizione non è nell'array di posizioni consentite \n";
                 generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe_x, eroe_y, stanza, posizione_generata);
             }
         }
         else
         {
-            //std::cout<<"la posizione è duplicata \n";
-            // controllo che in questa posizione non ci sia un muro, una porta o un personaggio
-            // if(funzione_porc_mi_dà_ok)
+
             generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe_x, eroe_y, stanza, posizione_generata);
         }
     }
     else
         generaPosizioneRandom(array_posizioni_consentite, lunghezza_arr_pos, eroe_x, eroe_y, stanza, posizione_generata);
-    //return {0,0};
 }
 
+// converto un intero in una stringa
 std::string Utilities::convertInt(int number)
 {
     return std::to_string(number);

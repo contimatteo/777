@@ -4,6 +4,7 @@
 
 #include "Grafica.hpp"
 
+// instanzio tutti i testi per visualizzare lo status del gioco (es: vita eroe, attacco nemici)
 Grafica::Grafica(int stack)
 {
     posizione_partenza_testo_x=util.POSIZIONE_PARTENZA_FINESTRAsx_X+util.MARGINE_MAPPA;
@@ -65,16 +66,17 @@ Grafica::Grafica(int stack)
     istruzioni_gioco.setPosition(util.POSIZIONE_PARTENZA_FINESTRAdx_X+util.MARGINE_MAPPA, util.POSIZIONE_PARTENZA_FINESTRAdx_Y+(4*util.MARGINE_MAPPA));
 }
 
+// disegno la mappa casella per casella in base al suo valore (carico le texture e le disegno)
 void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &stanza)
 {
-    // disegno bordi gioco
+    // disegno i bordi del gioco
     sf::RectangleShape bordo_mappa(sf::Vector2f(util.LARGHEZZA_MAPPA+(2*util.MARGINE_MAPPA), util.ALTEZZA_MAPPA+(2*util.MARGINE_MAPPA)));
     bordo_mappa.setPosition(util.POSIZIONE_PARTENZA_MAPPA_X-util.MARGINE_MAPPA, util.POSIZIONE_PARTENZA_MAPPA_Y-util.MARGINE_MAPPA);
     bordo_mappa.setFillColor(util.COLORE_SFONDO);
     bordo_mappa.setOutlineColor(sf::Color::White);
     bordo_mappa.setOutlineThickness(1.5);
     Gioco.draw(bordo_mappa);
-
+    // pre-carico le immagini in modo da ottimizzarne l'assegnazione (e l'uso di memoria
     Texture texture_mappa1, texture_mappa2, texture_mappa3, texture_mappa4, texture_mappa5, texture_mappa6, texture_mappa7,
             texture_mappa8, texture_mappa9, texture_mappa11, texture_mappa99, texture_mappa0;
     texture_mappa0.loadFromFile("../risorse/immagini/muro-orizzontale.png", sf::IntRect(0, 0, util.DIMENSIONE_CELLE, util.DIMENSIONE_CELLE));
@@ -157,14 +159,14 @@ void Grafica::disegnaMappa(RenderWindow &Gioco, ListaTorre &lista_torre, int &st
                     break;
                 }
             }
+            // imposto la posizione per la casella corrente (partendo dal bordo sx)
             immagine_mappa.setPosition((util.POSIZIONE_PARTENZA_MAPPA_X)+(util.SPAZIO_CELLE*i),(util.POSIZIONE_PARTENZA_MAPPA_Y)+(util.SPAZIO_CELLE*j));
             Gioco.draw(immagine_mappa);
         }
 }
 
 
-// ------------
-
+// imposto i testi nella finestra sinistra
 void Grafica::creaTestiFinestraSinistra(Personaggio &eroe, int piano, int stanza, ListaNemici &nemici)
 {
     // dettagli
@@ -192,7 +194,7 @@ void Grafica::aggiornaStanza(int stanza)
 }
 
 
-// istruzione del gioco
+// istruzioni del gioco
 void Grafica::istruzioniGioco()
 {
     titolo_istruzioni_gioco.setString("Istruzioni Gioco");
@@ -201,12 +203,9 @@ void Grafica::istruzioniGioco()
                                 "3) Ogni nemico equivale ad un punto \n esperienza ogni 10 pt esperienza\n sali di livello \n\n"
                                 "4) Ogni volta che sali di livello aumenta \n l'attacco e ti rigeneri di 100 punti vita \n \n \n \n \n"
                                     "scopo del gioco: \n \nTROVA TONY EFFE \n");
-
-
 }
 
-
-
+// creo l'array contente tutte le posizioni percorribili dal personaggio
 void Grafica::creoArrayPosizioni(ListaTorre &lista_torre, int stanza, int eroe_x, int eroe_y)
 {
     lunghezza_array=0;
