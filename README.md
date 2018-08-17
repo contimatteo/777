@@ -1,6 +1,6 @@
 # **777 Game**
 
-##Prima di Iniziare
+## Prima di Iniziare
 
 Il programma non necessita di una connessione a internet, ma richiede la presenza di un'interfaccia grafica attraverso la quale poter interagire con l'utente.
 
