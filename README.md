@@ -1,69 +1,48 @@
 # **777 Game**
+Development of a multi-level expanding map game, implemented through 2d graphics.
 
-##Prima di Iniziare
+### Rules
+Game based on a system of generation of random maps that follow one another like in a real building: there is a single tower in which there are several rooms divided by floors.
+The number of enemies is determined by the room and the floor to which we are.
+The enemies change their position randomly and their attack grows proportionally with the visit of the tower.
+The aim of the game is to find Tony Effe.
 
-Il programma non necessita di una connessione a internet, ma richiede la presenza di un'interfaccia grafica attraverso la quale poter interagire con l'utente.
+## Getting Started
+No internet connection needed, but only a keyboard and some game skills 🤓
 
-### Prerequisiti per Sviluppare il Gioco
+### Prerequisites
+For the building the source we need a C++ compiler.
+If you don’t own a Mac, set you free to choose whatever you prefer but we strongly recommend you to use [GCC Compiler](https://gcc.gnu.org) ✌🏼
 
-per lo sviluppo ocorre:
+## Installing SFML
 
+### Linux
+Run this command in terminal:
 ```
-Aver installato la libreria SFML
-```
-
-### Installare SFML:
-
-#### Piattaforma Linux
-
-Per l'installazione è sufficiente lanciare questo codice da terminale:
-
-```
-sudo apt-get install libsfml-dev
-```
-
-#### Piattaforma Windows
-
-##### Visual Studio
-
-https://www.sfml-dev.org/tutorials/2.4/start-vc.php
-
-##### CodeBlocks
-
-https://www.sfml-dev.org/tutorials/2.4/start-cb.php
-
-#### Piattaforma OSX
-
-Per l'installazione è sufficiente aver installato il gestore di pacchetti HomeBrew per OSX.
-
-Fatto ciò basta lanciare il seguente comando da terminale:
-
-```
-brew install sfml
+$ sudo apt-get install libsfml-dev
 ```
 
-## Giocare
+### OSX
+Run this command in terminal:
+```
+$ brew install sfml
+```
+NB: you must have installed the [HomeBrew](https://brew.sh) package manager
 
-Per Giocare è sufficiente lanciare l'eseguibile chiamato "777" nella cartella "cmake-build-debug".
+## Deployment
 
-## Realizzazione
-Sviluppo di un gioco a mappa espandibile a più livelli, implementato tramite grafica 2d. 
+Build the src with your favorite C++ compiler and enjoy it 🥳
 
-Gioco basato su un sistema di generazione di mappe random che si susseguono come in un edificio reale: esiste un'unica torre in cui vi sono diverse stanze suddivise per piani.
 
-Il numero di nemici è determinato dalla stanza e dal piano a cui siamo.
+##  Built With
+* [SFML](https://github.com/SFML/SFML) - Multimedia Library
 
-I nemici cambiano la loro posizione in modo random e il loro attacco cresce proporzionalmente con la visita della torre.
+## Authors
+* **Conti Matteo** - *lead of entire project* 
+See also the list of [contributors](https://github.com/contimatteo/Youtube-Music-Spider/graphs/contributors) who participated in this project.
 
-Lo scopo del gioco è trovare Tony Effe.
+## License
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
 
-##  Sviluppato con
-- C++
-- SFML (graphic library)
-
-##  Autori
-Conti Matteo, Enrico Maria Fabbri, Mattia Porcelli
-
-## Licenza
-
-Questo programma è stato sviluppato sotto la licenza GNU GENERAL PUBLIC LICENSE (v.3). Leggere 'LICENSE.md' maggiori dettagli.
+## Acknowledgments
+Thanks to the [Dark Polo Gang](https://www.darkpologang.com) for the inspiration.
