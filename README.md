@@ -39,6 +39,7 @@ Build the src with your favorite C++ compiler and enjoy it 🥳
 
 ## Authors
 * **Conti Matteo** - *lead of entire project* 
+
 See also the list of [contributors](https://github.com/contimatteo/Youtube-Music-Spider/graphs/contributors) who participated in this project.
 
 ## License
