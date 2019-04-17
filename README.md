@@ -11,7 +11,7 @@ The aim of the game is to find Tony Effe.
 No internet connection needed, but only a keyboard and some game skills 🤓
 
 ### Prerequisites
-For the building the source we need a C++ compiler.
+For building the source you need a C++ compiler.
 If you don’t own a Mac, set you free to choose whatever you prefer but we strongly recommend you to use [GCC Compiler](https://gcc.gnu.org) ✌🏼
 
 ## Installing SFML
