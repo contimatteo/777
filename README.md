@@ -8,7 +8,7 @@ The enemies change their position randomly and their attack grows proportionally
 The aim of the game is to find Tony Effe.
 
 ## Getting Started
-No internet connection needed, but only a keyboard and some game skills 🤓
+No internet connection needed, but only a keyboard and some gaming skills 🤓.
 
 ### Prerequisites
 For building the source you need a C++ compiler.
